@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cliente extends CI_Controller {
+class Cliente extends MY_Controller {
 
 	public function atualizar() {
 		$data = $this->security->xss_clean($this->input->raw_input_stream);
@@ -16,6 +16,7 @@ class Cliente extends CI_Controller {
 
 	public function buscarTodos() {
 		print_r(json_encode($this->ClienteModel->buscarTodos()));
+
 	}
 
 	public function excluir() {

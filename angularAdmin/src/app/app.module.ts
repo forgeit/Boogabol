@@ -7,11 +7,13 @@ import { routing } from './app.routes';
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BuffetComponent } from './buffet/buffet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    BuffetComponent
   ],
   imports: [
     BrowserModule,

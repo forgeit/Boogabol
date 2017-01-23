@@ -9,7 +9,12 @@ import { BuffetComponent } from './buffet.component';
 
 // Route Configuration
 export const buffetRoutes: Routes = [
-	{ path: 'bc', component: BuffetComponent }	
+	{ path: 'buffet', 
+		children: [
+			{path: 'lista',component: BuffetComponent}
+		]
+	}
+
 ];
 
 export const BuffetRouting = [BuffetComponent];

@@ -5,4 +5,8 @@ class ClienteModel extends MY_Model {
 		parent::__construct();
 		$this->table = 'cliente';
 	}	
+
+	function getValidacoes() {
+		
+	}
 }

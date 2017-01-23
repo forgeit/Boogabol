@@ -57,9 +57,15 @@ $route['translate_uri_dashes'] = FALSE;
 //Admin
 $route['admin'] = 'admin/dashboard';
 
-$route['cliente'] = 'cliente/buscarTodos';
-$route['cliente/(:num)'] = 'cliente/buscar/$1';
-$route['cliente/atualizar'] = 'cliente/atualizar';
-$route['cliente/excluir/(:num)'] = 'cliente/excluir/$1';
-$route['cliente/salvar'] = 'cliente/salvar';
+$commonRoutes = array(
+	'buffet',
+	'cliente'
+	);
 
+foreach ($commonRoutes as $value) {
+	$route['admin/'.$value] = 'cliente/buscarTodos';
+	$route['admin/'.$value.'/(:num)'] = 'cliente/buscar/$1';
+	$route['admin/'.$value.'/atualizar'] = 'cliente/atualizar';
+	$route['admin/'.$value.'/excluir/(:num)'] = 'cliente/excluir/$1';
+	$route['admin/'.$value.'/salvar'] = 'cliente/salvar';	
+}

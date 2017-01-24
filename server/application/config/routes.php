@@ -55,17 +55,15 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 //Admin
-$route['admin'] = 'admin/dashboard';
-
 $commonRoutes = array(
 	'buffet',
 	'cliente'
 	);
 
 foreach ($commonRoutes as $value) {
-	$route['admin/'.$value] = 'cliente/buscarTodos';
-	$route['admin/'.$value.'/(:num)'] = 'cliente/buscar/$1';
-	$route['admin/'.$value.'/atualizar'] = 'cliente/atualizar';
-	$route['admin/'.$value.'/excluir/(:num)'] = 'cliente/excluir/$1';
-	$route['admin/'.$value.'/salvar'] = 'cliente/salvar';	
+	$route[$value] = $value.'/buscarTodos';
+	$route[$value.'/(:num)'] = $value.'/buscar/$1';
+	$route[$value.'/atualizar'] = $value.'/atualizar';
+	$route[$value.'/excluir/(:num)'] = $value.'/excluir/$1';
+	$route[$value.'/salvar'] = $value.'/salvar';	
 }

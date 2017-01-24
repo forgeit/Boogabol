@@ -7,6 +7,8 @@ import { routing } from './app.routes';
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { BuffetService } from './buffet/buffet.service';
 import { BuffetComponent } from './buffet/buffet.component';
 
 @NgModule({
@@ -21,7 +23,7 @@ import { BuffetComponent } from './buffet/buffet.component';
     HttpModule,
     routing    
   ],
-  providers: [],
+  providers: [BuffetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

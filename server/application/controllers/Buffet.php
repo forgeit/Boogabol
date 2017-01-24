@@ -16,7 +16,6 @@ class Buffet extends MY_Controller {
 
 	public function buscarTodos() {
 		print_r(json_encode($this->BuffetModel->buscarTodos()));
-
 	}
 
 	public function excluir() {

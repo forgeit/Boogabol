@@ -7,7 +7,7 @@ class BuffetModel extends MY_Model {
 	}	
 
 	function getValidacoes() {
-		reuturn array(
+		return array(
 				'titulo' => array('string', '255', true),
 				'descricao' => array('string', null, false),
 				'id_imagem' => array('int', null, false)

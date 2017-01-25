@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Headers, Http } from '@angular/http';
+import { Validators } from '@angular/forms';
 import 'rxjs/add/operator/toPromise';
 
 import { Buffet } from './buffet';
@@ -24,10 +25,18 @@ export class BuffetService {
 	getElem(id: number): Promise<Buffet> {
 		return this.http.get(environment.serverUrl+this.urlServ+"find/"+id)
 		.toPromise()
-		.then(response => response.json().data as Buffet)
+		.then(response => response.json())
 		.catch(this.handleError);
 	}
 
+	getFormValidator(): any {
+		return {     
+			id: '', 	      
+			titulo: ['', [<any>Validators.required]],
+			descricao: '',			
+			id_imagem: ''
+    	}
+	}
 
 	private handleError(error: any): Promise<any> {
 		alert('Erro ao conectar com o Servidor');		

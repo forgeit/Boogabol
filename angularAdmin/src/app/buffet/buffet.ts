@@ -4,5 +4,5 @@ export class Buffet {
 		public titulo: string,
 		public descricao: string,
 		public id_imagem: number
-		){}
+		){}	
 }

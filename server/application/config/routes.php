@@ -67,3 +67,5 @@ foreach ($commonRoutes as $value) {
 	$route[$value.'/remove/(:num)'] = $value.'/remove/$1';
 	$route[$value.'/save'] = $value.'/save';	
 }
+
+$route['auth'] = 'auth/teste';

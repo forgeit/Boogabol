@@ -1,8 +1,9 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } 		from '@angular/core';
 import { ActivatedRoute, Params } 	from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Helper } 	from '../helper';
+import { Helper } 	from '../utils/helper';
 
 import { Buffet } 			from './buffet';
 import { BuffetService } 	from './buffet.service';
@@ -14,28 +15,42 @@ import { BuffetService } 	from './buffet.service';
 })
 
 export class BuffetEditComponent implements OnInit {
-	elem: Buffet;
+	//elem: Buffet = <Buffet>{};
 	id: number;
+	complexForm: FormGroup;	
 
 	constructor(
 		private helper: Helper, 
 		private elemService: BuffetService,
-		private route: ActivatedRoute
-		) {}
+		private route: ActivatedRoute,
+		fb: FormBuilder
+		) {
+		
+		this.complexForm = fb.group(elemService.getFormValidator());
+	}
 
 
 	ngOnInit(): void {
-		//console.log(this.route.params['id']);
 		this.route.params.forEach(
 			(params : Params) => {
 				this.id = params["id"];
-			}
-			);
+			});
 		
 		this.elemService.getElem(this.id)		
-		.then(elem => this.elem = elem);		
+		.then(elem => {
+				(<FormGroup>this.complexForm)
+            		.setValue(elem, { onlySelf: true });				
+			});		
+
+
 	}
 	
+	submitForm(value: any):void{
+		if (this.complexForm.valid) {
+	    	console.log('Reactive Form Data: ')
+	    	console.log(value);
+		}
+  	}	
 }
 
 

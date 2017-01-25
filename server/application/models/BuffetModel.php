@@ -6,11 +6,9 @@ class BuffetModel extends MY_Model {
 		$this->table = 'buffet';
 	}	
 
-	function getValidacoes() {
+	function getValidation() {
 		return array(
-				'titulo' => array('string', '255', true),
-				'descricao' => array('string', null, false),
-				'id_imagem' => array('int', null, false)
+				'titulo' => array('Título', 'string', '255', true)
 			);
 	}
 }

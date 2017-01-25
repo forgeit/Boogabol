@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Helper } from '../helper';
+import { Helper } 	from '../utils/helper';
 
-import { Buffet } from './buffet';
-import { BuffetService } from './buffet.service';
+import { Buffet } 			from './buffet';
+import { BuffetService } 	from './buffet.service';
 
 @Component({
 	selector: 'app-admin',

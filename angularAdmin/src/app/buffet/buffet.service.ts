@@ -21,8 +21,16 @@ export class BuffetService {
 		.catch(this.handleError);
 	}
 
+	getElem(id: number): Promise<Buffet> {
+		return this.http.get(environment.serverUrl+this.urlServ+"find/"+id)
+		.toPromise()
+		.then(response => response.json().data as Buffet)
+		.catch(this.handleError);
+	}
+
+
 	private handleError(error: any): Promise<any> {
-		console.error('An error occurred', error); // for demo purposes only
+		alert('Erro ao conectar com o Servidor');		
 		return Promise.reject(error.message || error);
 	}
 

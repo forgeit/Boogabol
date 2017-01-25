@@ -9,14 +9,14 @@ class MY_Model extends CI_Model {
         parent::__construct();
     }
     
-    function inserir($data) {
+    function save($data) {
         if (!isset($data)) {
             return false;
         }
         return $this->db->insert($this->table, $data);
     }
     
-    function buscarPorId($id) {
+    function findById($id) {
         if(is_null($id)) {
             return false;
         }
@@ -32,7 +32,7 @@ class MY_Model extends CI_Model {
         }
     }
     
-    function buscarTodos($sort = 'id', $order = 'asc') {
+    function findAll($sort = 'id', $order = 'asc') {
         $this->db->order_by($sort, $order);
 
         $query = $this->db->get($this->table);
@@ -44,7 +44,7 @@ class MY_Model extends CI_Model {
         }
     }
     
-    function atualizar($id, $data) {
+    function update($id, $data) {
         if(is_null($id) || !isset($data)) {
             return false;
         }
@@ -53,7 +53,7 @@ class MY_Model extends CI_Model {
         return $this->db->update($this->table, $data);
     }
     
-    function excluir($id) {
+    function remove($id) {
         if(is_null($id)) {
             return false;
         }

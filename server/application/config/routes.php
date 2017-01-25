@@ -61,9 +61,9 @@ $commonRoutes = array(
 	);
 
 foreach ($commonRoutes as $value) {
-	$route[$value] = $value.'/buscarTodos';
-	$route[$value.'/(:num)'] = $value.'/buscar/$1';
-	$route[$value.'/atualizar'] = $value.'/atualizar';
-	$route[$value.'/excluir/(:num)'] = $value.'/excluir/$1';
-	$route[$value.'/salvar'] = $value.'/salvar';	
+	$route[$value] = $value.'/findAll';
+	$route[$value.'/find/(:num)'] = $value.'/find/$1';
+	$route[$value.'/update'] = $value.'/update';
+	$route[$value.'/remove/(:num)'] = $value.'/remove/$1';
+	$route[$value.'/save'] = $value.'/save';	
 }

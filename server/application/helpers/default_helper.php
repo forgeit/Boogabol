@@ -15,6 +15,8 @@ class Helper {
 				return self::getMessage(22, $value[0]);
 			}
 		}
+
+		return OK;
 	}
 
 	public static function isNullOrEmpty($value) {

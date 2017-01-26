@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Headers, Http } from '@angular/http';
 import { Validators } from '@angular/forms';
@@ -13,21 +13,38 @@ export class BuffetService {
 	private urlServ = 'buffet/';
 	environment:any = environment;
 
-	constructor(private http: Http) { }
-
-	getList(): Promise<Buffet[]> {
-		return this.http.get(environment.serverUrl+this.urlServ)
-		.toPromise()
-		.then(response => response.json().dataRes)
-		.catch(this.handleError);
+	constructor(private http: Http) { 
+		this.urlServ = environment.serverUrl + this.urlServ;
 	}
 
-	getElem(id: number): Promise<Buffet> {
-		return this.http.get(environment.serverUrl+this.urlServ+"find/"+id)
-		.toPromise()
+	getList(): Promise<any> {		
+		return this.defaultPromise(this.http.get(this.urlServ));
+	}
+
+	getElem(id: number): Promise<any> {
+		return this.defaultPromise(this.http.get(this.urlServ+"find/"+id));
+	}
+
+	update(elem: Buffet): Promise<any> {
+		return this.defaultPromise(this.http.put(this.urlServ+"update", {headers: this.headers}));
+	}
+
+	insert(elem: Buffet): Promise<any> {
+		return this.defaultPromise(this.http.post(this.urlServ+"insert/", {headers: this.headers}));		
+	}
+
+	remove(id: number): Promise<any> {
+		return this.defaultPromise(this.http.delete(this.urlServ));		
+	}
+
+
+	
+
+	defaultPromise(prom: any): Promise<any> {
+		return prom.toPromise()
 		.then(response => response.json())
 		.catch(this.handleError);
-	}
+	}	
 
 	getFormValidator(): any {
 		return {     
@@ -35,17 +52,9 @@ export class BuffetService {
 			titulo: ['', [<any>Validators.required]],
 			descricao: '',			
 			id_imagem: ''
-    	}
-	}
-
-	private readResponse(response: any): Promise<any>{
-		if (response.res = environment.RET_OK) {
-			return Promise.resolve(response.dataRes);
-		} else {
-			return Promise.reject(false);	
 		}
 	}
-
+	
 	private handleError(error: any): Promise<any> {
 		alert('Erro ao conectar com o Servidor');		
 		return Promise.reject(error.message || error);

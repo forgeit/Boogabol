@@ -18,8 +18,17 @@ class MY_Controller extends CI_Controller {
     	return true;
     }
 
-    public function printReturn($return, $data) {
-    	print_r(json_encode(array('res'=>$return, 'dataRes' => $data)));
+    public function printReturn($return, $data = null, $message = null) {
+    	print_r(json_encode(array('res'=>$return, 'dataRes'=>$data, 'message'=>$message)));
+    }
+
+    public function checkValidation($valid) {
+    	if ($valid !== OK) {
+    		$this->printReturn(ERROR, null, $valid);
+    		return false;
+    	} else {
+    		return true;
+    	}
     }
 	
 }

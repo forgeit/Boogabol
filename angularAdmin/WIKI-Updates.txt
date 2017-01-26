@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------------------------------------
+-- WIKI
+(FormGroups) https://scotch.io/tutorials/using-angular-2s-model-driven-forms-with-formgroup-and-formcontrol
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- 24/01/2017
+npm install @swimlane/ngx-datatable
+
+-- 26/01/2017
+npm install ng2-toasty --save (https://www.npmjs.com/package/ng2-toasty)

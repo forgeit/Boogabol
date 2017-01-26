@@ -65,7 +65,7 @@ foreach ($commonRoutes as $value) {
 	$route[$value.'/find/(:num)'] = $value.'/find/$1';
 	$route[$value.'/update'] = $value.'/update';
 	$route[$value.'/remove/(:num)'] = $value.'/remove/$1';
-	$route[$value.'/save'] = $value.'/save';	
+	$route[$value.'/insert'] = $value.'/insert';	
 }
 
-$route['auth'] = 'auth/teste';
+$route['fileUpload'] = 'fileUpload/uploadFile';

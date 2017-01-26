@@ -1,9 +1,10 @@
-import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } 		from '@angular/core';
 import { ActivatedRoute, Params } 	from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { environment } from '../../environments/environment';
 
-import { Helper } 	from '../utils/helper';
+import { UploadService } 	from '../utils/upload.service';
+import { Helper } 			from '../utils/helper';
 
 import { Buffet } 			from './buffet';
 import { BuffetService } 	from './buffet.service';
@@ -16,6 +17,9 @@ import { BuffetService } 	from './buffet.service';
 
 export class BuffetEditComponent implements OnInit {
 	//elem: Buffet = <Buffet>{};
+
+	compModule: string;
+	fileUp: any;
 	id: number;
 	complexForm: FormGroup;	
 
@@ -23,9 +27,10 @@ export class BuffetEditComponent implements OnInit {
 		private helper: Helper, 
 		private elemService: BuffetService,
 		private route: ActivatedRoute,
-		fb: FormBuilder
+		fb: FormBuilder,
+		private us: UploadService
 		) {
-		
+		this.compModule = environment.module_buffet;
 		this.complexForm = fb.group(elemService.getFormValidator());
 	}
 
@@ -36,21 +41,27 @@ export class BuffetEditComponent implements OnInit {
 				this.id = params["id"];
 			});
 		
-		this.elemService.getElem(this.id)		
-		.then(elem => {
-				(<FormGroup>this.complexForm)
-            		.setValue(elem, { onlySelf: true });				
-			});		
-
+		this.elemService.getElem(this.id).then(elem => {
+			(<FormGroup>this.complexForm).setValue(elem, { onlySelf: true });				
+		});		
 
 	}
+
+	onFileChange(event) {
+		this.fileUp = event.srcElement.files;
+	}
 	
-	submitForm(value: any):void{
-		if (this.complexForm.valid) {
-	    	console.log('Reactive Form Data: ')
-	    	console.log(value);
+	submitForm(value: any):void{		
+		if (this.fileUp !== undefined) {
+			this.us.makeFileRequest([value.id], this.fileUp).subscribe(() => {
+				console.log('enviado');
+			});
 		}
-  	}	
+		if (this.complexForm.valid) {
+			console.log('Reactive Form Data: ')
+			console.log(value);
+		}
+	}	
 }
 
 

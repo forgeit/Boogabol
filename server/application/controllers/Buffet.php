@@ -10,12 +10,12 @@ class Buffet extends MY_Controller {
 
 		$data = $this->security->xss_clean($this->input->raw_input_stream);
 		$object = json_decode($data);
-		//$valid = $this->Helper->inputValidation($object, $BuffetModel->getValidation());
-		//if ($valid !== Helper::OK) {
 
-		//}
-		$response = array('exec' => $this->BuffetModel->update($object->id, $object));
-		print_r(json_encode($response));
+		$valid =  Helper::inputValidation($object, $BuffetModel->getValidation());
+		if ($this->checkValidation($valid)) {			
+			$response = array('exec' => $this->BuffetModel->update($object->id, $object));
+			$this->printReturn(OK, $response, $this->getMessage(0));
+		}
 	}
 
 	public function find() {
@@ -42,7 +42,7 @@ class Buffet extends MY_Controller {
 		print_r(json_encode($response));
 	}
 
-	public function save() {
+	public function insert() {
 		if (!$this->isActive()) {
 			return;
 		}
@@ -52,5 +52,4 @@ class Buffet extends MY_Controller {
 		$response = array('exec' => $this->BuffetModel->save($object));
 		print_r(json_encode($response));
 	}
-	
 }

@@ -18,7 +18,7 @@ export class BuffetService {
 	getList(): Promise<Buffet[]> {
 		return this.http.get(environment.serverUrl+this.urlServ)
 		.toPromise()
-		.then(response => response.json())
+		.then(response => response.json().dataRes)
 		.catch(this.handleError);
 	}
 
@@ -36,6 +36,14 @@ export class BuffetService {
 			descricao: '',			
 			id_imagem: ''
     	}
+	}
+
+	private readResponse(response: any): Promise<any>{
+		if (response.res = environment.RET_OK) {
+			return Promise.resolve(response.dataRes);
+		} else {
+			return Promise.reject(false);	
+		}
 	}
 
 	private handleError(error: any): Promise<any> {

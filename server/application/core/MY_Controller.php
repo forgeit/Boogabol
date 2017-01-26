@@ -19,7 +19,7 @@ class MY_Controller extends CI_Controller {
     }
 
     public function printReturn($return, $data) {
-    	print_r(json_encode(array('res'=>$result, 'dataRes' => $response)));
+    	print_r(json_encode(array('res'=>$return, 'dataRes' => $data)));
     }
 	
 }

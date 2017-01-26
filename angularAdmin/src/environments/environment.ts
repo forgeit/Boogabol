@@ -5,5 +5,8 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://localhost:8012/boogabol/server/'
+  serverUrl: 'http://localhost:8012/boogabol/server/',
+
+  RET_OK: 'OK',
+  RET_ERROR: 'ERROR'
 };

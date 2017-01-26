@@ -1,4 +1,5 @@
 import {Injectable} from "@angular/core";
+import { environment } from '../../environments/environment';
 
 declare var $: any;
 
@@ -16,6 +17,15 @@ export class Helper {
 				"autoWidth": false
 			});	
 		});
+	}
+
+	checkResponse(response: any): boolean {
+		if (response.res == environment.RET_OK) {
+			return true;
+		} else {
+			alert('Erro');
+			return false;
+		}
 	}
 
 }

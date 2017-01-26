@@ -55,6 +55,9 @@
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
+	define('RET_OK', 'OK');
+	define('RET_ERROR', 'ERROR');
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

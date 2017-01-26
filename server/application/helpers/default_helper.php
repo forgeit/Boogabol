@@ -1,8 +1,5 @@
 <?php
 
-define('OK', 'OK');
-define('ERROR', 'ERROR');
-
 class Helper {
 	
 

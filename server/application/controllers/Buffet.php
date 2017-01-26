@@ -30,7 +30,7 @@ class Buffet extends MY_Controller {
 		if (!$this->isActive()) {
 			return;
 		}
-		$this->printReturn(Helper::OK, $this->BuffetModel->findAll());		
+		$this->printReturn(RET_OK, $this->BuffetModel->findAll());		
 	}
 
 	public function remove() {

@@ -14,7 +14,7 @@ class MY_Model extends CI_Model {
             return false;
         }
         return $this->db->insert($this->table, $data);
-    }
+    }    
     
     function findById($id) {
         if(is_null($id)) {
@@ -60,5 +60,9 @@ class MY_Model extends CI_Model {
 
         $this->db->where('id', $id);
         return $this->db->delete($this->table);
+    }
+
+    function getLastInsertedId() {
+        return $this->db->insert_id();
     }
 }

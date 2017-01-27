@@ -1,8 +1,9 @@
 import { Component, OnInit } 		from '@angular/core';
 import { ActivatedRoute, Params } 	from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { environment } from '../../environments/environment';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
+
+import { GenericComponent } from '../utils/generic.component';
 import { UploadService } 	from '../utils/upload.service';
 import { Helper } 			from '../utils/helper';
 
@@ -15,25 +16,13 @@ import { BuffetService } 	from './buffet.service';
 	//styleUrls: ['./app.component.css']
 })
 
-export class BuffetEditComponent implements OnInit {
-	//elem: Buffet = <Buffet>{};
+export class BuffetEditComponent extends GenericComponent implements OnInit {		
 
-	compModule: string;
-	fileUp: any;
-	id: number;
-	complexForm: FormGroup;	
-
-	constructor(
-		private helper: Helper, 
-		private elemService: BuffetService,
-		private route: ActivatedRoute,
-		fb: FormBuilder,
-		private us: UploadService
-		) {
-		this.compModule = environment.module_buffet;
+	constructor(private helper: Helper, private elemService: BuffetService, private route: ActivatedRoute, fb: FormBuilder, private us: UploadService) {
+		super(fb);
+		this.compModule = this.environment.module_buffet;
 		this.complexForm = fb.group(elemService.getFormValidator());
 	}
-
 
 	ngOnInit(): void {
 		this.route.params.forEach(
@@ -52,16 +41,29 @@ export class BuffetEditComponent implements OnInit {
 	}
 	
 	submitForm(value: any):void{		
-		if (this.fileUp !== undefined) {
-			this.us.makeFileRequest([value.id], this.fileUp).subscribe(() => {
-				console.log('enviado');
-			});
-		}
 		if (this.complexForm.valid) {
-			console.log('Reactive Form Data: ')
-			console.log(value);
+
+			if (this.fileUp !== undefined) {
+				this.us.makeFileRequest([value.id, this.compModule], this.fileUp).subscribe((res) => {					
+					if (res) {
+						//this.sendData(value);
+					}
+				});
+			} else {
+				//this.sendData(value);
+			}		
 		}
 	}	
+
+	sendData(value: any):void {
+		this.elemService.update(value).then(res => {
+			this.helper.checkResponse(res).then(valid => {
+				if (valid) {
+					this.helper.navigate(this.compModule+'/edit', value.id);
+				}
+			});
+		});		
+	}
 }
 
 

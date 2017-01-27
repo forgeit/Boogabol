@@ -25,7 +25,7 @@ export class BuffetComponent implements OnInit {
 					this.helper.updateTable('tableFull');
 				}
 			})
-		});			
+		});	
 	}
 	
 }

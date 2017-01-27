@@ -34,7 +34,13 @@ class Helper {
 			break;
 
 			case 10: 
-			return "Erro ao Salvar os Dados";
+			return "Erro ao Salvar os Dados";						
+			break;
+			case 11:
+			return "Imagens devem ser de no máximo 1Mb e no formato jpg/jpeg";
+			break;
+			case 12:
+			return "Erro ao salvar os arquivos";
 			break;
 
 			case 20:

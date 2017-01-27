@@ -14,7 +14,7 @@ class Buffet extends MY_Controller {
 		$valid =  Helper::inputValidation($object, $BuffetModel->getValidation());
 		if ($this->checkValidation($valid)) {			
 			$response = array('exec' => $this->BuffetModel->update($object->id, $object));
-			$this->printReturn(OK, $response, $this->getMessage(0));
+			$this->printReturn(RET_OK, $response, $this->getMessage(0));
 		}
 	}
 

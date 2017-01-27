@@ -69,3 +69,4 @@ foreach ($commonRoutes as $value) {
 }
 
 $route['fileUpload'] = 'fileUpload/uploadFile';
+$route['fileView/(:num)'] = 'fileView/view/$1';

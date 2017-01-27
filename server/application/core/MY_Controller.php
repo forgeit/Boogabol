@@ -24,7 +24,7 @@ class MY_Controller extends CI_Controller {
 
     public function checkValidation($valid) {
     	if ($valid !== OK) {
-    		$this->printReturn(ERROR, null, $valid);
+    		$this->printReturn(RET_ERROR, null, $valid);
     		return false;
     	} else {
     		return true;

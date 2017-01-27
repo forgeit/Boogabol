@@ -1,14 +1,17 @@
-import { Injectable } from "@angular/core";
-import { environment } from '../../environments/environment';
-import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+import { Injectable } 	from "@angular/core";
+import { Router } 		from '@angular/router';
+import { environment } 	from '../../environments/environment';
+import { Location } 	from '@angular/common';
+
+import { ToastyService, ToastyConfig, ToastOptions, ToastData } from 'ng2-toasty';
 
 declare var $: any;
 
 @Injectable()
 export class Helper {
 
-	constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig) {
-		this.toastyConfig.theme = 'default';
+	constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, private router: Router, private location: Location) {
+		this.toastyConfig.theme = 'default';		
 	}
 
 	updateTable(tableClass: string): void {
@@ -49,6 +52,17 @@ export class Helper {
 		} else {
 			toastOptions.title = "Ooops!";
 			this.toastyService.error(toastOptions);
+		}
+	}
+
+	navigate(url, id) {
+		if (!url) {
+			this.location.back();
+		}
+		if (!id) {
+			this.router.navigate(['/'+url+'/']);
+		} else {
+			this.router.navigate(['/'+url+'/', id]);
 		}
 	}
 }

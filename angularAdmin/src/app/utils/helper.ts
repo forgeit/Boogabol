@@ -10,6 +10,9 @@ declare var $: any;
 @Injectable()
 export class Helper {
 
+	public pageTitle: string;
+	public activeMenu: string;
+
 	constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, private router: Router, private location: Location) {
 		this.toastyConfig.theme = 'default';		
 	}
@@ -64,5 +67,10 @@ export class Helper {
 		} else {
 			this.router.navigate(['/'+url+'/', id]);
 		}
+	}
+
+	setPageInfo(pt: string, am: string) {
+		this.pageTitle = pt;		
+		this.activeMenu = am;
 	}
 }

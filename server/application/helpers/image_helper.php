@@ -54,7 +54,7 @@ class ImageHelper {
 		for ($x = 0; $x<count($files); $x++) {
 			$arrImg[$x]['nome'] = $files[$x]['name'];
 			$arrImg[$x]['type'] = $files[$x]['type'];
-			$arrImg[$x]['modulo'] = $modulo;
+			$arrImg[$x]['modulo'] = $module;
 		}
 		return $arrImg;
 	}
@@ -85,4 +85,8 @@ class ImageHelper {
 		return $path;
 	}
 
-}
+	public static function deleteFile($path) {
+		unlink($path);
+	}
+
+} 

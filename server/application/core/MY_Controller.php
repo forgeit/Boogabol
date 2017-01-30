@@ -30,5 +30,15 @@ class MY_Controller extends CI_Controller {
     		return true;
     	}
     }
+
+    public function checkExec($response) {
+        if (!$response['exec']) {
+            $this->printReturn(RET_ERROR, null, Helper::getMessage(10));
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
 	
 }

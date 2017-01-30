@@ -21,7 +21,25 @@ class FileUpload extends MY_Controller {
 
 		switch ($module) {
 			case Module_Buffet:
-			$this->InsertImage($id, $module);
+			$idImagem = $this->InsertImage($id, $module);
+			if ($idImagem) {
+				$elemData = json_encode($this->BuffetModel->findById($id));
+				$object = json_decode($elemData);
+				
+				$idImagemOld = null;
+				if ($object->id_imagem) {
+					$idImagemOld = $object->id_imagem;
+				}
+
+				$object->id_imagem = $idImagem;				
+				if ($this->checkExec(array('exec' => $this->BuffetModel->update($id, $object)))) {
+					if ($idImagemOld) {
+						$this->ArquivoModel->deleteArquivo($idImagemOld);
+					}	
+					$this->printReturn(RET_OK);
+				}
+			}
+
 			break;
 			
 			default:
@@ -55,9 +73,11 @@ class FileUpload extends MY_Controller {
 		}
 
 		$img['caminho'] = $path;
-		$response = array('exec' => $this->ArquivoModel->update($img['id'], $img));
+		if (!$this->checkExec(array('exec' => $this->ArquivoModel->update($img['id'], $img)))) {
+			return null;
+		}
 
-		$this->printReturn(RET_OK);		
+		return $img['id'];		
 	}
 
 

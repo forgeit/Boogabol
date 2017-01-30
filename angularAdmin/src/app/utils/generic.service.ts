@@ -3,7 +3,11 @@ import { environment } from '../../environments/environment';
 
 
 export class GenericService {
-	public headers = new Headers({'Content-Type': 'application/json'});
+	public headers = new Headers({		
+		'Content-Type': 'application/json' 		
+	});
+	
+
 	public urlSrv: string;
 	environment:any = environment;
 

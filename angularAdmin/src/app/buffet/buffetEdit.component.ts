@@ -32,7 +32,9 @@ export class BuffetEditComponent extends GenericComponent implements OnInit {
 		
 		this.elemService.getElem(this.id).then(elem => {
 			(<FormGroup>this.complexForm).setValue(elem, { onlySelf: true });				
-		});		
+		});				
+
+		console.log(this.complexForm.value.id_imagem);
 
 	}
 
@@ -45,12 +47,14 @@ export class BuffetEditComponent extends GenericComponent implements OnInit {
 
 			if (this.fileUp !== undefined) {
 				this.us.makeFileRequest([value.id, this.compModule], this.fileUp).subscribe((res) => {					
-					if (res) {
-						//this.sendData(value);
-					}
+					this.helper.checkResponse(res).then(valid => {					
+						if (valid) {
+							this.sendData(value);
+						}
+					});
 				});
 			} else {
-				//this.sendData(value);
+				this.sendData(value);
 			}		
 		}
 	}	
@@ -59,7 +63,7 @@ export class BuffetEditComponent extends GenericComponent implements OnInit {
 		this.elemService.update(value).then(res => {
 			this.helper.checkResponse(res).then(valid => {
 				if (valid) {
-					this.helper.navigate(this.compModule+'/edit', value.id);
+					this.helper.navigate(this.compModule+'/list', null);
 				}
 			});
 		});		

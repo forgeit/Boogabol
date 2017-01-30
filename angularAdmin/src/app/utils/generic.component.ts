@@ -7,6 +7,9 @@ export class GenericComponent {
 	fileUp: any;
 	id: number;
 	complexForm: FormGroup;	
+	urlFile: string;
 
-	constructor(fb: FormBuilder){}
+	constructor(fb: FormBuilder){
+		this.urlFile = environment.serverUrl + environment.urlFileView;
+	}
 }

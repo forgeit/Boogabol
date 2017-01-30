@@ -17,13 +17,6 @@
         <label for="f2">Descrição</label>
         <textarea class="form-control" id="f2" placeholder="Descrição"  [formControl]="complexForm.controls['descricao']"></textarea>
       </div>      
-      <div class="form-group">
-        <label>Imagem</label>
-        <input type="file" (change)="onFileChange($event)"/>
-        <div class="div-img-form" *ngIf="complexForm.value.id_imagem">
-          <img class="thumbnail" [src]="urlFile + complexForm.value.id_imagem"/>
-        </div>
-      </div>  
     </div>
     <!-- /.box-body -->    
 

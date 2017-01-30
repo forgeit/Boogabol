@@ -40,10 +40,11 @@ export class UploadService {
 
             xhr.upload.onprogress = (event) => {
                 this.progress = Math.round(event.loaded / event.total * 100);
-                this.progressObserver.next(this.progress);
+                //console.log(this.progress);
+                //this.progressObserver.next(this.progress);
             };
 
-            xhr.open('POST', environment.serverUrlFileUpload, true);
+            xhr.open('POST', environment.serverUrl + environment.urlFileUpload, true);
             xhr.send(formData);
         });
     }

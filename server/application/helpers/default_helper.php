@@ -3,15 +3,17 @@
 class Helper {
 	
 
-	public static function inputValidation($data, $validations) {
-		foreach ($variable as $key => $value) {
-			if ($value[3] && self::isNullOrEmpty($data[$key])) { //Required
+	public static function inputValidation($object, $validations) {
+		$arr = (array)$object;
+				
+		foreach ($validations as $key => $value) {			
+			if ($value[3] && self::isNullOrEmpty($arr[$key])) { //Required
 				return self::getMessage(20, $value[0]);
 			}
-			if ($value[2] && strlen($data[$key]) > $value[2]) {
+			if ($value[2] && strlen($arr[$key]) > $value[2]) {
 				return self::getMessage(21, $value[0]);
 			} 
-			if ($value[1] && self::typeValid($value[1], $data[$key])) {
+			if ($value[1] && !self::typeValid($value[1], $arr[$key])) {
 				return self::getMessage(22, $value[0]);
 			}
 		}
@@ -31,6 +33,9 @@ class Helper {
 		switch($cod) {
 			case 0:
 			return "Registro Salvo";
+			break;
+			case 1:
+			return "Registro Excluído";
 			break;
 
 			case 10: 

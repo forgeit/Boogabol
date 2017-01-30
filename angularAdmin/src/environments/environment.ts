@@ -6,12 +6,14 @@
 export const environment = {
   production: false,
   serverUrl: 'http://localhost:8012/boogabol/server/',
-  serverUrlFileUpload: 'http://localhost:8012/boogabol/server/fileUpload',
+  urlFileUpload: 'fileUpload',
+  urlFileView: 'fileView/',
 
   //Returns
   RET_OK: 'OK',
   RET_ERROR: 'ERROR',
 
   //Modules
+  module_dashboard: 'dashboard',
   module_buffet: 'buffet'
 };

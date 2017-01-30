@@ -16,8 +16,8 @@ export class BuffetService extends GenericService {
 		return {     
 			id: '', 	      
 			titulo: ['', [<any>Validators.required]],
-			descricao: '',			
-			id_imagem: ''
+			descricao: '',
+			id_imagem: ''		
 		}
 	}
 }

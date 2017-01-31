@@ -4,6 +4,7 @@ define('Module_Buffet', 'buffet');
 define('Module_Atracao', 'atracao');
 define('Module_Cardapio', 'cardapio');
 define('Module_TipoFesta', 'tipoFesta');
+define('Module_Parceiro', 'parceiro');
 
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -102,6 +103,27 @@ class FileUpload extends MY_Controller {
 
 				$object->id_imagem = $idImagem;				
 				if ($this->checkExec(array('exec' => $this->TipoFestaModel->update($id, $object)))) {
+					if ($idImagemOld) {
+						$this->ArquivoModel->deleteArquivo($idImagemOld);
+					}	
+					$this->printReturn(RET_OK);
+				}
+			}
+			break;
+
+			case Module_Parceiro:
+			$idImagem = $this->InsertImage($id, $module);
+			if ($idImagem) {
+				$elemData = json_encode($this->ParceiroModel->findById($id));
+				$object = json_decode($elemData);
+				
+				$idImagemOld = null;
+				if ($object->id_imagem) {
+					$idImagemOld = $object->id_imagem;
+				}
+
+				$object->id_imagem = $idImagem;				
+				if ($this->checkExec(array('exec' => $this->ParceiroModel->update($id, $object)))) {
 					if ($idImagemOld) {
 						$this->ArquivoModel->deleteArquivo($idImagemOld);
 					}	

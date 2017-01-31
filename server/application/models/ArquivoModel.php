@@ -6,6 +6,9 @@ class ArquivoModel extends MY_Model {
 		$this->table = 'arquivo';
 	}		
 
+	/**
+	* 	Deleta o arquivo pelo ID e remove também o arquivo físico
+	*/
 	function deleteArquivo($id) {
 		$object = $this->findById($id);
 		if ($object) {

@@ -1,27 +1,27 @@
 import { Component } 		from '@angular/core';
-import { ActivatedRoute, Params } 	from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 import { GenericComponent } from '../utils/generic.component';
 import { Helper } 			from '../utils/helper';
 
-import { Buffet } 			from './buffet';
-import { BuffetService } 	from './buffet.service';
+import { Decoracao } 		from './decoracao';
+import { DecoracaoService } 	from './decoracao.service';
 
 @Component({
 	selector: 'app-admin',
-	templateUrl: './buffetNew.component.html'
+	templateUrl: './decoracaoNew.component.html'
 	//styleUrls: ['./app.component.css']
 })
 
-export class BuffetNewComponent extends GenericComponent {		
+export class DecoracaoNewComponent extends GenericComponent {		
 
-	constructor(private helper: Helper, private elemService: BuffetService, private route: ActivatedRoute, fb: FormBuilder) {
+	constructor(private helper: Helper, private elemService: DecoracaoService, private route: ActivatedRoute, fb: FormBuilder) {
 		super(fb);
-		this.compModule = this.environment.module_buffet;
+		this.compModule = this.environment.module_decoracao;
 		this.complexForm = fb.group(elemService.getFormValidator());
-		helper.setPageInfo('Novo Buffet', this.environment.module_buffet);
+		helper.setPageInfo('Nova Decoração', this.environment.module_decoracao);
 	}
 
 	onFileChange(event) {
@@ -38,7 +38,7 @@ export class BuffetNewComponent extends GenericComponent {
 		this.elemService.insert(value).then(res => {
 			this.helper.checkResponse(res).then(valid => {
 				if (valid) {
-					this.helper.navigate(this.compModule+'/edit', res.dataRes);
+					this.helper.navigate(this.compModule+'/list', null);
 				}
 			});
 		});		

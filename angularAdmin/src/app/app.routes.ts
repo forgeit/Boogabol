@@ -9,6 +9,10 @@ import { LoginComponent } from './login/login.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { buffetRoutes } from './buffet/buffet.routes';
+import { atracaoRoutes } from './atracao/atracao.routes';
+import { cardapioRoutes } from './cardapio/cardapio.routes';
+import { tipoFestaRoutes } from './tipoFesta/tipoFesta.routes';
+import { decoracaoRoutes } from './decoracao/decoracao.routes';
 
 
 // Route Configuration
@@ -17,6 +21,10 @@ export const routes: Routes = [
 	{path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
 	{path: 'login', component: LoginComponent},
 	...buffetRoutes,
+	...atracaoRoutes,
+	...cardapioRoutes,
+	...tipoFestaRoutes,
+	...decoracaoRoutes,
 	{path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 

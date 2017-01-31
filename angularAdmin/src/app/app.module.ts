@@ -21,6 +21,26 @@ import { BuffetComponent }      from './buffet/buffet.component';
 import { BuffetEditComponent }  from './buffet/buffetEdit.component';
 import { BuffetNewComponent }   from './buffet/buffetNew.component';
 
+import { AtracaoService }        from './atracao/atracao.service';
+import { AtracaoComponent }      from './atracao/atracao.component';
+import { AtracaoEditComponent }  from './atracao/atracaoEdit.component';
+import { AtracaoNewComponent }   from './atracao/atracaoNew.component';
+
+import { CardapioService }        from './cardapio/cardapio.service';
+import { CardapioComponent }      from './cardapio/cardapio.component';
+import { CardapioEditComponent }  from './cardapio/cardapioEdit.component';
+import { CardapioNewComponent }   from './cardapio/cardapioNew.component';
+
+import { TipoFestaService }        from './tipoFesta/tipoFesta.service';
+import { TipoFestaComponent }      from './tipoFesta/tipoFesta.component';
+import { TipoFestaEditComponent }  from './tipoFesta/tipoFestaEdit.component';
+import { TipoFestaNewComponent }   from './tipoFesta/tipoFestaNew.component';
+
+import { DecoracaoService }        from './decoracao/decoracao.service';
+import { DecoracaoComponent }      from './decoracao/decoracao.component';
+import { DecoracaoEditComponent }  from './decoracao/decoracaoEdit.component';
+import { DecoracaoNewComponent }   from './decoracao/decoracaoNew.component';
+
 @NgModule({
   declarations: [
   AppComponent,
@@ -31,10 +51,37 @@ import { BuffetNewComponent }   from './buffet/buffetNew.component';
 
   BuffetComponent,
   BuffetEditComponent,
-  BuffetNewComponent
+  BuffetNewComponent,
+
+  AtracaoComponent,
+  AtracaoEditComponent,
+  AtracaoNewComponent,
+
+  CardapioComponent,
+  CardapioEditComponent,
+  CardapioNewComponent,
+
+  TipoFestaComponent,
+  TipoFestaEditComponent,
+  TipoFestaNewComponent,
+
+  DecoracaoComponent,
+  DecoracaoEditComponent,
+  DecoracaoNewComponent
+
   ],
   imports: [BrowserModule,FormsModule,ReactiveFormsModule,HttpModule,routing,ToastyModule.forRoot()],
-  providers: [Helper, AuthGuard, UploadService, BuffetService, LoginService],
+  providers: [
+  Helper, 
+  AuthGuard, 
+  UploadService, 
+  LoginService,
+  BuffetService,
+  AtracaoService,
+  CardapioService,
+  TipoFestaService,
+  DecoracaoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

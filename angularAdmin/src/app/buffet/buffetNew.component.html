@@ -1,13 +1,10 @@
 <!-- general form elements -->
 <div class="box box-primary">
   <!-- /.box-header -->
-  <!-- form start -->
-  <!--<form role="form" #form="ngForm" (ngSubmit)="onSubmit()">-->
   <form name="form" [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
     <div class="box-body">
       <div class="form-group">
         <label for="f1">Título</label>
-        <!--<input type="text" class="form-control" id="f1" placeholder="Título" [(ngModel)]="elem.titulo" name="titulo">-->
         <input type="text" class="form-control" id="f1" maxlength="255" placeholder="Título" [formControl]="complexForm.controls['titulo']">
         <p class="text-danger" [hidden]="complexForm.controls.titulo.valid || (complexForm.controls.titulo.pristine && !submitted)">
           Nome é Obrigatório

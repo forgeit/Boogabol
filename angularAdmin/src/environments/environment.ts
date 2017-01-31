@@ -15,5 +15,9 @@ export const environment = {
 
   //Modules
   module_dashboard: 'dashboard',
-  module_buffet: 'buffet'
+  module_buffet: 'buffet',
+  module_atracao: 'atracao',
+  module_cardapio: 'cardapio',
+  module_tipoFesta: 'tipoFesta',
+  module_decoracao: 'decoracao'
 };

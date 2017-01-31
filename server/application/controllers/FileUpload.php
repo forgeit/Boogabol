@@ -1,12 +1,18 @@
 <?php
 
 define('Module_Buffet', 'buffet');
+define('Module_Atracao', 'atracao');
+define('Module_Cardapio', 'cardapio');
+define('Module_TipoFesta', 'tipoFesta');
 
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class FileUpload extends MY_Controller {
 
+	/**
+	*	Faz o upload de um arquivo de acordo com o módulo
+	*/
 	public function uploadFile() {
 
 		if (!$_POST['params'] || !$_POST['params'][0] || !$_POST['params'][0] || !$_FILES['uploads']) {
@@ -18,8 +24,8 @@ class FileUpload extends MY_Controller {
 		$id = $data[0];
 		$module = $data[1];
 
-
 		switch ($module) {
+
 			case Module_Buffet:
 			$idImagem = $this->InsertImage($id, $module);
 			if ($idImagem) {
@@ -39,7 +45,69 @@ class FileUpload extends MY_Controller {
 					$this->printReturn(RET_OK);
 				}
 			}
+			break;
 
+			case Module_Atracao:
+			$idImagem = $this->InsertImage($id, $module);
+			if ($idImagem) {
+				$elemData = json_encode($this->AtracaoModel->findById($id));
+				$object = json_decode($elemData);
+				
+				$idImagemOld = null;
+				if ($object->id_imagem) {
+					$idImagemOld = $object->id_imagem;
+				}
+
+				$object->id_imagem = $idImagem;				
+				if ($this->checkExec(array('exec' => $this->AtracaoModel->update($id, $object)))) {
+					if ($idImagemOld) {
+						$this->ArquivoModel->deleteArquivo($idImagemOld);
+					}	
+					$this->printReturn(RET_OK);
+				}
+			}
+			break;
+
+			case Module_Cardapio:
+			$idImagem = $this->InsertImage($id, $module);
+			if ($idImagem) {
+				$elemData = json_encode($this->CardapioModel->findById($id));
+				$object = json_decode($elemData);
+				
+				$idImagemOld = null;
+				if ($object->id_imagem) {
+					$idImagemOld = $object->id_imagem;
+				}
+
+				$object->id_imagem = $idImagem;				
+				if ($this->checkExec(array('exec' => $this->CardapioModel->update($id, $object)))) {
+					if ($idImagemOld) {
+						$this->ArquivoModel->deleteArquivo($idImagemOld);
+					}	
+					$this->printReturn(RET_OK);
+				}
+			}
+			break;
+
+			case Module_TipoFesta:
+			$idImagem = $this->InsertImage($id, $module);
+			if ($idImagem) {
+				$elemData = json_encode($this->TipoFestaModel->findById($id));
+				$object = json_decode($elemData);
+				
+				$idImagemOld = null;
+				if ($object->id_imagem) {
+					$idImagemOld = $object->id_imagem;
+				}
+
+				$object->id_imagem = $idImagem;				
+				if ($this->checkExec(array('exec' => $this->TipoFestaModel->update($id, $object)))) {
+					if ($idImagemOld) {
+						$this->ArquivoModel->deleteArquivo($idImagemOld);
+					}	
+					$this->printReturn(RET_OK);
+				}
+			}
 			break;
 			
 			default:
@@ -49,6 +117,9 @@ class FileUpload extends MY_Controller {
 
 	}
 
+	/**
+	*	Insere uma imagem na tabela, move a imagem para a pasta correta
+	*/
 	private function InsertImage($id, $module) {
 
 		$files = ImageHelper::filesToArray();		
@@ -58,7 +129,7 @@ class FileUpload extends MY_Controller {
 			return;
 		}	
 		
-		$img = ImageHelper::filesToImages($files, $module)[0];
+		$img = ImageHelper::filesToArquivoModel($files, $module)[0];
 		$response = array('exec' => $this->ArquivoModel->save($img));
 		$img['id'] = ($this->ArquivoModel->getLastInsertedId());
 		if (!$response['exec']) {

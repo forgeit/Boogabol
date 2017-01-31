@@ -7,22 +7,22 @@ import { GenericComponent } from '../utils/generic.component';
 import { UploadService } 	from '../utils/upload.service';
 import { Helper } 			from '../utils/helper';
 
-import { Buffet } 			from './buffet';
-import { BuffetService } 	from './buffet.service';
+import { TipoFesta } 			from './tipoFesta';
+import { TipoFestaService } 	from './tipoFesta.service';
 
 @Component({
 	selector: 'app-admin',
-	templateUrl: './buffetEdit.component.html'
+	templateUrl: './tipoFestaEdit.component.html'
 	//styleUrls: ['./app.component.css']
 })
 
-export class BuffetEditComponent extends GenericComponent implements OnInit {		
+export class TipoFestaEditComponent extends GenericComponent implements OnInit {		
 
-	constructor(private helper: Helper, private elemService: BuffetService, private route: ActivatedRoute, fb: FormBuilder, private us: UploadService) {
+	constructor(private helper: Helper, private elemService: TipoFestaService, private route: ActivatedRoute, fb: FormBuilder, private us: UploadService) {
 		super(fb);
-		this.compModule = this.environment.module_buffet;
+		this.compModule = this.environment.module_tipoFesta;
 		this.complexForm = fb.group(elemService.getFormValidator());
-		helper.setPageInfo('Edição Buffet', this.environment.module_buffet);
+		helper.setPageInfo('Edição Tipo de Festa', this.environment.module_tipoFesta);
 	}
 
 	ngOnInit(): void {

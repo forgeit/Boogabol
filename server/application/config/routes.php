@@ -57,7 +57,10 @@ $route['translate_uri_dashes'] = FALSE;
 //Admin
 $commonRoutes = array(
 	'buffet',
-	'cliente'
+	'atracao',
+	'cardapio',
+	'tipoFesta',
+	'decoracao'
 	);
 
 foreach ($commonRoutes as $value) {

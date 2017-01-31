@@ -11,6 +11,9 @@ define('URL_IMG', FCPATH.'images/');
 class ImageHelper {
 	
 
+	/**
+	*	Converte arquivos em $_FILES['uploads'] para um array de arquivos
+	*/
 	public static function filesToArray() {
 		$arrFiles = array();
 		for ($x = 0; $x<count($_FILES['uploads']['name']); $x++) {
@@ -26,7 +29,9 @@ class ImageHelper {
 		return $arrFiles;
 	}
 
-
+	/**
+	*	Verifica o tamanho e o tipo de imagens
+	*/
 	public static function checkImage($arrFiles) {
 		foreach ($arrFiles as $img) {
 			if ($img['size'] * SIZE_CONVERSION > MAX_IMG_SIZE) {
@@ -39,7 +44,9 @@ class ImageHelper {
 		return true;
 	}
 
-
+	/**
+	*	Cria as pastas de imagens
+	*/
 	public static function createFolders($module) {
 		if (!file_exists(URL_IMG)) {
 			mkdir(URL_IMG, 0700);
@@ -49,7 +56,10 @@ class ImageHelper {
 		}
 	}
 
-	public static function filesToImages($files, $module) {
+	/**
+	*	Conferte um array de arquivos em um array de ArquivoModel
+	*/
+	public static function filesToArquivoModel($files, $module) {
 		$arrImg = array();
 		for ($x = 0; $x<count($files); $x++) {
 			$arrImg[$x]['nome'] = $files[$x]['name'];
@@ -59,6 +69,9 @@ class ImageHelper {
 		return $arrImg;
 	}
 
+	/**
+	*	move o arquivo para o local correto
+	*/
 	public static function saveArchive($module, $file, $idImage) {
 		$path = URL_IMG.$module.'/' . $idImage . '.jpg';
 		if ($file['size'] * SIZE_CONVERSION > MIN_IMG_SIZE_CHANGE_QUALITY) {

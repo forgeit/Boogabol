@@ -3,25 +3,25 @@ import { Component, OnInit } from '@angular/core';
 import { GenericComponent } from '../utils/generic.component';
 import { Helper } 			from '../utils/helper';
 
-import { Buffet } 			from './buffet';
-import { BuffetService } 	from './buffet.service';
+import { Cardapio } 			from './cardapio';
+import { CardapioService } 	from './cardapio.service';
 
 @Component({
 	selector: 'app-admin',
-	templateUrl: './buffet.component.html'
+	templateUrl: './cardapio.component.html'
 	//styleUrls: ['./app.component.css']
 })
 
-export class BuffetComponent extends GenericComponent implements OnInit {
+export class CardapioComponent extends GenericComponent implements OnInit {
 	excluir: number;
 	id : number;
 
-	constructor(private helper: Helper, private service: BuffetService) {
+	constructor(private helper: Helper, private service: CardapioService) {
 		super(null);
-		helper.setPageInfo('Lista Buffet', this.environment.module_buffet);
+		helper.setPageInfo('Lista Cardápio', this.environment.module_cardapio);
 	}
 
-	list: Buffet[];
+	list: Cardapio[];
 
 	ngOnInit(): void {
 		this.loadList();

@@ -1,27 +1,27 @@
 import { Component } 		from '@angular/core';
-import { ActivatedRoute, Params } 	from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 import { GenericComponent } from '../utils/generic.component';
 import { Helper } 			from '../utils/helper';
 
-import { Buffet } 			from './buffet';
-import { BuffetService } 	from './buffet.service';
+import { TipoFesta } 		from './tipoFesta';
+import { TipoFestaService } 	from './tipoFesta.service';
 
 @Component({
 	selector: 'app-admin',
-	templateUrl: './buffetNew.component.html'
+	templateUrl: './tipoFestaNew.component.html'
 	//styleUrls: ['./app.component.css']
 })
 
-export class BuffetNewComponent extends GenericComponent {		
+export class TipoFestaNewComponent extends GenericComponent {		
 
-	constructor(private helper: Helper, private elemService: BuffetService, private route: ActivatedRoute, fb: FormBuilder) {
+	constructor(private helper: Helper, private elemService: TipoFestaService, private route: ActivatedRoute, fb: FormBuilder) {
 		super(fb);
-		this.compModule = this.environment.module_buffet;
+		this.compModule = this.environment.module_tipoFesta;
 		this.complexForm = fb.group(elemService.getFormValidator());
-		helper.setPageInfo('Novo Buffet', this.environment.module_buffet);
+		helper.setPageInfo('Novo Tipo de Festa', this.environment.module_tipoFesta);
 	}
 
 	onFileChange(event) {

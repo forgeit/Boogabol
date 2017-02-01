@@ -13,6 +13,7 @@ import { atracaoRoutes } from './atracao/atracao.routes';
 import { cardapioRoutes } from './cardapio/cardapio.routes';
 import { tipoFestaRoutes } from './tipoFesta/tipoFesta.routes';
 import { decoracaoRoutes } from './decoracao/decoracao.routes';
+import { parceiroRoutes } from './parceiro/parceiro.routes';
 
 
 // Route Configuration
@@ -20,11 +21,13 @@ export const routes: Routes = [
 	{path: '', redirectTo: '/dashboard', pathMatch: 'full'},
 	{path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
 	{path: 'login', component: LoginComponent},
+	{path: 'login/out', component: LoginComponent},
 	...buffetRoutes,
 	...atracaoRoutes,
 	...cardapioRoutes,
 	...tipoFestaRoutes,
 	...decoracaoRoutes,
+	...parceiroRoutes,
 	{path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 

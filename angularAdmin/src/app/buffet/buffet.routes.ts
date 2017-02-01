@@ -4,6 +4,7 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from '../utils/guard';
 import { BuffetComponent } from './buffet.component';
 import { BuffetEditComponent } from './buffetEdit.component';
 import { BuffetNewComponent } from './buffetNew.component';
@@ -12,9 +13,9 @@ import { BuffetNewComponent } from './buffetNew.component';
 export const buffetRoutes: Routes = [
 	{ path: 'buffet', 
 		children: [
-			{path: 'list', component: BuffetComponent},
-			{path: 'new', component: BuffetNewComponent},
-			{path: 'edit/:id', component: BuffetEditComponent}
+			{path: 'list', component: BuffetComponent, canActivate: [AuthGuard]},
+			{path: 'new', component: BuffetNewComponent, canActivate: [AuthGuard]},
+			{path: 'edit/:id', component: BuffetEditComponent, canActivate: [AuthGuard]}
 		]
 	}
 

@@ -1,9 +1,9 @@
 <?php
 
-class BuffetModel extends MY_Model {
+class ParceiroModel extends MY_Model {
 	function __construct() {
 		parent::__construct();
-		$this->table = 'buffet';
+		$this->table = 'parceiro';
 	}	
 
 	function getValidation() {

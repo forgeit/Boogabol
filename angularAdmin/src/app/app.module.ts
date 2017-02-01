@@ -41,6 +41,11 @@ import { DecoracaoComponent }      from './decoracao/decoracao.component';
 import { DecoracaoEditComponent }  from './decoracao/decoracaoEdit.component';
 import { DecoracaoNewComponent }   from './decoracao/decoracaoNew.component';
 
+import { ParceiroService }        from './parceiro/parceiro.service';
+import { ParceiroComponent }      from './parceiro/parceiro.component';
+import { ParceiroEditComponent }  from './parceiro/parceiroEdit.component';
+import { ParceiroNewComponent }   from './parceiro/parceiroNew.component';
+
 @NgModule({
   declarations: [
   AppComponent,
@@ -67,7 +72,11 @@ import { DecoracaoNewComponent }   from './decoracao/decoracaoNew.component';
 
   DecoracaoComponent,
   DecoracaoEditComponent,
-  DecoracaoNewComponent
+  DecoracaoNewComponent,
+
+  ParceiroComponent,
+  ParceiroEditComponent,
+  ParceiroNewComponent
 
   ],
   imports: [BrowserModule,FormsModule,ReactiveFormsModule,HttpModule,routing,ToastyModule.forRoot()],
@@ -80,7 +89,8 @@ import { DecoracaoNewComponent }   from './decoracao/decoracaoNew.component';
   AtracaoService,
   CardapioService,
   TipoFestaService,
-  DecoracaoService
+  DecoracaoService,
+  ParceiroService
   ],
   bootstrap: [AppComponent]
 })

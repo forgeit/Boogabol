@@ -1,0 +1,640 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"idIma",
+				"idImagemOld"
+			],
+			[
+				"pro",
+				"providers\tproperty"
+			],
+			[
+				"AfterV",
+				"AfterViewInit\talias"
+			],
+			[
+				"Da",
+				"DashboardComponent\talias"
+			],
+			[
+				"mat",
+				"Math\tinterface"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/core/MY_Controller.php",
+			"settings":
+			{
+				"buffer_size": 1009,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/controllers/Buffet.php",
+			"settings":
+			{
+				"buffer_size": 2075,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/models/ArquivoModel.php",
+			"settings":
+			{
+				"buffer_size": 317,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/controllers/FileUpload.php",
+			"settings":
+			{
+				"buffer_size": 2484,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/config/config.php",
+			"settings":
+			{
+				"buffer_size": 18345,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/helpers/default_helper.php",
+			"settings":
+			{
+				"buffer_size": 1293,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/models/BuffetModel.php",
+			"settings":
+			{
+				"buffer_size": 236,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/helpers/image_helper.php",
+			"settings":
+			{
+				"buffer_size": 2205,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/core/MY_Model.php",
+			"settings":
+			{
+				"buffer_size": 1460,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"typescript",
+				"Set Syntax: AppleScript"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/boogabol/server",
+		"/C/xampp/htdocs/boogabol/server/application",
+		"/C/xampp/htdocs/boogabol/server/application/core",
+		"/C/xampp/htdocs/boogabol/server/images",
+		"/C/xampp/htdocs/boogabol/server/images/buffet"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/boogabol/server/application/core/MY_Model.php",
+		"/C/xampp/htdocs/boogabol/server/application/config/config.php",
+		"/C/xampp/htdocs/boogabol/server/index.php",
+		"/C/xampp/htdocs/boogabol/angularAdmin/e2e/tsconfig.json",
+		"/C/xampp/htdocs/boogabol/angularAdmin/src/environments/environment.ts",
+		"/C/xampp/htdocs/boogabol/angularAdmin/src/app/app.module.ts",
+		"/C/xampp/htdocs/boogabol/angularAdmin/src/app/app.component.ts",
+		"/C/xampp/htdocs/boogabol/angularAdmin/src/app/app.routes.ts",
+		"/C/xampp/htdocs/boogabol/angularAdmin/src/index.html",
+		"/C/Users/Bill Lima/Downloads/AdminLTE-2.3.11/AdminLTE-2.3.11/dist/js/app.js",
+		"/C/xampp/apache/conf/extra/httpd-vhosts.conf",
+		"/C/xampp/htdocs/boogabol/angularAdmin/src/app/admin/admin.component.html",
+		"/C/xampp/htdocs/boogabol/dist/index.html",
+		"/C/xampp/htdocs/boogabol/src/app/admin/buffet/buffet.component.html",
+		"/C/xampp/htdocs/boogabol/src/app/admin/buffet/buffet.component.ts",
+		"/C/xampp/htdocs/boogabol/src/app/admin/buffet/buffet.routes.ts",
+		"/C/xampp/htdocs/boogabol/src/app/admin/dashboard/dashboard.component.html",
+		"/C/xampp/htdocs/boogabol/src/app/admin/dashboard/dashboard.component.ts",
+		"/C/xampp/htdocs/boogabol/src/assets/theme/js/app.min.js",
+		"/C/xampp/htdocs/boogabol/src/app/admin/admin.component.html",
+		"/C/xampp/htdocs/boogabol/src/app/admin/admin.routes.ts",
+		"/C/xampp/htdocs/boogabol/src/app/admin/admin.component.ts",
+		"/C/xampp/htdocs/boogabol/src/app/admin/admin.module.ts",
+		"/C/xampp/htdocs/boogabol/src/app/app.component.html",
+		"/C/xampp/htdocs/boogabol/src/app/app.routes.ts",
+		"/C/xampp/htdocs/boogabol/src/index.html",
+		"/C/xampp/htdocs/boogabol/src/app/app.module.ts",
+		"/C/xampp/htdocs/boogabol/src/app/app.component.ts",
+		"/C/xampp/htdocs/boogabol/server/application/config/database.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Cliente.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/ClienteModel.php",
+		"/C/xampp/htdocs/boogabol/database/database.sql",
+		"/C/xampp/htdocs/boogabol/server/database/create.sql",
+		"/C/xampp/htdocs/boogabol/server/system/database/drivers/mysqli/mysqli_driver.php",
+		"/C/xampp/htdocs/boogabol/server/.htaccess",
+		"/C/xampp/htdocs/boogabol/server/application/.htaccess",
+		"/C/xampp/htdocs/boogabol/server/teste.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"id_imagem",
+			"getMess",
+			"getMessage",
+			"OK",
+			"ads",
+			"fix",
+			"app",
+			"Cliente",
+			"cliente",
+			"root"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Buffet",
+			"object"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "C:\\xampp\\htdocs\\boogabol\\server"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/xampp/htdocs/boogabol/server/application/core/MY_Controller.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1009,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								787,
+								796
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/xampp/htdocs/boogabol/server/application/controllers/Buffet.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2075,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1991,
+								1991
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 600.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/xampp/htdocs/boogabol/server/application/models/ArquivoModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								285,
+								285
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/xampp/htdocs/boogabol/server/application/controllers/FileUpload.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2484,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								679,
+								679
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": false,
+								"indentSize": 4,
+								"tabSize": 4
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/xampp/htdocs/boogabol/server/application/config/config.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18345,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								597,
+								597
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "/C/xampp/htdocs/boogabol/server/application/helpers/default_helper.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1293,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								833,
+								833
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 450.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/xampp/htdocs/boogabol/server/application/models/BuffetModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 236,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								126,
+								126
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/xampp/htdocs/boogabol/server/application/helpers/image_helper.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1324,
+								1324
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/xampp/htdocs/boogabol/server/application/core/MY_Model.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1460,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1286,
+								1286
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 585.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.596500530223,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"arquivo",
+				"application\\models\\ArquivoModel.php"
+			],
+			[
+				"app.min.",
+				"src\\assets\\theme\\js\\app.min.js"
+			],
+			[
+				"clientemode",
+				"server\\application\\models\\ClienteModel.php"
+			],
+			[
+				"mysqli_driver",
+				"server\\system\\database\\drivers\\mysqli\\mysqli_driver.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 208.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

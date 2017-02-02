@@ -46,6 +46,13 @@ import { ParceiroComponent }      from './parceiro/parceiro.component';
 import { ParceiroEditComponent }  from './parceiro/parceiroEdit.component';
 import { ParceiroNewComponent }   from './parceiro/parceiroNew.component';
 
+import { ClienteService }        from './cliente/cliente.service';
+import { ClienteComponent }      from './cliente/cliente.component';
+import { ClienteEditComponent }  from './cliente/clienteEdit.component';
+import { ClienteNewComponent }   from './cliente/clienteNew.component';
+
+import { AniversarianteService } from './cliente/aniversariante.service';
+
 @NgModule({
   declarations: [
   AppComponent,
@@ -76,7 +83,11 @@ import { ParceiroNewComponent }   from './parceiro/parceiroNew.component';
 
   ParceiroComponent,
   ParceiroEditComponent,
-  ParceiroNewComponent
+  ParceiroNewComponent,
+
+  ClienteComponent,
+  ClienteEditComponent,
+  ClienteNewComponent
 
   ],
   imports: [BrowserModule,FormsModule,ReactiveFormsModule,HttpModule,routing,ToastyModule.forRoot()],
@@ -90,7 +101,9 @@ import { ParceiroNewComponent }   from './parceiro/parceiroNew.component';
   CardapioService,
   TipoFestaService,
   DecoracaoService,
-  ParceiroService
+  ParceiroService,
+  ClienteService,
+  AniversarianteService
   ],
   bootstrap: [AppComponent]
 })

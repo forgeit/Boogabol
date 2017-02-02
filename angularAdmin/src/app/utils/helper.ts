@@ -73,4 +73,10 @@ export class Helper {
 		this.pageTitle = pt;		
 		this.activeMenu = am;
 	}
+
+	updateMaskDate(claz: string): void {
+		setTimeout(() => {
+			$('.'+claz).mask('00/00/0000');
+		});
+	}
 }

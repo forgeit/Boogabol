@@ -20,5 +20,7 @@ export const environment = {
   module_cardapio: 'cardapio',
   module_tipoFesta: 'tipoFesta',
   module_decoracao: 'decoracao',
-  module_parceiro: 'parceiro'
+  module_parceiro: 'parceiro',
+  module_cliente: 'cliente',
+  module_aniversariante: 'aniversariante'
 };

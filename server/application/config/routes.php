@@ -61,7 +61,9 @@ $commonRoutes = array(
 	'cardapio',
 	'tipoFesta',
 	'decoracao',
-	'parceiro'
+	'parceiro',
+	'cliente',
+	'aniversariante'
 	);
 
 foreach ($commonRoutes as $value) {

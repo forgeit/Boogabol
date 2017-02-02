@@ -139,5 +139,7 @@ $autoload['model'] = array(
 	'CardapioModel',
 	'TipoFestaModel',
 	'DecoracaoModel',
-	'ParceiroModel'
+	'ParceiroModel',
+	'ClienteModel',
+	'AniversarianteModel'
 	);

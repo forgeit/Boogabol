@@ -14,6 +14,7 @@ import { cardapioRoutes } from './cardapio/cardapio.routes';
 import { tipoFestaRoutes } from './tipoFesta/tipoFesta.routes';
 import { decoracaoRoutes } from './decoracao/decoracao.routes';
 import { parceiroRoutes } from './parceiro/parceiro.routes';
+import { clienteRoutes } from './cliente/cliente.routes';
 
 
 // Route Configuration
@@ -28,6 +29,7 @@ export const routes: Routes = [
 	...tipoFestaRoutes,
 	...decoracaoRoutes,
 	...parceiroRoutes,
+	...clienteRoutes,
 	{path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 

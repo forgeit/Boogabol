@@ -1,17 +1,20 @@
 import { Injectable } 	from "@angular/core";
 import { Router } 		from '@angular/router';
+
 import { environment } 	from '../../environments/environment';
 import { Location } 	from '@angular/common';
 
 import { ToastyService, ToastyConfig, ToastOptions, ToastData } from 'ng2-toasty';
 
 declare var $: any;
+declare var sha256: any;
 
 @Injectable()
 export class Helper {
 
 	public pageTitle: string;
 	public activeMenu: string;
+	private passSalt: string = "BoogPassSalt";
 
 	constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, private router: Router, private location: Location) {
 		this.toastyConfig.theme = 'default';		
@@ -79,4 +82,13 @@ export class Helper {
 			$('.'+claz).mask('00/00/0000');
 		});
 	}
+
+	getCurrentUrl(): string {
+		return this.router.url;
+	}
+
+	cryptPassword(pass): string {
+		return sha256(this.passSalt+pass);
+	}
+
 }

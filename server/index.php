@@ -57,6 +57,7 @@
 
 	define('RET_OK', 'OK');
 	define('RET_ERROR', 'ERROR');
+	define('RET_LOGIN', 'LOGIN');
 
 /*
  *---------------------------------------------------------------

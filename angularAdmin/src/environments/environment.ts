@@ -22,5 +22,6 @@ export const environment = {
   module_decoracao: 'decoracao',
   module_parceiro: 'parceiro',
   module_cliente: 'cliente',
-  module_aniversariante: 'aniversariante'
+  module_aniversariante: 'aniversariante',
+  module_usuario: 'usuario'
 };

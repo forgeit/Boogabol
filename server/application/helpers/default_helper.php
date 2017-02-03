@@ -26,8 +26,8 @@ class Helper {
 	}
 
 	public static function typeValid($type, $data) {
-		if ($type == 'int' && !is_int($data)) { 
-			return false; // ----- Implementar
+		if ($type == 'int' && !is_numeric($data)) { 
+			return false;
 		}
 		if ($type == 'date') {
 			return self::is_valid_date($data);			
@@ -37,7 +37,11 @@ class Helper {
 
 	public static function strDatetoDate($str) {
 		$data_exploded = explode('/', $str);
-		return $data_exploded[2].'-'.$data_exploded[1].'-'.$data_exploded[0];
+		return strtotime($data_exploded[2].'-'.$data_exploded[1].'-'.$data_exploded[0]);
+	}
+
+	public static function dateToStr($date) {
+		return date('d/m/Y', strtotime($date));
 	}
 
 	public static function getMessage($cod, $field = null) {
@@ -57,6 +61,12 @@ class Helper {
 			break;
 			case 12:
 			return "Erro ao salvar os arquivos";
+			break;
+			case 13: 
+			return "Erro ao efetuar o Login";
+			break;
+			case 14: 
+			return "Usuário e/ou Senha inválido(s)";
 			break;
 
 			case 20:

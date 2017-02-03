@@ -25,13 +25,12 @@ class Aniversariante extends MY_Controller {
 		
 		foreach ($objectArr as $obj) {
 			$obj->dt_nasc = Helper::strDatetoDate($obj->dt_nasc);
-			print_r($obj);
 			if ($obj->id) {
 				if (!$this->checkExec(array('exec' => $this->AniversarianteModel->update($obj->id, $obj)))) {
 					return;
 				}
 			} else {
-				if (!$this->checkExec(array('exec' => $this->AtracaoModel->save($obj)))) {
+				if (!$this->checkExec(array('exec' => $this->AniversarianteModel->save($obj)))) {
 					return;
 				}
 			}
@@ -44,7 +43,12 @@ class Aniversariante extends MY_Controller {
 			return;
 		}
 
-		print_r(json_encode($this->AniversarianteModel->findByIdCliente($this->uri->segment(3))));
+		$list = $this->AniversarianteModel->findByIdCliente($this->uri->segment(3));
+		for ($x=0;$x<count($list);$x++){
+			$list[$x]['dt_nasc'] = Helper::dateToStr($list[$x]['dt_nasc']);
+		}
+
+		print_r(json_encode($list));
 	}
 
 	public function findAll() {

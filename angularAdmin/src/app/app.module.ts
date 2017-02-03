@@ -3,6 +3,7 @@ import { NgModule }                          from '@angular/core';
 import { FormsModule, ReactiveFormsModule }  from '@angular/forms';
 import { HttpModule }                        from '@angular/http';
 import { ToastyModule }                      from 'ng2-toasty';
+import { LocalStorageModule }                from 'angular-2-local-storage';
 
 import { routing }         from './app.routes';
 import { AppComponent }    from './app.component';
@@ -90,7 +91,17 @@ import { AniversarianteService } from './cliente/aniversariante.service';
   ClienteNewComponent
 
   ],
-  imports: [BrowserModule,FormsModule,ReactiveFormsModule,HttpModule,routing,ToastyModule.forRoot()],
+  imports: [
+  BrowserModule,
+  FormsModule,
+  ReactiveFormsModule,
+  HttpModule,
+  routing,
+  ToastyModule.forRoot(),
+  LocalStorageModule.withConfig({
+    prefix: 'boog-app',
+    storageType: 'localStorage'
+  })],
   providers: [
   Helper, 
   AuthGuard, 

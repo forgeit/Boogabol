@@ -54,6 +54,8 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//$route['/usuario/login'] = 'usuario/login';
+
 //Admin
 $commonRoutes = array(
 	'buffet',

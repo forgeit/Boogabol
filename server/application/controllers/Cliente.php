@@ -61,6 +61,7 @@ class Cliente extends MY_Controller {
 			return;
 		}
 
+		$this->AniversarianteModel->removeByIdCliente($this->uri->segment(3));		
 		$data = $this->ClienteModel->findById($this->uri->segment(3));		
 		if ($this->checkExec(array('exec' => $this->ClienteModel->remove($this->uri->segment(3))))) {			
 			$this->printReturn(RET_OK, null, Helper::getMessage(1));	

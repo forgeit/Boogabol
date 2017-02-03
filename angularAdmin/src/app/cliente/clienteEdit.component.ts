@@ -42,8 +42,9 @@ export class ClienteEditComponent extends GenericComponent implements OnInit {
 	}
 
 	getListAux() {
-		this.elemAuxService.getElem(this.id).then(elemAux => {
-			this.listAux = elemAux;
+		this.elemAuxService.getElem(this.id).then(res => {
+			this.listAux = res;					
+			this.helper.updateMaskDate('mask-date');
 			if (this.listAux == null) {
 				this.listAux = [];
 			}
@@ -72,16 +73,22 @@ export class ClienteEditComponent extends GenericComponent implements OnInit {
 	}
 
 	submitFormAux():void {
-		this.elemAuxService.update(this.listAux).then(valid => {
-			if (valid) {
-				this.getListAux();
-			}
+		this.elemAuxService.update(this.listAux).then(res => {
+			this.helper.checkResponse(res).then(valid => {
+				if (valid) {
+					this.getListAux();
+				}
+			});
 		});
 	}
 
 	removeItem(index: number, elem: Aniversariante): void {
-		this.elemAuxService.remove(elem.id).then(valid => {
-			this.listAux.splice(index, 1);
+		this.elemAuxService.remove(elem.id).then(res => {
+			this.helper.checkResponse(res).then(valid => {
+				if (valid) {
+					this.listAux.splice(index, 1);
+				}
+			});
 		});	
 	}
 	

@@ -51,13 +51,18 @@ public static function encodeWithTime($nome, $login) {
 public static function decodeWithTime($jwt) {
 	$payload = (array)JWT::decode($jwt, JWT_KEY);	
 	if (is_array($payload)) {	
-		$dateExpiration = date_create();		
-		date_timestamp_set($dateExpiration, $payload["iss"]);
-		if ($dateExpiration < new DateTime()) {
-			return EXPIRED;
-		} else {
-			return OK;
+		if (!isset($payload['nome'])) {
+			return SIGNATURE_FAIL;
 		}
+		//$dateExpiration = date_create();		
+		//date_timestamp_set($dateExpiration, $payload["iss"]);
+		//if ($dateExpiration < new DateTime()) {
+		//	return EXPIRED;
+		//} else {
+		return OK;
+		//}
+	} else {
+		return SIGNATURE_FAIL;
 	}
 	return $payload;
 }
@@ -66,14 +71,17 @@ public static function decode($jwt, $key = null, $verify = true)
 {
 	$tks = explode('.', $jwt);
 	if (count($tks) != 3) {
-		throw new UnexpectedValueException('Wrong number of segments');
+		return SIGNATURE_FAIL;
+		//throw new UnexpectedValueException('Wrong number of segments');
 	}
 	list($headb64, $bodyb64, $cryptob64) = $tks;
 	if (null === ($header = JWT::jsonDecode(JWT::urlsafeB64Decode($headb64)))) {
-		throw new UnexpectedValueException('Invalid segment encoding');
+		return SIGNATURE_FAIL;
+		//throw new UnexpectedValueException('Invalid segment encoding');
 	}
 	if (null === $payload = JWT::jsonDecode(JWT::urlsafeB64Decode($bodyb64))) {
-		throw new UnexpectedValueException('Invalid segment encoding');
+		return SIGNATURE_FAIL;
+		//throw new UnexpectedValueException('Invalid segment encoding');
 	}
 	$sig = JWT::urlsafeB64Decode($cryptob64);
 	if ($verify) {
@@ -144,7 +152,8 @@ public static function jsonDecode($input)
 {
 	$obj = json_decode($input);
 	if (function_exists('json_last_error') && $errno = json_last_error()) {
-		JWT::_handleJsonError($errno);
+		//JWT::_handleJsonError($errno);
+		return;
 	} else if ($obj === null && $input !== 'null') {
 		throw new DomainException('Null result with non-null input');
 	}

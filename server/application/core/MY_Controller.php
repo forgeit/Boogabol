@@ -12,10 +12,20 @@ class MY_Controller extends CI_Controller {
 
     public function isActive() {
     	$pathReq = ($_SERVER['PATH_INFO']);
-    	if ($pathReq != '/login') {
-    		// Implementar validação JWT
-    	}
-    	return true;
+        if ($pathReq != '/usuario/login') {
+            $headers = getallheaders();
+            if (isset($headers['Authorization'])) {
+                $auth = getallheaders()['Authorization'];
+                if (JWT::decodeWithTime($auth) !== 0) {
+                    $this->printReturn(RET_LOGIN);
+                    return false;
+                }
+            } else {
+                $this->printReturn(RET_LOGIN);
+                return false;
+            }
+        }
+        return true;
     }
 
     public function printReturn($return, $data = null, $message = null) {
@@ -40,5 +50,5 @@ class MY_Controller extends CI_Controller {
         }
     }
     
-	
+
 }

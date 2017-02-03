@@ -1,38 +1,38 @@
 import { Headers, Http } from '@angular/http';
 import { environment } from '../../environments/environment';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 
 export class GenericService {
 	public headers = new Headers({		
 		'Content-Type': 'application/json' 		
-	});
-	
+	});	
 
 	public urlSrv: string;
 	environment:any = environment;
 
-	constructor(public http: Http){
+	constructor(public http: Http, public localStorageService: LocalStorageService){
 		this.urlSrv = this.environment.serverUrl;
 	}
 
 	getList(): Promise<any> {		
-		return this.defaultPromise(this.http.get(this.urlSrv));
+		return this.defaultPromise(this.http.get(this.urlSrv, {headers: this.getHeaderJwt()}));
 	}
 
 	getElem(id: number): Promise<any> {
-		return this.defaultPromise(this.http.get(this.urlSrv+"/find/"+id));
+		return this.defaultPromise(this.http.get(this.urlSrv+"/find/"+id, {headers: this.getHeaderJwt()}));
 	}
 
 	update(elem: any): Promise<any> {
-		return this.defaultPromise(this.http.put(this.urlSrv+"/update", JSON.stringify(elem), {headers: this.headers}));
+		return this.defaultPromise(this.http.put(this.urlSrv+"/update", JSON.stringify(elem), {headers: this.getHeaderJwt()}));
 	}
 
 	insert(elem: any): Promise<any> {
-		return this.defaultPromise(this.http.post(this.urlSrv+"/insert", JSON.stringify(elem), {headers: this.headers}));		
+		return this.defaultPromise(this.http.post(this.urlSrv+"/insert", JSON.stringify(elem), {headers: this.getHeaderJwt()}));		
 	}
 
 	remove(id: number): Promise<any> {
-		return this.defaultPromise(this.http.delete(this.urlSrv+"/remove/"+id));		
+		return this.defaultPromise(this.http.delete(this.urlSrv+"/remove/"+id, {headers: this.getHeaderJwt()}));		
 	}
 
 
@@ -45,5 +45,15 @@ export class GenericService {
 	private handleError(error: any): Promise<any> {
 		alert('Erro ao conectar com o Servidor');		
 		return Promise.reject(error.message || error);
+	}
+
+	private getHeaderJwt() {
+		let jwt = this.localStorageService.get('jwt');
+		if (jwt) {
+			return new Headers({		
+				'Content-Type': 'application/json',
+				'Authorization': jwt
+			});
+		}
 	}
 }

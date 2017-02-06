@@ -32,7 +32,8 @@ export class ParceiroEditComponent extends GenericComponent implements OnInit {
 			});
 		
 		this.elemService.getElem(this.id).then(elem => {
-			(<FormGroup>this.complexForm).setValue(elem, { onlySelf: true });				
+			(<FormGroup>this.complexForm).setValue(elem, { onlySelf: true });	
+			this.helper.stopLoading();					
 		});				
 	}
 

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule }  from '@angular/forms';
 import { HttpModule }                        from '@angular/http';
 import { ToastyModule }                      from 'ng2-toasty';
 import { LocalStorageModule }                from 'angular-2-local-storage';
+import {SlimLoadingBarModule}                from 'ng2-slim-loading-bar';
 
 import { routing }         from './app.routes';
 import { AppComponent }    from './app.component';
@@ -12,8 +13,9 @@ import { Helper }         from './utils/helper';
 import { AuthGuard }      from './utils/guard';
 import { UploadService }  from './utils/upload.service';
 
-import { LoginComponent } from './login/login.component';
-import { LoginService }   from './login/login.service';
+import { LoginComponent }     from './login/login.component';
+import { LoginService }       from './login/login.service';
+import { LoginEditComponent } from './login/loginEdit.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -54,11 +56,15 @@ import { ClienteNewComponent }   from './cliente/clienteNew.component';
 
 import { AniversarianteService } from './cliente/aniversariante.service';
 
+import { RelatorioService } from './relatorio/relatorio.service';
+import { RelatorioComponent }    from './relatorio/relatorio.component';
+
 @NgModule({
   declarations: [
   AppComponent,
 
   LoginComponent,
+  LoginEditComponent,
 
   DashboardComponent,
 
@@ -88,7 +94,9 @@ import { AniversarianteService } from './cliente/aniversariante.service';
 
   ClienteComponent,
   ClienteEditComponent,
-  ClienteNewComponent
+  ClienteNewComponent,
+
+  RelatorioComponent
 
   ],
   imports: [
@@ -100,8 +108,10 @@ import { AniversarianteService } from './cliente/aniversariante.service';
   ToastyModule.forRoot(),
   LocalStorageModule.withConfig({
     prefix: 'boog-app',
-    storageType: 'localStorage'
-  })],
+    storageType: 'localStorage'    
+  }),
+  SlimLoadingBarModule.forRoot()
+  ],
   providers: [
   Helper, 
   AuthGuard, 
@@ -114,7 +124,8 @@ import { AniversarianteService } from './cliente/aniversariante.service';
   DecoracaoService,
   ParceiroService,
   ClienteService,
-  AniversarianteService
+  AniversarianteService,
+  RelatorioService
   ],
   bootstrap: [AppComponent]
 })

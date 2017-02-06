@@ -37,7 +37,7 @@ class Helper {
 
 	public static function strDatetoDate($str) {
 		$data_exploded = explode('/', $str);
-		return strtotime($data_exploded[2].'-'.$data_exploded[1].'-'.$data_exploded[0]);
+		return $data_exploded[2].'-'.$data_exploded[1].'-'.$data_exploded[0];
 	}
 
 	public static function dateToStr($date) {
@@ -67,6 +67,12 @@ class Helper {
 			break;
 			case 14: 
 			return "Usuário e/ou Senha inválido(s)";
+			break;
+			case 15:
+			return "Preencha os campos";
+			break;
+			case 16:
+			return "Senhas não conferem";
 			break;
 
 			case 20:

@@ -6,15 +6,25 @@ class ClienteModel extends MY_Model {
 		$this->table = 'cliente';
 	}	
 
+	function findRelatorio1() {
+		$query = $this->db->query(
+			"SELECT c.id, c.nome, c.telefone, c.email, a.nome as nomeAniversariante, DATE_FORMAT(a.dt_nasc, '%d/%m/%Y') as dtNascAniversariante " .
+			"FROM cliente c " .
+			"JOIN aniversariante a ON a.id_cliente = c.id " .
+			"ORDER BY EXTRACT(month FROM a.dt_nasc) ASC, EXTRACT(day FROM a.dt_nasc) ASC"
+			);
+		return $query->result_array();
+	}
+
 	function getValidation() {
 		return array(
-				'nome' => array('Nome', 'string', '255', true),
-				'cpf' => array('CPF', 'int', '11', false),
-				'cep' => array('CEP', 'int', '8', false),
-				'endereco' => array('Endereço', 'string', '500', false),
-				'cidade' => array('Cidade', 'string', '255', false),
-				'telefone' => array('Telefone', 'string', '50', false),
-				'email' => array('Email', 'string', '255', false)
+			'nome' => array('Nome', 'string', '255', true),
+			'cpf' => array('CPF', 'int', '11', false),
+			'cep' => array('CEP', 'int', '8', false),
+			'endereco' => array('Endereço', 'string', '500', false),
+			'cidade' => array('Cidade', 'string', '255', false),
+			'telefone' => array('Telefone', 'string', '50', false),
+			'email' => array('Email', 'string', '255', false)
 			);
 	}
 }

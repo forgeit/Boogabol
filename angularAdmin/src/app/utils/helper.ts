@@ -1,5 +1,6 @@
 import { Injectable } 	from "@angular/core";
 import { Router } 		from '@angular/router';
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 
 import { environment } 	from '../../environments/environment';
 import { Location } 	from '@angular/common';
@@ -16,17 +17,17 @@ export class Helper {
 	public activeMenu: string;
 	private passSalt: string = "BoogPassSalt";
 
-	constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, private router: Router, private location: Location) {
+	constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, private router: Router, private location: Location, private slimLoadingBarService: SlimLoadingBarService) {
 		this.toastyConfig.theme = 'default';		
 	}
 
-	updateTable(tableClass: string): void {
+	updateTable(tableClass: string, ordenable: boolean, boolean4: boolean): void {
 		setTimeout(() => {
 			$('.'+tableClass).DataTable({
 				"paging": true,
 				"lengthChange": false,
 				"searching": false,
-				"ordering": true,
+				"ordering": ordenable,
 				"info": true,
 				"autoWidth": false
 			});	
@@ -34,14 +35,20 @@ export class Helper {
 	}
 
 	checkResponse(response: any): Promise<boolean> {		
+		this.stopLoading();
 		if (response.message) {
 			this.showMessage(response.res, response.message);
 		}
 		if (response.res == environment.RET_OK) {
 			return Promise.resolve(true);	
-		} else {			
+		} else if(response.res == environment.RET_LOGIN) {
+			this.navigate('login/out', null);
+			return Promise.resolve(false);	
+		} else {
 			return Promise.resolve(false);	
 		}
+		
+		
 	}
 
 	showMessage(type: string, text: string): void {
@@ -90,5 +97,14 @@ export class Helper {
 	cryptPassword(pass): string {
 		return sha256(this.passSalt+pass);
 	}
+
+	startLoading() {
+		this.slimLoadingBarService.start();
+	}
+
+	stopLoading() {
+		this.slimLoadingBarService.complete();
+	}
+
 
 }

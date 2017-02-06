@@ -11,11 +11,11 @@ class MY_Controller extends CI_Controller {
 
 
     public function isActive() {
-    	$pathReq = ($_SERVER['PATH_INFO']);
-        if ($pathReq != '/usuario/login') {
+        $pathReq = $this->uri->uri_string;
+        if ($pathReq != 'usuario/login') {
             $headers = getallheaders();
-            if (isset($headers['Authorization'])) {
-                $auth = getallheaders()['Authorization'];
+            if (isset($headers['X-Requested-With'])) {
+                $auth = getallheaders()['X-Requested-With'];
                 if (JWT::decodeWithTime($auth) !== 0) {
                     $this->printReturn(RET_LOGIN);
                     return false;

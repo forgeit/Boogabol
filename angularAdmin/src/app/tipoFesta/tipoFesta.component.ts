@@ -32,8 +32,7 @@ export class TipoFestaComponent extends GenericComponent implements OnInit {
 			this.helper.checkResponse(res).then((valid) => {
 				if (valid) {
 					this.list = res.dataRes;					
-				} else {
-					this.helper.updateTable('tableFull');
+					this.helper.updateTable('tableFull', true, false);
 				}
 			})
 		});	

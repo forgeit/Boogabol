@@ -43,6 +43,7 @@ export class ClienteEditComponent extends GenericComponent implements OnInit {
 
 	getListAux() {
 		this.elemAuxService.getElem(this.id).then(res => {
+			this.helper.stopLoading();
 			this.listAux = res;					
 			this.helper.updateMaskDate('mask-date');
 			if (this.listAux == null) {

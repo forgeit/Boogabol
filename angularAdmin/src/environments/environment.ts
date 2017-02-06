@@ -12,6 +12,7 @@ export const environment = {
   //Returns
   RET_OK: 'OK',
   RET_ERROR: 'ERROR',
+  RET_LOGIN: 'LOGIN',
 
   //Modules
   module_dashboard: 'dashboard',
@@ -23,5 +24,6 @@ export const environment = {
   module_parceiro: 'parceiro',
   module_cliente: 'cliente',
   module_aniversariante: 'aniversariante',
-  module_usuario: 'usuario'
+  module_usuario: 'usuario',
+  module_relatorio: 'relatorio'
 };

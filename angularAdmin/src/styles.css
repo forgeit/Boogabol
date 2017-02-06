@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+body {
+	background: #222d32;
+}
+
 table tbody th, table tbody td {
 	vertical-align: middle !important;	
 }
@@ -24,4 +28,19 @@ table tbody th, table tbody td {
 	left: 0;
 	background: #ecf0f5;
 	z-index: 5000;
+}
+
+.main-sidebar, .left-side {
+}
+
+.slim-loading-bar-progress {
+	background: #3c8dbc;
+	position: fixed;
+	top: 0;
+	z-index: 99999;
+
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
 }

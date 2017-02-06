@@ -54,8 +54,6 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//$route['/usuario/login'] = 'usuario/login';
-
 //Admin
 $commonRoutes = array(
 	'buffet',
@@ -75,6 +73,8 @@ foreach ($commonRoutes as $value) {
 	$route[$value.'/remove/(:num)'] = $value.'/remove/$1';
 	$route[$value.'/insert'] = $value.'/insert';	
 }
+
+$route['relatorio'] = 'relatorio/findAll';
 
 $route['fileUpload'] = 'fileUpload/uploadFile';
 $route['fileView/(:num)'] = 'fileView/view/$1';

@@ -1,0 +1,30 @@
+<div class="box">	
+	<div class="box-body">
+		<table class="tableFull table table-bordered table-striped table-consensed">
+			<thead>
+				<tr>
+					<th colspan="4">Cliente</th>
+					<th colspan="2">Aniversariante</th>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Contato</th>
+					<th>Email</th>
+					<th>Nome</th>
+					<th>Data de Nascimento</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let elem of list">
+					<td>{{elem.id}}</td>
+					<td>{{elem.nome}}</td>
+					<td>{{elem.telefone}}</td>
+					<td>{{elem.email}}</td>					
+					<td>{{elem.nomeAniversariante}}</td>					
+					<td>{{elem.dtNascAniversariante}}</td>					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

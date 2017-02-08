@@ -1,7 +1,6 @@
 import { Component } 	from '@angular/core';
 import { Router } 		from '@angular/router';
 
-import { environment } 	from '../../environments/environment';
 import { Helper }		from '../utils/helper';
 
 
@@ -10,11 +9,14 @@ import { Helper }		from '../utils/helper';
 	templateUrl: './home.component.html'
 	//styleUrls: ['./app.component.css']
 })
-export class HomeComponent{
-	environment:any = environment;
+export class HomeComponent {
+	
 
 	constructor(private helper: Helper) {
 		//helper.setPageInfo('Dashboard');
 	}
+
+	
+
 	title = 'app works!';
 }

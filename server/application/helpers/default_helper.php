@@ -52,6 +52,12 @@ class Helper {
 			case 1:
 			return "Registro Excluído";
 			break;
+			case 2:
+			return "Orçamento Enviado";
+			break;
+			case 3:
+			return "Obrigado pelo contato, responderemos assim que possível"
+			break;
 
 			case 10: 
 			return "Erro ao Salvar os Dados";						

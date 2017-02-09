@@ -1,3 +1,5 @@
+<ng2-slim-loading-bar [height]="'3px'"></ng2-slim-loading-bar>
+
 <div class="ct-preloader">
 	<div class="ct-preloader__inner">
 		<div class="ct-preloader__spinner"><i class="ct-preloader__1"></i><i class="ct-preloader__2"></i><i class="ct-preloader__3"></i><i class="ct-preloader__4"></i><i class="ct-preloader__5"></i><i class="ct-preloader__6"></i><i class="ct-preloader__7"></i><i class="ct-preloader__8"></i>
@@ -31,13 +33,14 @@
 		</div>
 	</div>
 	<div class="midbar">
+
 		<div class="midbar__inner">
-			<ul class="midbar-nav list-inline">
+			<!--<ul class="midbar-nav list-inline">
 				<li class="nav-item"><a routerLink="/" routerLinkActive="active">Piquenique</a>
 				</li>
 				<li class="nav-item"><a routerLink="/atracao" routerLinkActive="active">Teste</a>
 				</li>							
-			</ul>
+			</ul>-->
 		</div>
 		<div class="midbar__inner"><a href="#" class="midbar__search-toggle"><i class="fa fa-search"></i></a>
 		</div>
@@ -55,64 +58,15 @@
 			<a href="index.html" class="navbar-brand">
 				<img src="../assets/images/demo-content/logo.png" alt="logo">
 			</a>
-		</div><a href="book-party.html" class="btn btn-motive pull-right">Peça um orçamento</a>
+		</div><a routerLink="/orcamento" routerLinkActive="active" class="btn btn-motive pull-right">Peça um Orçamento</a>
 		<ul class="nav navbar-nav navbar-right">
-			<li class="nav-item"><a href="#" routerLink="/teste" routerLinkActive="active">Home</a>
-			</li>
-			<li role="presentation" class="dropdown nav-item nav-item"><a href="about.html" class="dropdown-toggle">Páginas<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="about.html">Sobre nós</a>
-					</li>
-					<li><a href="faq.html">Faq</a>
-					</li>
-					<li><a href="coming-soon.html">Em breve</a>
-					</li>
-					<li><a href="404.html">404 Page</a>
-					</li>
-				</ul>
-			</li>
-			<li class="nav-item"><a href="gallery.html">Galeria</a>
-			</li>
-			<li role="presentation" class="dropdown nav-item nav-item"><a href="packages.html" class="dropdown-toggle">Pacotes<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="package-detail-1.html">Coloring Party With Clowns</a>
-					</li>
-					<li><a href="package-detail-2.html">Tutus &amp; Twinkle Toes</a>
-					</li>
-					<li><a href="package-detail-3.html">Cooking In The Backyard</a>
-					</li>
-					<li><a href="package-detail-4.html">Barnyard Bash With Toddlers</a>
-					</li>
-					<li><a href="package-detail-5.html">Cooking In The Backyard</a>
-					</li>
-					<li><a href="package-detail-6.html">Getting Ready For Indian Party</a>
-					</li>
-				</ul>
-			</li>
-			<li role="presentation" class="dropdown nav-item nav-item"><a href="blog.html" class="dropdown-toggle">Blog<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="blog.html">Blog Elegant Listing</a>
-					</li>
-					<li><a href="blog2.html">Blog List With Post Types</a>
-					</li>
-					<li role="presentation" class="submenu"><a href="blog-post-4.html" class="submenu-toggle">Single Blog Posts<i class="fa fa-caret-right"></i></a>
-						<ul class="dropdown-menu">
-							<li><a href="blog-post-7.html">Video Post</a>
-							</li>
-							<li><a href="blog-post-10.html">Audio Post</a>
-							</li>
-							<li><a href="blog-post-9.html">Galeria</a>
-							</li>
-							<li><a href="blog-post-3.html">Imagem Post</a>
-							</li>
-							<li><a href="blog-post-11.html">Texto</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li class="nav-item"><a href="contact-us.html">Nos contate</a>
-			</li>
+			<li class="nav-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+			<li class="nav-item"><a routerLink="/atracao" routerLinkActive="active">Atrações</a></li>
+			<li class="nav-item"><a routerLink="/tipoFesta" routerLinkActive="active">Tipos de Festa</a></li>
+			<li class="nav-item"><a routerLink="/buffet" routerLinkActive="active">Buffet</a></li>
+			<li class="nav-item"><a routerLink="/cardapio" routerLinkActive="active">Cardápio</a></li>
+			<li class="nav-item"><a routerLink="/parceiros" routerLinkActive="active">Parceiros</a></li>
+			<li class="nav-item"><a routerLink="/contato" routerLinkActive="active">Contato</a></li>			
 		</ul>
 	</div>
 </nav>
@@ -248,26 +202,14 @@
 		</form>
 		<div class="ct-mobile-menu__content">
 			<ul class="ct-mobile-menu__nav list-unstyled">
-				<li class="nav-item"><a href="index.html">Home</a>
-				</li>
-				<li role="presentation" class="dropdown nav-item nav-item"><a href="about.html" class="dropdown-toggle">Pages<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="about.html">About Us</a>
-						</li>
-						<li><a href="testimonials.html">Testimonials</a>
-						</li>
-						<li><a href="book-party.html">Book Party</a>
-						</li>
-						<li><a href="faq.html">Faq</a>
-						</li>
-						<li><a href="coming-soon.html">Coming Soon</a>
-						</li>
-						<li><a href="404.html">404 Page</a>
-						</li>
-					</ul>
-				</li>
-				<li class="nav-item"><a href="gallery.html">Galeria</a>
-				</li>
+				<li class="nav-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+				<li class="nav-item"><a routerLink="/atracao" routerLinkActive="active">Atrações</a></li>
+				<li class="nav-item"><a routerLink="/tipoFesta" routerLinkActive="active">Tipos de Festa</a></li>
+				<li class="nav-item"><a routerLink="/buffet" routerLinkActive="active">Buffet</a></li>
+				<li class="nav-item"><a routerLink="/cardapio" routerLinkActive="active">Cardápio</a></li>
+				<li class="nav-item"><a routerLink="/parceiros" routerLinkActive="active">Parceiros</a></li>
+				<li class="nav-item"><a routerLink="/contato" routerLinkActive="active">Contato</a></li>
+				<!--
 				<li role="presentation" class="dropdown nav-item nav-item"><a href="packages.html" class="dropdown-toggle">Packages<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="package-detail-1.html">Coloring Party With Clowns</a>
@@ -283,48 +225,10 @@
 						<li><a href="package-detail-6.html">Getting Ready For Indian Party</a>
 						</li>
 					</ul>
-				</li>
-				<li role="presentation" class="dropdown nav-item nav-item"><a href="blog.html" class="dropdown-toggle">Blog<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="blog.html">Blog Elegant Listing</a>
-						</li>
-						<li><a href="blog2.html">Blog List With Post Types</a>
-						</li>
-						<li role="presentation" class="submenu"><a href="blog-post-4.html" class="submenu-toggle">Single Blog Posts<i class="fa fa-caret-right"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="blog-post-7.html">Video Post</a>
-								</li>
-								<li><a href="blog-post-10.html">Audio Post</a>
-								</li>
-								<li><a href="blog-post-9.html">Galeria</a>
-								</li>
-								<li><a href="blog-post-3.html">Image Post</a>
-								</li>
-								<li><a href="blog-post-11.html">Text Post</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="nav-item"><a href="contact-us.html">Contact Us</a>
-				</li>
+				</li>-->				
 			</ul>
-			<div role="separator" class="divider"></div><a href="book-party.html" class="btn btn-motive">Book Now</a>
+			<div role="separator" class="divider"></div><a href="book-party.html" class="btn btn-motive">Peça um Orçamento!</a>
 			<div role="separator" class="divider"></div>
-			<ul class="ct-mobile-menu__list list-unstyled">
-				<li class="nav-item"><a href="event-picnics.html">Piquenique</a>
-				</li>
-				<li class="nav-item"><a href="event-neighborhood.html">Neighborhood Parties</a>
-				</li>
-				<li class="nav-item"><a href="event-sports-teams.html">Sports Teams</a>
-					<li class="nav-item"><a href="event-schools.html">Escolas</a>
-					</li>
-					<li class="nav-item"><a href="event-special.html">Eventos especiais</a>
-					</li>
-					<li class="nav-item"><a href="event-birthday.html">Festas de aniversário</a>
-					</li>
-				</ul>
-			</div>
 			<address class="ct-address ct-footer__address ct-mobile-menu__address"><a href="https://goo.gl/maps/obRcgtwGH5K2" class="media ct-address__box" target="_blank">
 				<div class="media-left"><i class="fa fa-map-marker"></i></div>
 				<div class="media-body"><span class="media-heading">9870 St Vincent Place, Glasgow, DC 45 Fr 45.</span></div></a><a href="mailto:contact@myconfetti.com" class="media ct-address__box">
@@ -341,3 +245,6 @@
 				<li class="ct-socials__item ct-socials__item--flickr"><a href="#"><i class="fa fa-flickr"></i></a>
 				</li>
 			</ul>
+		</div>
+	</div>
+</div>

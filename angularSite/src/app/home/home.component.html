@@ -6,48 +6,63 @@
 	<!-- *** Atrações *** -->
 
 	<section class="container">
-	<h2 class="ct-section-header">Sobre   <b>os Eventos</b></h2>
+		<h2 class="ct-section-header">Sobre   <b>os Eventos</b></h2>
 		<div class="row">
 			<div data-items="1" data-items-lg="2" class="ct-slick ct-js-slick ct-slick--arrows2 ct-u-padding-bottom-40">
-				<div class="item">
+				<div class="item" [hidden]="atracao.titulo == null">
 					<article class="ct-blog-post ct-blog-post--image">
 						<div class="ct-blog-post__media">
-							<img [src]="helper.urlFile + atracao.id_imagem" alt="Atração" />
+							<img [src]="helper.urlFile + atracao?.id_imagem" alt="Atração" />							
 						</div>
+
 						<div class="ct-blog-post__body">
 							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Atrações</span>
 							</div>
 							<h3 class="h4 ct-blog-post__title">{{atracao.titulo}}</h3>
-							<div class="ct-blog-post__content">{{atracao.descricao}}
-							</div><a href="blog-post-2.html" class="btn btn-gray-o">Ver Todas</a>
+							<div class="ct-blog-post__content">{{atracao.descricao.length <= 100 ? atracao.descricao : (atracao.descricao | slice:0:100) + "..."}}
+							</div><a routerLink="/atracao" routerLinkActive="active" class="btn btn-gray-o">Ver Todas</a>
 						</div>
 					</article>
 				</div>		
-				<div class="item">
+				<div class="item" [hidden]="tipoFesta.titulo == null">
 					<article class="ct-blog-post ct-blog-post--image">
 						<div class="ct-blog-post__media">
-							<img [src]="helper.urlFile + tipoFesta.id_imagem" alt="Tipo de Festa" />
+							<img [src]="helper.urlFile + tipoFesta?.id_imagem" alt="Tipo de Festa" />
 						</div>
 						<div class="ct-blog-post__body">
-							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Tipo de Evento</span>
+							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Tipo de Festa</span>
 							</div>
 							<h3 class="h4 ct-blog-post__title">{{tipoFesta.titulo}}</h3>
-							<div class="ct-blog-post__content">{{tipoFesta.descricao}}
-							</div><a href="blog-post-1.html" class="btn btn-gray-o">Ver Todos</a>
+							<div class="ct-blog-post__content">{{tipoFesta.descricao.length <= 100 ? tipoFesta.descricao : (tipoFesta.descricao | slice:0:100) + "..."}}
+							</div><a routerLink="/tipoFesta" routerLinkActive="active" class="btn btn-gray-o">Ver Todos</a>
 						</div>
 					</article>
 				</div>		
-				<div class="item">
+				<div class="item" [hidden]="buffet.titulo == null">
 					<article class="ct-blog-post ct-blog-post--image">
 						<div class="ct-blog-post__media">
-							<img [src]="helper.urlFile + buffet.id_imagem" alt="Buffet" />
+							<img [src]="helper.urlFile + buffet?.id_imagem" alt="Buffet" />
 						</div>
 						<div class="ct-blog-post__body">
 							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Buffet</span>
 							</div>
 							<h3 class="h4 ct-blog-post__title">{{buffet.titulo}}</h3>
-							<div class="ct-blog-post__content">{{buffet.descricao}}
-							</div><a href="blog-post-1.html" class="btn btn-gray-o">Ver Todos</a>
+							<div class="ct-blog-post__content">{{buffet.descricao.length <= 100 ? buffet.descricao : (buffet.descricao | slice:0:100) + "..."}}
+							</div><a routerLink="/buffet" routerLinkActive="active" class="btn btn-gray-o">Ver Todos</a>
+						</div>
+					</article>
+				</div>
+				<div class="item" [hidden]="cardapio.titulo == null">
+					<article class="ct-blog-post ct-blog-post--image">
+						<div class="ct-blog-post__media">
+							<img [src]="helper.urlFile + cardapio?.id_imagem" alt="Cardápio" />
+						</div>
+						<div class="ct-blog-post__body">
+							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Cardápio</span>
+							</div>
+							<h3 class="h4 ct-blog-post__title">{{cardapio.titulo}}</h3>
+							<div class="ct-blog-post__content">{{cardapio.descricao.length <= 100 ? cardapio.descricao : (cardapio.descricao | slice:0:100) + "..."}}
+							</div><a routerLink="/cardapio" routerLinkActive="active" class="btn btn-gray-o">Ver Todos</a>
 						</div>
 					</article>
 				</div>
@@ -57,18 +72,17 @@
 
 
 	<!-- *** About Jessica *** -->
-	<section data-background="../assets/images/demo-content/bg-02.jpg" data-height="511" data-parallax="30" class="ct-u-mask ct-u-display-tablex text-center ct-u-padding-both-40">
+	<section data-background="../assets/images/party-kids-bg.jpg" data-height="511" data-parallax="30" class="ct-u-mask ct-u-display-tablex text-center ct-u-padding-both-40">
 		<div class="inner">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<img src="../assets/images/demo-content/jhorse.jpg" alt="Jessica Horse">
+						<img src="../assets/images/kids.jpg" alt="Jessica Horse">
 					</div>
 					<div class="col-md-6">
 						<h2 class="ct-section-header ct-section-header--white ct-u-margin-top-40">Sobre a    <b>Boogabol</b></h2>
 						<p data-color="#ffffff">Festas totalmente personalizadas é a nossa especialidade, desde o delicioso Buffet até a decoração perfeita para uma total imersão e diversão para todos os convidados. Peça um orçamento e aproveito nossas promoções.</p>
-						<a
-						href="about.html" class="btn btn-default-o">Read More</a>
+						<!--<a href="about.html" class="btn btn-default-o">Read More</a>-->
 					</div>
 				</div>
 			</div>

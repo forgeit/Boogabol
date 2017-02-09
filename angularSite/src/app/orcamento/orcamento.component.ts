@@ -4,24 +4,27 @@ import { Router } 			 from '@angular/router';
 import { Helper }			 from '../utils/helper';
 
 import { GenericService }	 from '../utils/generic.service';
-import { Atracao }			 from '../model/atracao';
+import { TipoFesta }			 from '../model/tipoFesta';
+import { Decoracao }			 from '../model/decoracao';
 
 
 @Component({
 	selector: 'app-admin',
-	templateUrl: './atracao.component.html'
+	templateUrl: './orcamento.component.html'
 	//styleUrls: ['./app.component.css']
 })
-export class AtracaoComponent implements OnInit {
+export class OrcamentoComponent implements OnInit {
 
-	list: Atracao[];
+	tipoFestaList: TipoFesta[];
+	decoracaoList: Decoracao[];
 
 	constructor(private helper: Helper, private gs: GenericService) {		
 	}
 
 	ngOnInit(): void {
-		this.gs.get('atracao').then(res => {
-			this.list = res;
+		this.gs.get('orcamento').then(res => {
+			this.tipoFestaList = res.tipoFestaList;
+			this.decoracaoList = res.decoracaoList;
 			this.helper.loadJS();	
 			this.helper.timeOutStopLoading();
 		});	

@@ -14,7 +14,7 @@ export class Helper {
 	public hideLoading: boolean = false;
 	public pageTitle: string = null;
 	public urlFile: string = environment.serverUrl + environment.urlFileView;
-	
+	private flagLoadJs: boolean = false;
 
 	private passSalt: string = "BoogPassSalt";
 
@@ -39,12 +39,22 @@ export class Helper {
 			node2.charset = 'utf-8';
 			document.getElementsByTagName('head')[0].appendChild(node2);
 		}, 1000);
+
+		this.flagLoadJs = true;
+	}
+
+	isLoadedJs() {
+		return this.flagLoadJs;
 	}
 
 	timeOutStopLoading() {
 		setTimeout(() => {
 			this.stopSpinnerLoader();
 		}, 1000);
+	}
+
+	startSpinnerLoader() {		
+		$('.ct-preloader').show();				
 	}
 
 	stopSpinnerLoader() {

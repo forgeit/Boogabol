@@ -12,9 +12,7 @@ export class AppComponent implements OnInit {
 	constructor(private helper: Helper) {		
 	}
 
-	ngOnInit(): void {
-		this.helper.loadJS();		
-		this.helper.timeOutStopLoading();
+	ngOnInit(): void {		
 	}
 
 	title = 'app works!';

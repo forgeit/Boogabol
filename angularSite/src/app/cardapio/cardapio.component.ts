@@ -4,23 +4,23 @@ import { Router } 			 from '@angular/router';
 import { Helper }			 from '../utils/helper';
 
 import { GenericService }	 from '../utils/generic.service';
-import { Atracao }			 from '../model/atracao';
+import { Cardapio }			 from '../model/cardapio';
 
 
 @Component({
 	selector: 'app-admin',
-	templateUrl: './atracao.component.html'
+	templateUrl: './cardapio.component.html'
 	//styleUrls: ['./app.component.css']
 })
-export class AtracaoComponent implements OnInit {
+export class CardapioComponent implements OnInit {
 
-	list: Atracao[];
+	list: Cardapio[];
 
 	constructor(private helper: Helper, private gs: GenericService) {		
 	}
 
 	ngOnInit(): void {
-		this.gs.get('atracao').then(res => {
+		this.gs.get('cardapio').then(res => {
 			this.list = res;
 			this.helper.loadJS();	
 			this.helper.timeOutStopLoading();

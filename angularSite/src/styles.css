@@ -7,3 +7,9 @@
 }
 
 [hidden] { display: none !important;}
+
+.ct-blog-post__media img {
+	width: 220px;
+    height: 220px;
+    object-fit: cover;
+}

@@ -12,7 +12,7 @@ class MY_Controller extends CI_Controller {
 
     public function isActive() {
         $pathReq = $this->uri->uri_string;
-        if ($pathReq != 'usuario/login') {
+        if (explode('/', $pathReq)[0] == 'public' ||  $pathReq != 'usuario/login') {
             $headers = getallheaders();
             if (isset($headers['X-Requested-With'])) {
                 $auth = getallheaders()['X-Requested-With'];

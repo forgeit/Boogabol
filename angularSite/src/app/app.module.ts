@@ -13,23 +13,28 @@ import { routing }        from './app.routes';
 import { HomeComponent }    from './home/home.component';
 import { AtracaoComponent } from './atracao/atracao.component';
 
+import { GenericService } from './utils/generic.service';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+  AppComponent,
 
-    HomeComponent,
-    AtracaoComponent
+  HomeComponent,
+  AtracaoComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    routing,
-    SlimLoadingBarModule.forRoot()
+  BrowserModule,
+  FormsModule,
+  HttpModule,
+  routing,
+  SlimLoadingBarModule.forRoot()
   ],
-  providers: [Helper],
+  providers: [
+  Helper,
+  GenericService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

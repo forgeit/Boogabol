@@ -13,6 +13,7 @@ export class Helper {
 	environment:any = environment;
 	public hideLoading: boolean = false;
 	public pageTitle: string = null;
+	public urlFile: string = environment.serverUrl + environment.urlFileView;
 	
 
 	private passSalt: string = "BoogPassSalt";

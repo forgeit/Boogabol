@@ -12,56 +12,42 @@
 				<div class="item">
 					<article class="ct-blog-post ct-blog-post--image">
 						<div class="ct-blog-post__media">
-							<img src="assets/images/demo-content/blog-01.png" alt="Cupcake Paper Flowers" />
-						</div>
-						<div class="ct-blog-post__body">
-							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Tipo do Seu Evento</span>
-							</div>
-							<h3 class="h4 ct-blog-post__title">Confira!!</h3>
-							<div class="ct-blog-post__content">Diversos tipos de eventos para adequar-se melhor a sua festa
-							</div><a href="blog-post-1.html" class="btn btn-gray-o">Ver...</a>
-						</div>
-					</article>
-				</div>
-				<div class="item">
-					<article class="ct-blog-post ct-blog-post--image">
-						<div class="ct-blog-post__media">
-							<img src="assets/images/demo-content/blog-02.png" alt="Biscuits Handmade" />
+							<img [src]="helper.urlFile + atracao.id_imagem" alt="Atração" />
 						</div>
 						<div class="ct-blog-post__body">
 							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Atrações</span>
 							</div>
-							<h3 class="h4 ct-blog-post__title">Confira!!</h3>
-							<div class="ct-blog-post__content">Quando se fala de uma boa festa lembramos tudo o que tinha para fazer nela
-							</div><a href="blog-post-2.html" class="btn btn-gray-o">Ver Atrações</a>
+							<h3 class="h4 ct-blog-post__title">{{atracao.titulo}}</h3>
+							<div class="ct-blog-post__content">{{atracao.descricao}}
+							</div><a href="blog-post-2.html" class="btn btn-gray-o">Ver Todas</a>
 						</div>
 					</article>
-				</div>
+				</div>		
 				<div class="item">
 					<article class="ct-blog-post ct-blog-post--image">
 						<div class="ct-blog-post__media">
-							<img src="assets/images/demo-content/blog-03.png" alt="Graduation Cuties Celementines" />
+							<img [src]="helper.urlFile + tipoFesta.id_imagem" alt="Tipo de Festa" />
+						</div>
+						<div class="ct-blog-post__body">
+							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Tipo de Evento</span>
+							</div>
+							<h3 class="h4 ct-blog-post__title">{{tipoFesta.titulo}}</h3>
+							<div class="ct-blog-post__content">{{tipoFesta.descricao}}
+							</div><a href="blog-post-1.html" class="btn btn-gray-o">Ver Todos</a>
+						</div>
+					</article>
+				</div>		
+				<div class="item">
+					<article class="ct-blog-post ct-blog-post--image">
+						<div class="ct-blog-post__media">
+							<img [src]="helper.urlFile + buffet.id_imagem" alt="Buffet" />
 						</div>
 						<div class="ct-blog-post__body">
 							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Buffet</span>
-							</div>							
-							<h3 class="h4 ct-blog-post__title">Confira!!</h3>
-							<div class="ct-blog-post__content">Nada melhor do que o delicioso Buffet para reunir as crianças
-							</div><a href="blog-post-3.html" class="btn btn-gray-o">Ver Buffet</a>
-						</div>
-					</article>
-				</div>
-				<div class="item">
-					<article class="ct-blog-post ct-blog-post--image">
-						<div class="ct-blog-post__media">
-							<img src="assets/images/demo-content/blog-04.png" alt="Party Favors Chalkboard" />
-						</div>
-						<div class="ct-blog-post__body">
-							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Cardápio</span>
 							</div>
-							<h3 class="h4 ct-blog-post__title">Confira!!</h3>
-							<div class="ct-blog-post__content">Diversos Cardapios para todos os Gostos
-							</div><a href="blog-post-4.html" class="btn btn-gray-o">Ver...</a>
+							<h3 class="h4 ct-blog-post__title">{{buffet.titulo}}</h3>
+							<div class="ct-blog-post__content">{{buffet.descricao}}
+							</div><a href="blog-post-1.html" class="btn btn-gray-o">Ver Todos</a>
 						</div>
 					</article>
 				</div>

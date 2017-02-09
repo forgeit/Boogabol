@@ -65,4 +65,13 @@ class MY_Model extends CI_Model {
     function getLastInsertedId() {
         return $this->db->insert_id();
     }
+
+    function getRandomOfTable($table) {
+        $query = $this->db->query("SELECT * FROM ".$table." ORDER BY RAND() LIMIT 1");
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        } else {
+            return null;
+        }
+    }
 }

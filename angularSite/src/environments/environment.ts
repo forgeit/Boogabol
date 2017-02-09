@@ -5,8 +5,9 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://localhost:8012/boogabol/server/public',
-  urlFileUpload: 'fileUpload',
+  
+  serverUrl: 'http://localhost:8012/boogabol/server/',
+  urlPublic: 'publico/',
   urlFileView: 'fileView/',
 
   //Returns

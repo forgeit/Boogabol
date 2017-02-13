@@ -8,6 +8,7 @@ import { Cardapio } 	from '../model/cardapio';
 import { Buffet } 		from '../model/buffet';
 import { TipoFesta } 	from '../model/tipoFesta';
 import { Atracao } 		from '../model/atracao';
+import { Parceiro } from '../model/parceiro';
 
 
 @Component({
@@ -21,8 +22,9 @@ export class HomeComponent implements OnInit {
 	buffet: Buffet;
 	tipoFesta: TipoFesta;
 	atracao: Atracao;
+	parceiroList: Parceiro[];
 
-	constructor(private helper: Helper, private gs: GenericService) {
+	constructor(private helper: Helper, private gs: GenericService, private router: Router) {
 		//helper.setPageInfo('Dashboard');
 
 		this.cardapio = new Cardapio(null,'','',null);
@@ -32,6 +34,8 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.helper.pageTitle = null;
+		
 		this.gs.get('home').then(res => {
 			if (res.cardapio != null) {
 				this.cardapio = res['cardapio'];
@@ -45,9 +49,16 @@ export class HomeComponent implements OnInit {
 			if (res.atracao != null) {
 				this.atracao = res['atracao'];
 			}
+			if (res.parceiroList != null) {
+				this.parceiroList = res.parceiroList;
+			}
 
 			this.helper.loadJS();	
 			this.helper.timeOutStopLoading();
+
+			if (this.helper.getCurrentUrl() == '/parceiro') {
+				this.helper.scrollTo();
+			}
 		});
 	}
 

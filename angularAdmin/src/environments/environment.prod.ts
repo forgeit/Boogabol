@@ -21,5 +21,6 @@ export const environment = {
   module_cliente: 'cliente',
   module_aniversariante: 'aniversariante',
   module_usuario: 'usuario',
-  module_relatorio: 'relatorio'
+  module_relatorio: 'relatorio',
+  module_orcamento: 'orcamento'
 };

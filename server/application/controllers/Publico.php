@@ -8,16 +8,18 @@ class Publico extends MY_Controller {
 		$tipoFesta = $this->TipoFestaModel->getRandomOfTable('tipo_festa');
 		$atracao = $this->AtracaoModel->getRandomOfTable('atracao');
 		$buffet = $this->BuffetModel->getRandomOfTable('buffet');
+		$parceiroList = $this->ParceiroModel->findAll();
 
 		print_r(json_encode(array(
 			'cardapio'=>$cardapio,
 			'tipoFesta'=>$tipoFesta,
 			'atracao'=>$atracao,
-			'buffet'=>$buffet
+			'buffet'=>$buffet,
+			'parceiroList'=>$parceiroList
 			)));
 	}
 
-	public function atracoes() {
+	public function atracao() {
 		print_r(json_encode($this->AtracaoModel->findAll()));
 	}
 
@@ -37,7 +39,7 @@ class Publico extends MY_Controller {
 		print_r(json_encode(array(
 			'tipoFestaList' =>$this->TipoFestaModel->findAll(),
 			'decoracaoList' =>$this->DecoracaoModel->findAll()
-			));	
+			)));	
 	}
 
 	public function saveOrcamento() {
@@ -48,17 +50,20 @@ class Publico extends MY_Controller {
 			$this->printReturn(RET_ERROR, null, Helper::getMessage(10));
 			return;
 		}
-		
-		$valid =  Helper::inputValidation($object, $this->OrcamentoModel->getValidation());
-		if ($this->checkValidation($valid) && $this->checkExec(array('exec' => $this->AtracaoModel->save($object)))) {			
-			$this->printReturn(RET_OK, null, Helper::getMessage(2));
-		}	
-	}
 
-	public function parceiros() {
-		print_r(json_encode($this->ParceiroModel->findAll()));
+		$valid = Helper::inputValidation($object, $this->OrcamentoModel->getValidation());
+		if ($this->checkValidation($valid)) {
+			if ($object->data) {
+				$object->data = Helper::strDatetoDate($object->data);
+			}
+			if ($this->checkExec(array('exec' => $this->OrcamentoModel->save($object)))) {			
+				$this->printReturn(RET_OK, null, Helper::getMessage(2));
+			} 
+		} else {
+			$this->OrcamentoModel->printError();
+		}		
 	}
-
+	
 	public function saveContato() {
 		$data = $this->security->xss_clean($this->input->raw_input_stream);
 		$object = json_decode($data);
@@ -69,8 +74,8 @@ class Publico extends MY_Controller {
 		}
 
 		$message = ''.
-		'NOME: ' . $object->nome . "\r\n"
-		'TELEFONE: ' . $object->telefone . "\r\n"
+		'NOME: ' . $object->nome . "\r\n" .
+		'TELEFONE: ' . $object->telefone . "\r\n" .
 		'EMAIL: ' . $object->email . "\r\n" .
 		'MENSAGEM: ' . wordwrap($object->mensagem, 70, "\r\n");
 

@@ -24,6 +24,7 @@ export const routes: Routes = [
 	{path: 'tipoFesta', component: TipoFestaComponent, canActivate: [PreLoad]},
 	{path: 'orcamento', component: OrcamentoComponent, canActivate: [PreLoad]},
 	{path: 'contato', component: ContatoComponent, canActivate: [PreLoad]},
+	{path: 'parceiro', component: HomeComponent, canActivate: [PreLoad]},
 	{path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 

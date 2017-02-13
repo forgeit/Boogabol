@@ -10,10 +10,10 @@ class Helper {
 			if ($value[3] && self::isNullOrEmpty($arr[$key])) { //Required
 				return self::getMessage(20, $value[0]);
 			}
-			if ($value[2] && strlen($arr[$key]) > $value[2]) {
+			if ($value[2] &&  $arr[$key] && strlen($arr[$key]) > $value[2]) {
 				return self::getMessage(21, $value[0]);
 			} 
-			if ($value[1] && !self::typeValid($value[1], $arr[$key])) {
+			if ($value[1] &&  $arr[$key] && !self::typeValid($value[1], $arr[$key])) {
 				return self::getMessage(22, $value[0]);
 			}
 		}
@@ -56,7 +56,7 @@ class Helper {
 			return "Orçamento Enviado";
 			break;
 			case 3:
-			return "Obrigado pelo contato, responderemos assim que possível"
+			return "Obrigado pelo contato, responderemos assim que possível";
 			break;
 
 			case 10: 
@@ -88,7 +88,7 @@ class Helper {
 			return $field.' muito Longo';
 			break;
 			case 22:
-			return $field.' Inválido';
+			return $field.' Inválido(a)';
 			break;
 		} 
 	}

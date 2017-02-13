@@ -9,7 +9,7 @@ import { TipoFesta }			 from '../model/tipoFesta';
 
 @Component({
 	selector: 'app-admin',
-	templateUrl: './atracao.component.html'
+	templateUrl: './tipoFesta.component.html'
 	//styleUrls: ['./app.component.css']
 })
 export class TipoFestaComponent implements OnInit {
@@ -20,6 +20,8 @@ export class TipoFestaComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.helper.pageTitle = "Tipos de Festa";
+
 		this.gs.get('tipoFesta').then(res => {
 			this.list = res;
 			this.helper.loadJS();	

@@ -74,4 +74,8 @@ class MY_Model extends CI_Model {
             return null;
         }
     }
+
+    function printError() {        
+        print_r($this->db->error());
+    }
 }

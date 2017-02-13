@@ -142,5 +142,6 @@ $autoload['model'] = array(
 	'ParceiroModel',
 	'ClienteModel',
 	'AniversarianteModel',
-	'UsuarioModel'
+	'UsuarioModel',
+	'OrcamentoModel'
 	);

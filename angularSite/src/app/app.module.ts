@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { SlimLoadingBarModule }  from 'ng2-slim-loading-bar';
-
 import { Helper }         from './utils/helper';
 
 import { AppComponent }   from './app.component';
@@ -40,8 +38,7 @@ import { GenericService } from './utils/generic.service';
   BrowserModule,
   FormsModule,
   HttpModule,
-  routing,
-  SlimLoadingBarModule.forRoot()
+  routing
   ],
   providers: [
   Helper,

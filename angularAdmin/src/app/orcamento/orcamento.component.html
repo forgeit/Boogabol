@@ -1,0 +1,30 @@
+<div class="box">		
+	<div class="box-body">
+		<table class="tableFull table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th></th>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Telefone</th>
+					<th>Email</th>
+					<th>Visualizado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let elem of list">
+					<td>
+						<div class="btn-group">							
+							<button type="button" class="btn btn-danger" (click)="onRemove(elem.id)"><i class="fa fa-remove"></i></button>					
+						</div>
+					</td>
+					<td>{{elem.id}}</td>
+					<td>{{elem.nome}}</td>					
+					<td>{{elem.telefone}}</td>					
+					<td>{{elem.email}}</td>					
+					<td>{{elem.flag_lido ? 'Sim' : 'Não'}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

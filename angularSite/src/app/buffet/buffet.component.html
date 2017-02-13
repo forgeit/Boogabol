@@ -1,0 +1,20 @@
+<main>
+	<!-- *** Isotope Gallery *** -->
+	<div class="container">
+		<div class="ct-isotope-container">
+			<div class="ct-isotope-gallery ct-isotope-gallery--lg-4 ct-isotope-gallery--md-3 ct-isotope-gallery--sm-2 ct-isotope-gallery--xs-1">
+				<figure class="ct-isotope-item isotope-grid-sizer august" *ngFor="let elem of list">
+					<div class="ct-isotope-item__media">
+						<img [src]="helper.urlFile + elem?.id_imagem" alt="Buffet" />
+						<div class="ct-isotope-item__hover">
+							<div class="ct-isotope-item__inner">
+								<h4>{{elem.titulo}}</h4>
+								<a (click)="helper.showModal(elem.titulo, elem.descricao)" class="btn btn-default-o--type2 btn-sm">Ver Informações</a>
+							</div>
+						</div>
+					</div>
+				</figure>
+			</div>
+		</div>
+	</div>
+</main>

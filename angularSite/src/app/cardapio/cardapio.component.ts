@@ -20,6 +20,8 @@ export class CardapioComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.helper.pageTitle = "Nossos Cardápios";
+
 		this.gs.get('cardapio').then(res => {
 			this.list = res;
 			this.helper.loadJS();	

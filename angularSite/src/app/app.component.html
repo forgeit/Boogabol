@@ -1,4 +1,3 @@
-<ng2-slim-loading-bar [height]="'3px'"></ng2-slim-loading-bar>
 
 <div class="ct-preloader">
 	<div class="ct-preloader__inner">
@@ -60,13 +59,13 @@
 			</a>
 		</div><a routerLink="/orcamento" routerLinkActive="active" class="btn btn-motive pull-right">Peça um Orçamento</a>
 		<ul class="nav navbar-nav navbar-right">
-			<li class="nav-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
-			<li class="nav-item"><a routerLink="/atracao" routerLinkActive="active">Atrações</a></li>
-			<li class="nav-item"><a routerLink="/tipoFesta" routerLinkActive="active">Tipos de Festa</a></li>
-			<li class="nav-item"><a routerLink="/buffet" routerLinkActive="active">Buffet</a></li>
-			<li class="nav-item"><a routerLink="/cardapio" routerLinkActive="active">Cardápio</a></li>
-			<li class="nav-item"><a routerLink="/parceiros" routerLinkActive="active">Parceiros</a></li>
-			<li class="nav-item"><a routerLink="/contato" routerLinkActive="active">Contato</a></li>			
+			<li class="nav-item"><a routerLink="/home" routerLinkActive="menu-active" >Home</a></li>
+			<li class="nav-item"><a routerLink="/atracao" routerLinkActive="menu-active">Atrações</a></li>
+			<li class="nav-item"><a routerLink="/tipoFesta" routerLinkActive="menu-active">Tipos de Festa</a></li>
+			<li class="nav-item"><a routerLink="/buffet" routerLinkActive="menu-active">Buffet</a></li>
+			<li class="nav-item"><a routerLink="/cardapio" routerLinkActive="menu-active">Cardápio</a></li>
+			<li class="nav-item"><a routerLink="/parceiro" routerLinkActive="menu-active">Parceiros</a></li>
+			<li class="nav-item"><a routerLink="/contato" routerLinkActive="menu-active">Contato</a></li>			
 		</ul>
 	</div>
 </nav>
@@ -80,7 +79,7 @@
 	</svg>
 	<div class="ct-page-header__inner">
 		<div class="container">
-			<h1 class="h1 ct-page-header__title" [ngClass]="{'component-invisible': helper.pageTitle == null}">Some <b>Thoughts</b></h1>
+			<h1 class="h1 ct-page-header__title" [ngClass]="{'component-invisible': helper.pageTitle == null}">{{helper.pageTitle}}</h1>
 			<div class="row" [ngClass]="{'component-invisible': helper.pageTitle !== null}">
 				<div class="col-md-8 col-md-offset-2">
 					<h1>Festas &amp; Eventos <b>Personalizados com diversão!</b></h1>
@@ -246,5 +245,17 @@
 				</li>
 			</ul>
 		</div>
+	</div>
+</div>
+
+
+<div class="modal-bg" [hidden]="helper.modalHide">
+	<div class="modal-window">
+		<div class="modal-text">
+			<h3>{{helper.modalTitle}}</h3>
+			<p>{{helper.modalText}}</p>
+			<hr>
+		</div>
+		<button class="btn btn-motive" (click)="helper.hideModal()">Fechar</button>
 	</div>
 </div>

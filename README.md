@@ -1,6 +1,6 @@
-<h1>Projeto BOOGABOL</h1>
+#Projeto BOOGABOL
 
-* Projeto feito para o Felipe Gassen e Kelvin Alves (FORGEIT).
+**Projeto feito para o Felipe Gassen e Kelvin Alves (FORGEIT).**
 
 
 Projeto feito em angular2 com PHP, possui 3 Projetos Base:

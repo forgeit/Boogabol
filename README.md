@@ -16,10 +16,8 @@ Projeto feito para o Felipe Gassen e Kelvin Alves (FORGEIT).
 1. Instalar PHP5
 1. Instalar PHP MySQL
 1. Instalar Mysql
-1. Após baixar o projeto nas pastas angularAdmin e angularSite deve ser executado os comandos:
-
+1. Após baixar o projeto nas pastas angularAdmin e angularSite deve ser executado o comando:
 ```
 npm install
 ```
-
-1. Alterar caminho para o Server nos arquivos /src/environment/environment.*
+1. Alterar caminho para o Server nos arquivos dos projetos angular /src/environment/environment.*

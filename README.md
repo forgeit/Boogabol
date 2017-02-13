@@ -10,4 +10,14 @@ Projeto feito para o Felipe Gassen e Kelvin Alves (FORGEIT).
 > * server          (Server PHP5.4+)
 
 
-<h3>Instalação</h3>
+<h3>Configuração para Desenvolvimento</h3>
+* Instalar NodeJS
+* Instalar AngularCli
+* Instalar PHP5
+* Instalar PHP MySQL
+* Instalar Mysql
+
+* Após baixar o projeto nas pastas angularAdmin e angularSite deve ser executado os comandos
+'''
+npm install
+'''

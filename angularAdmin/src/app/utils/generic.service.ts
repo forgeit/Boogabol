@@ -54,7 +54,7 @@ export class GenericService {
 		return Promise.reject(error.message || error);
 	}
 
-	private getHeaderJwt() {
+	getHeaderJwt() {
 		let jwt = this.localStorageService.get('jwt');
 		if (jwt) {
 			return new Headers({		

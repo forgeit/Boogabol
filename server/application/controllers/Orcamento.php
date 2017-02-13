@@ -34,7 +34,19 @@ class Orcamento extends MY_Controller {
 			return;
 		}
 
-		print_r(json_encode($this->OrcamentoModel->findById($this->uri->segment(3))));
+		$elem = $this->OrcamentoModel->findById($this->uri->segment(3));
+		if ($elem['id_decoracao']) {
+			$elem['decoracao'] = $this->DecoracaoModel->findById(elem['id_decoracao'])['titulo'];
+		}
+		if ($elem['id_tipo_festa']) {
+			$elem['tipo_festa'] = $this->TipoFestaModel->findById(elem['id_tipo_festa'])['titulo'];
+		}
+		unset($elem['id_tipo_festa');
+		unset($elem['id_decoracao');
+		
+		$this->OrcamentoModel->lerOrcamento($elem['id']);
+
+		print_r(json_encode($elem));
 	}
 
 	public function findAll() {

@@ -17,11 +17,13 @@ import { OrcamentoService } 	from './orcamento.service';
 
 export class OrcamentoEditComponent extends GenericComponent implements OnInit {		
 
+	elem: Orcamento = new Orcamento(null,null,null,null,null,null,null,null,null,null,null,null,null);
+
 	constructor(private helper: Helper, private elemService: OrcamentoService, private route: ActivatedRoute, fb: FormBuilder) {
 		super(fb);
 		this.compModule = this.environment.module_orcamento;
-		this.complexForm = fb.group(elemService.getFormValidator());
-		helper.setPageInfo('Edição Decoração', this.environment.module_orcamento);
+		helper.setPageInfo('Orçamento', this.environment.module_orcamento);
+
 	}
 
 	ngOnInit(): void {
@@ -31,30 +33,14 @@ export class OrcamentoEditComponent extends GenericComponent implements OnInit {
 			});
 		
 		this.elemService.getElem(this.id).then(elem => {
-			(<FormGroup>this.complexForm).setValue(elem, { onlySelf: true });	
+			this.elem = elem;
 			this.helper.stopLoading();			
 		});				
 	}
 
-	onFileChange(event) {
-		this.fileUp = event.srcElement.files;
-	}
-	
-	submitForm(value: any):void{		
-		if (this.complexForm.valid) {
-			this.elemService.update(value).then(res => {
-				this.helper.checkResponse(res).then(valid => {
-					if (valid) {
-						this.helper.navigate(this.compModule+'/list', null);
-					}
-				});
-			});			
-		}
-	}	
-
-	sendData(value: any):void {
+	submitForm():void{		
 		
-	}
+	}		
 }
 
 

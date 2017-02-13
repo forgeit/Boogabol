@@ -17,7 +17,8 @@ Projeto feito para o Felipe Gassen e Kelvin Alves (FORGEIT).
 * Instalar PHP MySQL
 * Instalar Mysql
 
-* Após baixar o projeto nas pastas angularAdmin e angularSite deve ser executado os comandos
-'''
+* Após baixar o projeto nas pastas angularAdmin e angularSite deve ser executado os comandos:
+
+```
 npm install
-'''
+```

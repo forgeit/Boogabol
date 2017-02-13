@@ -1,4 +1,4 @@
-Projeto BOOGABOL
+<h1>Projeto BOOGABOL</h1>
 
 Projeto feito para o Felipe Gassen e Kelvin Alves (FORGEIT).
 

@@ -56,8 +56,12 @@ import { ClienteNewComponent }   from './cliente/clienteNew.component';
 
 import { AniversarianteService } from './cliente/aniversariante.service';
 
-import { RelatorioService } from './relatorio/relatorio.service';
+import { RelatorioService }      from './relatorio/relatorio.service';
 import { RelatorioComponent }    from './relatorio/relatorio.component';
+
+import { OrcamentoService }      from './orcamento/orcamento.service';
+import { OrcamentoComponent }    from './orcamento/orcamento.component';
+import { OrcamentoEditComponent }from './orcamento/orcamentoEdit.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +100,10 @@ import { RelatorioComponent }    from './relatorio/relatorio.component';
   ClienteEditComponent,
   ClienteNewComponent,
 
-  RelatorioComponent
+  RelatorioComponent,
+
+  OrcamentoComponent,
+  OrcamentoEditComponent
 
   ],
   imports: [
@@ -125,7 +132,8 @@ import { RelatorioComponent }    from './relatorio/relatorio.component';
   ParceiroService,
   ClienteService,
   AniversarianteService,
-  RelatorioService
+  RelatorioService,
+  OrcamentoService
   ],
   bootstrap: [AppComponent]
 })

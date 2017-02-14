@@ -2,65 +2,67 @@
 
   <form name="form">
     <div class="box-body">
-      <div class="form-group">
-        <label>ID</label>
-        <input type="text" class="form-control" disabled="true" value="{{complexForm.value.id}}">        
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>ID</label>
+            <input type="text" class="form-control" value="{{elem.id}}" readonly="true">        
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
-            <input type="text" value="elem.nome" class="form-control" readonly="true" />
             <label>Nome</label>
+            <input type="text" value="{{elem.nome}}" class="form-control" readonly="true" />
           </div>
           <div class="form-group">
-            <input type="text" value="elem.email" class="form-control" readonly="true" />
             <label>Email</label>
+            <input type="text" value="{{elem.email}}" class="form-control" readonly="true" />
           </div>
           <div class="form-group">
-            <input type="text" value="elem.nome_aniversariante" class="form-control" readonly="true" />
             <label>Nome do Aniversariante</label>
+            <input type="text" value="{{elem.nome_aniversariante}}" class="form-control" readonly="true" />
           </div>
-          <span class="ct-form-section__header">Tipo de Festa</span>
           <div class="form-group">
-            <input type="text" value="elem.tipoFesta" class="form-control" readonly="true" />
             <label>Tipo de Festa</label>
+            <input type="text" value="{{elem.tipo_festa}}" class="form-control" readonly="true" />
           </div>
           <div class="form-group">
-            <input type="text" value="elem.data" class="form-control" readonly="true" />
             <label>Data da Festa</label>
+            <input type="text" value="{{elem.data}}" class="form-control" readonly="true" />            
           </div>       
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <input type="text" value="elem.telefone" class="form-control" readonly="true" />
             <label>Telefone</label>
+            <input type="text" value="{{elem.telefone}}" class="form-control" readonly="true" />            
           </div>
           <div class="form-group">
-            <input type="text" value="elem.onde_encontrou" class="form-control" readonly="true" />
             <label>Onde nos Encontrou?</label>
+            <input type="text" value="{{elem.onde_encontrou}}" class="form-control" readonly="true" />            
           </div>
           <div class="form-group">
-            <input type="text" value="elem.idade_aniversariante" class="form-control" readonly="true" />
             <label>Idade do Aniversariante</label>
+            <input type="text" value="{{elem.idade_aniversariante}}" class="form-control" readonly="true" />            
           </div>
-          <span class="ct-form-section__header">Decoração</span>
           <div class="form-group">
-            <input type="text" value="elem.decoracao" class="form-control" readonly="true" />
             <label>Decoração</label>
+            <input type="text" value="{{elem.decoracao}}" class="form-control" readonly="true" />            
           </div>
           <div class="form-group">
-            <input type="text" value="elem.num_convidados" class="form-control" readonly="true" />
             <label>Número de Convidados</label>
+            <input type="text" value="{{elem.num_convidados}}" class="form-control" readonly="true" />            
           </div>
         </div>
         <div class="col-sm-12">
           <div class="form-group">
-            <input type="text" value="elem.tema" class="form-control" readonly="true" />
             <label>Tema</label>
+            <input type="text" value="{{elem.tema}}" class="form-control" readonly="true" />
           </div>   
           <div class="form-group">
-            <textarea rows="8" value="elem.obs" class="form-control ct-u-margin-top-15" readonly="true"></textarea>
             <label>Observações</label>
+            <textarea rows="8" value="{{elem.obs}}" class="form-control ct-u-margin-top-15" readonly="true"></textarea>            
           </div>
         </div>        
       </div>      

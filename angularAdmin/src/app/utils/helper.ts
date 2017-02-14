@@ -13,6 +13,7 @@ declare var sha256: any;
 @Injectable()
 export class Helper {
 
+	public orcamentoNaoLido: number;
 	public pageTitle: string;
 	public activeMenu: string;
 	private passSalt: string = "BoogPassSalt";
@@ -22,16 +23,29 @@ export class Helper {
 	}
 
 	updateTable(tableClass: string, ordenable: boolean, boolean4: boolean): void {
-		setTimeout(() => {
-			$('.'+tableClass).DataTable({
+		if ($.fn.dataTable.isDataTable( '.'+tableClass )) {
+			$('#example').DataTable( {
+				"destroy": true,
 				"paging": true,
 				"lengthChange": false,
 				"searching": false,
 				"ordering": ordenable,
 				"info": true,
 				"autoWidth": false
-			});	
-		});
+			});
+		} else {
+			setTimeout(() => {
+				$('.'+tableClass).DataTable({
+					"paging": true,
+					"lengthChange": false,
+					"searching": false,
+					"ordering": ordenable,
+					"info": true,
+					"autoWidth": false
+				});	
+			});
+		}
+		
 	}
 
 	checkResponse(response: any): Promise<boolean> {		

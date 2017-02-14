@@ -17,6 +17,7 @@ import { tipoFestaRoutes } 	from './tipoFesta/tipoFesta.routes';
 import { decoracaoRoutes } 	from './decoracao/decoracao.routes';
 import { parceiroRoutes } 	from './parceiro/parceiro.routes';
 import { clienteRoutes } 	from './cliente/cliente.routes';
+import { orcamentoRoutes } 	from './orcamento/orcamento.routes';
 
 
 // Route Configuration
@@ -33,6 +34,7 @@ export const routes: Routes = [
 	...decoracaoRoutes,
 	...parceiroRoutes,
 	...clienteRoutes,
+	...orcamentoRoutes,
 	{path: 'relatorio', component: RelatorioComponent, canActivate: [AuthGuard]},
 	{path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
 ];

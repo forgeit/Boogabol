@@ -34,7 +34,11 @@ export class OrcamentoEditComponent extends GenericComponent implements OnInit {
 		
 		this.elemService.getElem(this.id).then(elem => {
 			this.elem = elem;
-			this.helper.stopLoading();			
+			
+			this.elemService.getNaoLidos().then(res => {
+				this.helper.stopLoading();	
+				this.helper.orcamentoNaoLido = res.count;
+			});		
 		});				
 	}
 

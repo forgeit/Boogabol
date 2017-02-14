@@ -14,7 +14,8 @@
 			<tbody>
 				<tr *ngFor="let elem of list">
 					<td>
-						<div class="btn-group">							
+						<div class="btn-group">						
+							<button type="button" [routerLink]="['/orcamento/edit', elem.id]" class="btn btn-primary"><i class="fa fa-pencil"></i></button>					
 							<button type="button" class="btn btn-danger" (click)="onRemove(elem.id)"><i class="fa fa-remove"></i></button>					
 						</div>
 					</td>
@@ -22,7 +23,7 @@
 					<td>{{elem.nome}}</td>					
 					<td>{{elem.telefone}}</td>					
 					<td>{{elem.email}}</td>					
-					<td>{{elem.flag_lido ? 'Sim' : 'Não'}}</td>
+					<td [ngClass]="{'td-grey': elem.flag_lido == 0}">{{elem.flag_lido == 1 ? 'Sim' : 'Não'}}</td>
 				</tr>
 			</tbody>
 		</table>

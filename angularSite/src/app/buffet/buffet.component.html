@@ -1,20 +1,25 @@
 <main>
-	<!-- *** Isotope Gallery *** -->
-	<div class="container">
-		<div class="ct-isotope-container">
-			<div class="ct-isotope-gallery ct-isotope-gallery--lg-4 ct-isotope-gallery--md-3 ct-isotope-gallery--sm-2 ct-isotope-gallery--xs-1">
-				<figure class="ct-isotope-item isotope-grid-sizer august" *ngFor="let elem of list">
-					<div class="ct-isotope-item__media">
-						<img [src]="helper.urlFile + elem?.id_imagem" alt="Buffet" />
-						<div class="ct-isotope-item__hover">
-							<div class="ct-isotope-item__inner">
-								<h4>{{elem.titulo}}</h4>
-								<a (click)="helper.showModal(elem.titulo, elem.descricao)" class="btn btn-default-o--type2 btn-sm">Ver Informações</a>
-							</div>
-						</div>
-					</div>
-				</figure>
-			</div>
-		</div>
-	</div>
+    <!-- *** Faq Panel *** -->
+    <div class="container ct-u-padding-top-30">
+        <div class="row">
+            <div data-items="1" data-items-sm="2" data-items-lg="3" data-items-xl="4" class="ct-slick ct-js-slick ct-slick--arrows2">
+                <div class="item" *ngFor="let elem of list">
+                    <a (click)="helper.showModal(elem.titulo, elem.descricao)" class="ct-image-box ct-image-box--with-content">
+                        <div class="ct-image-box__media">
+                            <div class="inner">
+                                <img [src]="helper.urlFile + elem?.id_imagem" alt="Attire" />
+                            </div>
+                            <div class="ct-image-box__hover">
+                                <div class="ct-image-box__inner">
+                                    <p class="ct-image-box__content">{{elem.descricao.length <= 100 ? elem.descricao : (elem.descricao | slice:0:100) + "..."}}
+                                    </p><span class="btn btn-default-o" *ngIf="elem.descricao.length > 100">Ver Mais</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="ct-image-box__title"><span class="ct-image-box__colored">{{elem.titulo}}</span></h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>

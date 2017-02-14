@@ -80,6 +80,9 @@ class Helper {
 			case 16:
 			return "Senhas não conferem";
 			break;
+			case 17:
+			return "Registro não pode ser excluído, está sendo utilizado";
+			break;
 
 			case 20:
 			return $field.' é Obrigatório';

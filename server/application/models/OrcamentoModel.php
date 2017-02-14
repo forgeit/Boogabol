@@ -12,15 +12,7 @@ class OrcamentoModel extends MY_Model {
 	}
 
 	function getOrcamentosNaoLidos() {
-		$this->db->where('flag_lido', 'FALSE');
-
-		$query = $this->db->query("SELECT COUNT(*) as count FROM orcamento WHERE flag_lido IS FALSE");
-
-		if ($query->num_rows() > 0) {
-			return $query->row_array();
-		} else {
-			return null;
-		}
+		return $this->db->where('flag_lido', 'FALSE')->count_all($this->table);		
 	}
 
 	function getValidation() {

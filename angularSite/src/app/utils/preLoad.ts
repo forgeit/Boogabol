@@ -11,9 +11,7 @@ export class PreLoad implements CanActivate {
     constructor(private helper: Helper) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (this.helper.isLoadedJs()) {
-            $('.ct-preloader').show();     
-        }           
+        this.helper.startSpinnerLoader();
         return true;        
     }
 }

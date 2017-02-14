@@ -15,7 +15,6 @@ export class OrcamentoService extends GenericService {
 	}		
 
 	getNaoLidos(): Promise<any> {		
-		this.slbs.start();
 		return this.defaultPromise(this.http.get(this.urlSrv+"/findNaoLidos", {headers: this.getHeaderJwt()}));
 	}
 }

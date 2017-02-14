@@ -14,6 +14,7 @@ export class Helper {
 	public hideLoading: boolean = false;
 	public pageTitle: string = null;
 	public urlFile: string = environment.serverUrl + environment.urlFileView;
+	public urlFilePath: string = environment.urlFilePath;
 
 	public modalTitle: string = '';
 	public modalText: string = '';
@@ -26,55 +27,34 @@ export class Helper {
 	constructor(private router: Router, private location: Location) {
 	}
 
-	loadJS() {
-		//console.log('preparing to load JS...');
-		let node = document.createElement('script');
-		node.src = '../assets/js/confetti.min.js';
-		node.type = 'text/javascript';
-		node.async = true;
-		node.charset = 'utf-8';
-		document.getElementsByTagName('head')[0].appendChild(node);
-
+	loadJS() {		
 		setTimeout(() => {
-			//console.log('preparing to load JS 2...');
-			let node2 = document.createElement('script');        
-			node2.src = '../assets/js/main.js';
-			node2.type = 'text/javascript';
-			node2.async = true;
-			node2.charset = 'utf-8';
-			document.getElementsByTagName('head')[0].appendChild(node2);
-		}, 1000);
-
-		this.flagLoadJs = true;
-	}
-
-	loadMapJS() {
-		//console.log('preparing to load JS...');
-		let node = document.createElement('script');
-		node.src = '../assets/js/g-maps-api.js';
-		node.type = 'text/javascript';
-		node.async = true;
-		node.charset = 'utf-8';
-		document.getElementsByTagName('head')[0].appendChild(node);
-
-		setTimeout(() => {
-			//console.log('preparing to load JS 2...');
-			let node2 = document.createElement('script');        
-			node2.src = '../assets/js/map.js';
-			node2.type = 'text/javascript';
-			node2.async = true;
-			node2.charset = 'utf-8';
-			document.getElementsByTagName('head')[0].appendChild(node2);
-		}, 1000);
-
-		this.flagLoadJs = true;
-	}
+			//console.log('preparing to load JS...');
+			let node = document.createElement('script');
+			node.src = this.urlFilePath+'assets/js/confetti.min.js';
+			node.type = 'text/javascript';
+			node.async = false;
+			node.charset = 'utf-8';
+			document.getElementsByTagName('main')[0].appendChild(node);
+			setTimeout(() => {
+				if (this.isLoadedJs) {			
+					let node2 = document.createElement('script');
+					node2.src = this.urlFilePath+'assets/js/main.js';
+					node2.type = 'text/javascript';
+					node2.async = false;
+					node2.charset = 'utf-8';
+					document.getElementsByTagName('main')[0].appendChild(node2);
+				}	
+				this.flagLoadJs = true;		
+			}, 2000);
+		}, 1000);		
+	}	
 
 	loadJmask() {
 		setTimeout(() => {
 			//console.log('preparing to load JS...');
 			let node = document.createElement('script');
-			node.src = '../assets/js/jquery.mask.min.js';
+			node.src = this.urlFilePath+'assets/js/jquery.mask.min.js';
 			node.type = 'text/javascript';
 			node.async = true;
 			node.charset = 'utf-8';
@@ -87,16 +67,29 @@ export class Helper {
 	}
 
 	timeOutStopLoading() {
-		setTimeout(() => {
-			this.stopSpinnerLoader();
-		}, 1000);
+	}
+	timeOutStopLoadingOLD() {
+		let interval = setInterval(() => {
+			if (this.flagLoadJs) {
+				this.stopSpinnerLoader();
+				clearInterval(interval);
+			}			
+		}, 2000);		
 	}
 
-	startSpinnerLoader() {		
-		$('.ct-preloader').show();				
+	startSpinnerLoader() {	
+		if (this.flagLoadJs) {
+			$('#loading').append('<div class="ct-preloader"><div class="ct-preloader__inner"><div class="ct-preloader__spinner"><i class="ct-preloader__1"></i><i class="ct-preloader__2"></i><i class="ct-preloader__3"></i><i class="ct-preloader__4"></i><i class="ct-preloader__5"></i><i class="ct-preloader__6"></i><i class="ct-preloader__7"></i><i class="ct-preloader__8"></i></div></div></div>');
+		}
+		var interval = setInterval(function() {
+			if(document.readyState === 'complete') {
+				clearInterval(interval);
+				$('.ct-preloader').fadeOut();
+			}    
+		}, 2000);
 	}
 
-	stopSpinnerLoader() {
+	stopSpinnerLoader() {		
 		$('.ct-preloader').fadeOut();
 	}
 

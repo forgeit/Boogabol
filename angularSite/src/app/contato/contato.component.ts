@@ -33,7 +33,6 @@ export class ContatoComponent implements OnInit {
 		this.helper.pageTitle = "Contato";
 
 		this.helper.loadJS();	
-		this.helper.loadMapJS();
 		this.helper.timeOutStopLoading();		
 	}
 

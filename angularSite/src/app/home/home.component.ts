@@ -54,7 +54,6 @@ export class HomeComponent implements OnInit {
 			}
 
 			this.helper.loadJS();	
-			this.helper.timeOutStopLoading();
 
 			if (this.helper.getCurrentUrl() == '/parceiro') {
 				this.helper.scrollTo();

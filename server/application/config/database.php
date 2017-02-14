@@ -74,14 +74,13 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	
+	'dsn'	=> '',	
 	'hostname' => 'localhost',
+	
 	'username' => 'root',
 	'password' => '',
 	'database' => 'boogabolbd',
-
-	//'hostname' => 'localhost',
+	
 	//'username' => 'eagle173_boog',
 	//'password' => 'boogbd',
 	//'database' => 'eagle173_boog',

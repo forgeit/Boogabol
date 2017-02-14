@@ -45,8 +45,13 @@ class MY_Controller extends CI_Controller {
     }
 
     public function checkExec($response) {
+        $pathReq = $this->uri->uri_string;
         if (!$response['exec']) {
-            $this->printReturn(RET_ERROR, null, Helper::getMessage(10));
+            if (strpos($pathReq, '/remove/') !== false) {
+                $this->printReturn(RET_ERROR, null, Helper::getMessage(17));    
+            } else {
+                $this->printReturn(RET_ERROR, null, Helper::getMessage(10));
+            }            
             return false;
         } else {
             return true;

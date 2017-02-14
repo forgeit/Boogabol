@@ -65,6 +65,8 @@ class Publico extends MY_Controller {
 	}
 	
 	public function saveContato() {
+		$this->printReturn(RET_OK, null, Helper::getMessage(3));
+
 		$data = $this->security->xss_clean($this->input->raw_input_stream);
 		$object = json_decode($data);
 

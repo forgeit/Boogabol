@@ -55,7 +55,7 @@
 	<div class="navbar navbar-default navbar-fixed">
 		<div class="navbar-header">
 			<a href="index.html" class="navbar-brand">
-				<img src="../assets/images/demo-content/logo.png" alt="logo">
+				<img [src]="helper.urlFilePath+'assets/images/demo-content/logo.png'" alt="logo">
 			</a>
 		</div><a routerLink="/orcamento" routerLinkActive="active" class="btn btn-motive pull-right">Peça um Orçamento</a>
 		<ul class="nav navbar-nav navbar-right">
@@ -120,7 +120,7 @@
 				<div class="widget">
 					<div class="widget-inner">
 						<h4 class="widget-title">Mais Sobre Nós</h4>
-						<img src="../assets/images/demo-content/logo.png" alt="logo" class="ct-footer__logo">
+						<img [src]="helper.urlFilePath+'assets/images/demo-content/logo.png'" alt="logo" class="ct-footer__logo">
 						<p>Iniciando os serviços no ano de 2016 ofereçemos o melhor para festas de crianças e adultos, diversão para todas as idades e tamnhos.</p>
 						<address class="ct-address ct-footer__address ct-footer__address"><a href="https://goo.gl/maps/obRcgtwGH5K2" class="media ct-address__box" target="_blank">
 							<div class="media-left"><i class="fa fa-map-marker"></i></div>
@@ -140,7 +140,7 @@
 						<ul>
 							<li>
 								<div class="widget-li-image">
-									<img src="../assets/images/demo-content/recent-01.jpg" alt="">
+									<img [src]="helper.urlFilePath+'assets/images/demo-content/recent-01.jpg'" alt="">
 								</div>
 								<div class="widget-li-content">
 									<h5>Title Comes Here</h5><span>By an outlived insisted procured improved am. Paid hill fine ten now love even leaf.</span><a href="#">August 21, 2015</a>
@@ -148,7 +148,7 @@
 							</li>
 							<li>
 								<div class="widget-li-image">
-									<img src="../assets/images/demo-content/recent-02.jpg" alt="">
+									<img [src]="helper.urlFilePath+'assets/images/demo-content/recent-02.jpg'" alt="">
 								</div>
 								<div class="widget-li-content">
 									<h5>Title Comes Here</h5><span>To make this treat, you will need to lorem ipsum</span><a href="#">August 21, 2015</a>
@@ -156,7 +156,7 @@
 							</li>
 							<li>
 								<div class="widget-li-image">
-									<img src="../assets/images/demo-content/recent-03.jpg" alt="">
+									<img [src]="helper.urlFilePath+'assets/images/demo-content/recent-03.jpg'" alt="">
 								</div>
 								<div class="widget-li-content">
 									<h5>Title Comes Here</h5><span>To make this treat, you will need to lorem ipsum</span><a href="#">August 21, 2015</a>
@@ -185,7 +185,7 @@
 <!-- *** Mobile Navbar *** -->
 <div class="ct-mobile-navbar">
 	<a href="index.html" class="ct-mobile-navbar__brand">
-		<img src="../assets/images/demo-content/logo.png" alt="logo">
+		<img [src]="helper.urlFilePath+'assets/images/demo-content/logo.png'" alt="logo">
 	</a>
 	<button class="btn btn-default ct-mobile-navbar__toggle">Menu
 	</button>

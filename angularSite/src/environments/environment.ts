@@ -7,8 +7,9 @@ export const environment = {
   production: false,
   
   serverUrl: 'http://localhost:8012/boogabol/server/',
+  urlFilePath: '',  
   urlPublic: 'publico/',
-  urlFileView: 'fileView/',
+  urlFileView: 'fileView/',  
 
   //Returns
   RET_OK: 'OK',

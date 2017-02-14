@@ -61,8 +61,6 @@ export class Helper {
 		} else {
 			return Promise.resolve(false);	
 		}
-		
-		
 	}
 
 	showMessage(type: string, text: string): void {
@@ -113,10 +111,12 @@ export class Helper {
 	}
 
 	startLoading() {
+		$('.div-loading').show();
 		this.slimLoadingBarService.start();
 	}
 
 	stopLoading() {
+		$('.div-loading').hide();		
 		this.slimLoadingBarService.complete();
 	}
 

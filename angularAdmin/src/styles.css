@@ -48,3 +48,15 @@ table tbody th, table tbody td {
 .td-grey {
 	background: #CCC;
 }
+
+.div-loading {
+	display: hidden;
+	position: fixed;
+	z-index: 9999;
+	top: 4px;
+	left: 314px;
+}
+
+.div-loading img {
+	width: 42px;
+}

@@ -82,4 +82,6 @@ $route['orcamento'] = 'orcamento/findAll';
 $route['relatorio'] = 'relatorio/findAll';
 
 $route['fileUpload'] = 'fileUpload/uploadFile';
+$route['fileView'] = 'fileView/view/';
+$route['fileView/null'] = 'fileView/view/';
 $route['fileView/(:num)'] = 'fileView/view/$1';

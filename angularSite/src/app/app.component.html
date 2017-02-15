@@ -251,11 +251,12 @@
 
 <div class="modal-bg" [hidden]="helper.modalHide">
 	<div class="modal-window">
+		<div class="modal-img"><img [src]="helper.modalImg"></div>		
 		<div class="modal-text">
 			<h3>{{helper.modalTitle}}</h3>
 			<p>{{helper.modalText}}</p>
 			<hr>
-		</div>
-		<button class="btn btn-motive" (click)="helper.hideModal()">Fechar</button>
+			<button class="btn btn-motive" (click)="helper.hideModal()">Fechar</button>
+		</div>		
 	</div>
 </div>

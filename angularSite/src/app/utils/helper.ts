@@ -18,6 +18,7 @@ export class Helper {
 
 	public modalTitle: string = '';
 	public modalText: string = '';
+	public modalImg: string = '';
 	public modalHide: boolean = true;
 
 	private flagLoadJs: boolean = false;

@@ -21,3 +21,16 @@ Projeto feito para o Felipe Gassen e Kelvin Alves (FORGEIT).
 npm install
 ```
 1. Alterar caminho para o Server nos arquivos dos projetos angular /src/environment/environment.*
+1. Alterar o $config['base_url'] no arquivo do server /application/config/config.php"
+1. Alterar o banco no arquivo do server /application/config/database.php
+
+
+<h3>Configuração para Produção</h3>
+1. Nas pastas angularAdmin e angularSite deve ser executado o comando:
+```
+npm build --prod
+```
+1. No projeto angularSite no index.html alterar o base_url para "/web/" e alterar nos caminhos dos .js e .css locais (menos os do angular) adicionando o "/web/"
+1. No projeto angularAdmin no index.html alterar o base_url para "/admin/" e alterar nos caminhos dos .js e .css locais (menos os do angular) adicionando o "/admin/"
+1. No projeto server alterar o $config['base_url'] no arquivo /application/config/config.php"
+1. No projeto server alterar o banco no arquivo /application/config/database.php

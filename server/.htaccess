@@ -6,5 +6,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteBase /boogabol/server/
 ##RewriteBase /server/
 RewriteRule ^(.*)$ ./index.php/$1 [L]
-##RewriteRule ^(.*)$ index.php?$1 [L,NC]
 Options -Indexes

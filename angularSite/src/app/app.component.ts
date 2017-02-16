@@ -9,7 +9,7 @@ import { Helper }    from './utils/helper';
 
 export class AppComponent implements OnInit {
 
-	constructor(private helper: Helper) {		
+	constructor(public helper: Helper) {		
 	}
 
 	ngOnInit(): void {		

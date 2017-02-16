@@ -48,7 +48,7 @@ export class Helper {
 		
 	}
 
-	checkResponse(response: any): Promise<boolean> {		
+	checkResponse(response: any): Promise<boolean> {	
 		this.stopLoading();
 		if (response.message) {
 			this.showMessage(response.res, response.message);

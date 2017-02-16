@@ -28,7 +28,7 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 |
 */
 $config['base_url'] = 'http://localhost:8012/boogabol/server/';
-//$config['base_url'] = 'http://www.boog.limasis.com.br/server/';
+//$config['base_url'] = 'http://www.b.limasis.com.br/server/';
 /*
 |--------------------------------------------------------------------------
 | Index File

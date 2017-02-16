@@ -30,6 +30,7 @@ export class Helper {
 
 	loadJS() {		
 		setTimeout(() => {
+			let urlFP = this.urlFilePath;
 			//console.log('preparing to load JS...');
 			let node = document.createElement('script');
 			node.src = this.urlFilePath+'assets/js/confetti.min.js';
@@ -37,17 +38,18 @@ export class Helper {
 			node.async = false;
 			node.charset = 'utf-8';
 			document.getElementsByTagName('main')[0].appendChild(node);
-			setTimeout(() => {
-				if (this.isLoadedJs) {			
+			var interval = setInterval(function() {
+				if(document.readyState === 'complete') {
+					clearInterval(interval);
 					let node2 = document.createElement('script');
-					node2.src = this.urlFilePath+'assets/js/main.js';
+					node2.src = urlFP+'assets/js/main.js';
 					node2.type = 'text/javascript';
 					node2.async = false;
 					node2.charset = 'utf-8';
-					document.getElementsByTagName('main')[0].appendChild(node2);
-				}	
-				this.flagLoadJs = true;		
-			}, 2000);
+					document.getElementsByTagName('main')[0].appendChild(node2);					
+				}    
+			}, 200);			
+			this.flagLoadJs = true;		
 		}, 1000);		
 	}	
 
@@ -79,6 +81,7 @@ export class Helper {
 	}
 
 	startSpinnerLoader() {	
+		//console.log(this.flagLoadJs);
 		if (this.flagLoadJs) {
 			$('#loading').append('<div class="ct-preloader"><div class="ct-preloader__inner"><div class="ct-preloader__spinner"><i class="ct-preloader__1"></i><i class="ct-preloader__2"></i><i class="ct-preloader__3"></i><i class="ct-preloader__4"></i><i class="ct-preloader__5"></i><i class="ct-preloader__6"></i><i class="ct-preloader__7"></i><i class="ct-preloader__8"></i></div></div></div>');
 		}
@@ -119,14 +122,15 @@ export class Helper {
 		return this.router.url;
 	}
 
-	public showModal(title: string, text: string) {
+	public showModal(title: string, text: string, img: string) {
 		this.modalTitle = title;
 		this.modalText = text;
-		this.modalHide = false;
+		this.modalImg = img;
+		$('.modal-bg').fadeIn(100);		
 	}
 
 	public hideModal() {
-		this.modalHide = true;
+		$('.modal-bg').fadeOut(100);
 	}
 
 	scrollTo() {

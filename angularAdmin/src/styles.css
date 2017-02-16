@@ -50,11 +50,16 @@ table tbody th, table tbody td {
 }
 
 .div-loading {
-	display: hidden;
+	display: none;
+	width: 49px;
+	height: 49px;
+	padding: 4px;
 	position: fixed;
 	z-index: 9999;
-	top: 4px;
+	top: 1px;
 	left: 314px;
+	border-radius: 100%;
+	background: #3c8dbc;
 }
 
 .div-loading img {

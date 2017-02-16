@@ -99,7 +99,9 @@ class ImageHelper {
 	}
 
 	public static function deleteFile($path) {
-		unlink($path);
+		if(file_exists($path)){
+			unlink($path);
+		}
 	}
 
 } 

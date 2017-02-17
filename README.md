@@ -32,5 +32,12 @@ npm build --prod
 ```
 1. No projeto angularSite no index.html alterar o base_url para "/web/" e alterar nos caminhos dos .js e .css locais (menos os do angular) adicionando o "/web/"
 1. No projeto angularAdmin no index.html alterar o base_url para "/admin/" e alterar nos caminhos dos .js e .css locais (menos os do angular) adicionando o "/admin/"
+1. Criar dentro dos projetos angular o .htaccess com o seguinte código:
+```
+ RewriteEngine On
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteRule ^ index.html [L]
+```
 1. No projeto server alterar o $config['base_url'] no arquivo /application/config/config.php"
 1. No projeto server alterar o banco no arquivo /application/config/database.php

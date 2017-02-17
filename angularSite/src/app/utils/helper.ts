@@ -38,18 +38,21 @@ export class Helper {
 			node.async = false;
 			node.charset = 'utf-8';
 			document.getElementsByTagName('main')[0].appendChild(node);
-			var interval = setInterval(function() {
-				if(document.readyState === 'complete') {
-					clearInterval(interval);
-					let node2 = document.createElement('script');
-					node2.src = urlFP+'assets/js/main.js';
-					node2.type = 'text/javascript';
-					node2.async = false;
-					node2.charset = 'utf-8';
-					document.getElementsByTagName('main')[0].appendChild(node2);					
-				}    
-			}, 200);			
-			this.flagLoadJs = true;		
+
+			setTimeout(() => {
+				var interval = setInterval(function() {
+					if(document.readyState === 'complete') {
+						clearInterval(interval);
+						let node2 = document.createElement('script');
+						node2.src = urlFP+'assets/js/main.js';
+						node2.type = 'text/javascript';
+						node2.async = false;
+						node2.charset = 'utf-8';
+						document.getElementsByTagName('main')[0].appendChild(node2);					
+					}    
+				}, 500);							
+			}, 500);	
+			this.flagLoadJs = true;	
 		}, 1000);		
 	}	
 
@@ -81,16 +84,21 @@ export class Helper {
 	}
 
 	startSpinnerLoader() {	
-		//console.log(this.flagLoadJs);
 		if (this.flagLoadJs) {
 			$('#loading').append('<div class="ct-preloader"><div class="ct-preloader__inner"><div class="ct-preloader__spinner"><i class="ct-preloader__1"></i><i class="ct-preloader__2"></i><i class="ct-preloader__3"></i><i class="ct-preloader__4"></i><i class="ct-preloader__5"></i><i class="ct-preloader__6"></i><i class="ct-preloader__7"></i><i class="ct-preloader__8"></i></div></div></div>');
 		}
-		var interval = setInterval(function() {
-			if(document.readyState === 'complete') {
-				clearInterval(interval);
-				$('.ct-preloader').fadeOut();
-			}    
-		}, 2000);
+		//console.log(this.flagLoadJs);
+		let interval = setInterval(() => {
+			if (this.flagLoadJs) {
+				clearInterval(interval);				
+				var interval2 = setInterval(function() {
+					if(document.readyState === 'complete') {
+						clearInterval(interval2);
+						$('.ct-preloader').fadeOut();
+					}    
+				}, 2000);
+			}
+		}, 200);
 	}
 
 	stopSpinnerLoader() {		
@@ -130,6 +138,9 @@ export class Helper {
 	}
 
 	public hideModal() {
+		setTimeout(() => {
+			this.modalImg = environment.urlFilePath;
+		}, 200);		
 		$('.modal-bg').fadeOut(100);
 	}
 

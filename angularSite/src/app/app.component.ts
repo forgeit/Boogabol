@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Helper }    from './utils/helper';
+import { Helper }    		 from './utils/helper';
+
+import { GenericService }	 from './utils/generic.service';
 
 @Component({
 	selector: 'app-root',
@@ -9,11 +11,31 @@ import { Helper }    from './utils/helper';
 
 export class AppComponent implements OnInit {
 
-	constructor(public helper: Helper) {		
+	messageSuccess: string = "";
+	messageError: string = "";
+	emailNews: string = "";
+
+	constructor(public helper: Helper, private gs: GenericService) {		
 	}
 
 	ngOnInit(): void {		
 	}
 
-	title = 'app works!';
+	newsSubmit(): void {
+		this.messageError = '';
+		this.messageSuccess = '';
+		
+		if (this.emailNews == '') {
+			this.messageSuccess = "Preencha o email";
+		} else {
+			this.gs.post(this.emailNews, 'newsletter').then(res => {
+				if (this.helper.environment.RET_OK == res.res) {
+					this.emailNews = '';				
+					this.messageSuccess = res.message;
+				} else {
+					this.messageError = res.message;					
+				}
+			});
+		}
+	}
 }

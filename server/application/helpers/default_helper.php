@@ -26,6 +26,9 @@ class Helper {
 	}
 
 	public static function typeValid($type, $data) {
+		if ($type == 'email' && !filter_var($data, FILTER_VALIDATE_EMAIL)) {
+			return false;
+		}
 		if ($type == 'int' && !is_numeric($data)) { 
 			return false;
 		}
@@ -82,6 +85,9 @@ class Helper {
 			break;
 			case 17:
 			return "Registro não pode ser excluído, está sendo utilizado";
+			break;
+			case 18:
+			return "Email já cadastrado";
 			break;
 
 			case 20:

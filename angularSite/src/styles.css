@@ -115,5 +115,9 @@
 }
 
 .ct-party-box.ct-party-box--simple p {
-    height: 93px;
+	height: 93px;
+}
+
+.desktop .ct-page-header {
+	background-repeat: repeat-x;
 }

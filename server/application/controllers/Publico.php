@@ -65,7 +65,10 @@ class Publico extends MY_Controller {
 	}
 	
 	public function saveContato() {
-		$this->printReturn(RET_OK, null, Helper::getMessage(3));
+		if (true) {
+			$this->printReturn(RET_OK, null, Helper::getMessage(3));
+			return;
+		}
 
 		$data = $this->security->xss_clean($this->input->raw_input_stream);
 		$object = json_decode($data);
@@ -86,6 +89,27 @@ class Publico extends MY_Controller {
 		mail($this->emailContato, 'Contato Site', $message);
 
 		$this->printReturn(RET_OK, null, Helper::getMessage(3));
+	}
+
+	public function newsletter() {
+		$data = $this->security->xss_clean($this->input->raw_input_stream);
+		if (!$data) {
+			$this->printReturn(RET_ERROR, null, Helper::getMessage(10));
+			return;
+		}
+		
+		$data = array('email' => $data);
+		$object = json_decode($data);				
+
+		if ($this->NewsletterModel->existEmail($object->email)) {
+			$this->printReturn(RET_ERROR, null, Helper::getMessage(18));
+			return;	
+		}
+		
+		$valid =  Helper::inputValidation($object, $this->NewsletterModel->getValidation());
+		if ($this->checkValidation($valid) && $this->checkExec(array('exec' => $this->NewsletterModel->save($object)))) {			
+			$this->printReturn(RET_OK, $this->NewsletterModel->getLastInsertedId(), Helper::getMessage(0));
+		}
 	}
 
 }

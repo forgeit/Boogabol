@@ -8,7 +8,7 @@ import { Cardapio } 	from '../model/cardapio';
 import { Buffet } 		from '../model/buffet';
 import { TipoFesta } 	from '../model/tipoFesta';
 import { Atracao } 		from '../model/atracao';
-import { Parceiro } from '../model/parceiro';
+import { Parceiro } 	from '../model/parceiro';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 	buffet: Buffet;
 	tipoFesta: TipoFesta;
 	atracao: Atracao;
-	parceiroList: Parceiro[];
+	parceiroList: Parceiro[];	
 
 	constructor(private helper: Helper, private gs: GenericService, private router: Router) {
 		//helper.setPageInfo('Dashboard');
@@ -61,7 +61,4 @@ export class HomeComponent implements OnInit {
 		});
 	}
 
-	
-
-	title = 'app works!';
 }

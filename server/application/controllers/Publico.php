@@ -97,17 +97,16 @@ class Publico extends MY_Controller {
 			$this->printReturn(RET_ERROR, null, Helper::getMessage(10));
 			return;
 		}
-		
-		$data = array('email' => $data);
-		$object = json_decode($data);				
 
-		if ($this->NewsletterModel->existEmail($object->email)) {
+		$data = array('email' => $data);
+
+		if ($this->NewsletterModel->existEmail($data['email'])) {
 			$this->printReturn(RET_ERROR, null, Helper::getMessage(18));
 			return;	
 		}
 		
-		$valid =  Helper::inputValidation($object, $this->NewsletterModel->getValidation());
-		if ($this->checkValidation($valid) && $this->checkExec(array('exec' => $this->NewsletterModel->save($object)))) {			
+		$valid =  Helper::inputValidation($data, $this->NewsletterModel->getValidation());
+		if ($this->checkValidation($valid) && $this->checkExec(array('exec' => $this->NewsletterModel->save($data)))) {			
 			$this->printReturn(RET_OK, $this->NewsletterModel->getLastInsertedId(), Helper::getMessage(0));
 		}
 	}

@@ -13,7 +13,9 @@ class MY_Model extends CI_Model {
         if (!isset($data)) {
             return false;
         }
-        return $this->db->insert($this->table, $data);
+        $result = $this->db->insert($this->table, $data);
+        self::printError();
+        return $result;
     }    
     
     function findById($id) {
@@ -50,7 +52,10 @@ class MY_Model extends CI_Model {
         }
 
         $this->db->where('id', $id);
-        return $this->db->update($this->table, $data);
+        $result =  $this->db->update($this->table, $data);
+
+        self::printError();
+        return $result;
     }
     
     function remove($id) {
@@ -59,7 +64,10 @@ class MY_Model extends CI_Model {
         }
 
         $this->db->where('id', $id);
-        return $this->db->delete($this->table);
+        $result = $this->db->delete($this->table);
+
+        self::printError();
+        return $result;
     }
 
     function getLastInsertedId() {
@@ -75,7 +83,16 @@ class MY_Model extends CI_Model {
         }
     }
 
-    function printError() {        
-        print_r($this->db->error());
+    function printError() {   
+        $err = $this->db->error();
+        if (isset($err) && $err['message']) {
+            $file = APPPATH.'/logs/error.log';
+            // The new person to add to the file
+            $person = "\n".date('d/m/y H:i:s').' - '.$err['message'];
+            // Write the contents to the file, 
+            // using the FILE_APPEND flag to append the content to the end of the file
+            // and the LOCK_EX flag to prevent anyone else writing to the file at the same time
+            file_put_contents($file, $person, FILE_APPEND | LOCK_EX);
+        }
     }
 }

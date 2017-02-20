@@ -26,7 +26,7 @@ class Helper {
 	}
 
 	public static function typeValid($type, $data) {
-		if ($type == 'email' && !filter_var($data, FILTER_VALIDATE_EMAIL)) {
+		if ($type == 'email' && !filter_var($data, FILTER_VALIDATE_EMAIL) === false) {
 			return false;
 		}
 		if ($type == 'int' && !is_numeric($data)) { 

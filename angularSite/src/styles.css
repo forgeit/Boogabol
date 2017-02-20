@@ -121,3 +121,7 @@
 .desktop .ct-page-header {
 	background-repeat: repeat-x;
 }
+
+.ct-newsletter__button {
+	bottom: 15px;
+}

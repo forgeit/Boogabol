@@ -18,6 +18,7 @@ import { decoracaoRoutes } 	from './decoracao/decoracao.routes';
 import { parceiroRoutes } 	from './parceiro/parceiro.routes';
 import { clienteRoutes } 	from './cliente/cliente.routes';
 import { orcamentoRoutes } 	from './orcamento/orcamento.routes';
+import { newsletterRoutes } from './newsletter/newsletter.routes';
 
 
 // Route Configuration
@@ -35,6 +36,7 @@ export const routes: Routes = [
 	...parceiroRoutes,
 	...clienteRoutes,
 	...orcamentoRoutes,
+	...newsletterRoutes,
 	{path: 'relatorio', component: RelatorioComponent, canActivate: [AuthGuard]},
 	{path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
 ];

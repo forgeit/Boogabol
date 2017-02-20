@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule }  from '@angular/forms';
 import { HttpModule }                        from '@angular/http';
 import { ToastyModule }                      from 'ng2-toasty';
 import { LocalStorageModule }                from 'angular-2-local-storage';
-import {SlimLoadingBarModule}                from 'ng2-slim-loading-bar';
+import { SlimLoadingBarModule }              from 'ng2-slim-loading-bar';
 
 import { routing }         from './app.routes';
 import { AppComponent }    from './app.component';
@@ -63,6 +63,9 @@ import { OrcamentoService }      from './orcamento/orcamento.service';
 import { OrcamentoComponent }    from './orcamento/orcamento.component';
 import { OrcamentoEditComponent }from './orcamento/orcamentoEdit.component';
 
+import { NewsletterComponent }   from './newsletter/newsletter.component';
+import { NewsletterService }   from './newsletter/newsletter.service';
+
 @NgModule({
   declarations: [
   AppComponent,
@@ -103,7 +106,9 @@ import { OrcamentoEditComponent }from './orcamento/orcamentoEdit.component';
   RelatorioComponent,
 
   OrcamentoComponent,
-  OrcamentoEditComponent
+  OrcamentoEditComponent,
+
+  NewsletterComponent
 
   ],
   imports: [
@@ -133,7 +138,8 @@ import { OrcamentoEditComponent }from './orcamento/orcamentoEdit.component';
   ClienteService,
   AniversarianteService,
   RelatorioService,
-  OrcamentoService
+  OrcamentoService,
+  NewsletterService
   ],
   bootstrap: [AppComponent]
 })

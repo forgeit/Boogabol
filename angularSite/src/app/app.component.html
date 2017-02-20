@@ -104,18 +104,13 @@
 					<p class="ct-newsletter__content">Assine agora e saiba sobre novidades, promoções, eventos e muito mais...</p>
 				</div>
 				<div class="col-sm-12 col-md-4">
-					<form class="ct-newsletter__form form-group from-inline" (submit)="newsSubmit()" >
-						<label for="newsletter-input" class="ct-newsletter__label">E-mail</label>
-						<input type="email" [(ngModel)]="emailNews" name="emailNews" id="newsletter-input" maxlength="255" placeholder="Preencha seu E-mail" required class="ct-newsletter__input form-control">
-						<button type="submit" class="btn btn-default ct-newsletter__button"><span class="ct-newsletter__submit">Inscreva-se</span><span class="ct-newsletter__wait"><i class="fa fa-spinner"></i></span>
-						</button>
-					</form>
-					<div class="alert-success">
-						{{messageSuccess}}
-					</div>
-					<div class="alert-danger">
-						{{messageError}}
-					</div>
+					<div>
+						<form class="form-group from-inline" (submit)="newsSubmit()" >
+							<label for="newsletter-input" class="ct-newsletter__label">E-mail: <span class="text-success">{{messageSuccess}}</span><span class="text-danger">{{messageError}}</span></label>
+							<input type="email" [(ngModel)]="emailNews" name="emailNews" id="newsletter-input" maxlength="255" placeholder="Preencha seu E-mail" required class="ct-newsletter__input form-control">
+							<button type="submit" class="btn btn-default ct-newsletter__button"><span class="ct-newsletter__submit">Inscreva-se</span></button>
+						</form>
+					</div>					
 				</div>
 			</div>
 		</div>

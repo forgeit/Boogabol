@@ -31,7 +31,7 @@
 	margin: 0 auto;
 	width: 600px;
 	max-width: 95%;
-	margin-top: 100px;	
+	margin-top: 70px;	
 	background: white;
 }
 
@@ -107,4 +107,13 @@
 	.ct-mobile-navbar {
 		z-index: 994;
 	}
+}
+
+.ct-party-box__media img {
+	max-height: 178px;
+	object-fit: cover;
+}
+
+.ct-party-box.ct-party-box--simple p {
+    height: 93px;
 }

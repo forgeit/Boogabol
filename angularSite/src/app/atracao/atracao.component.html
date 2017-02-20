@@ -11,13 +11,13 @@
 							</div>
 							<div class="ct-party-box__content">
 								<h3 class="ct-party-box__header"><span>{{elem.titulo}}</span></h3>
-								<p>{{elem.descricao.length <= 100 ? elem.descricao : elem.descricao | slice:0:100}}</p>
+								<p>{{elem.descricao.length <= 100 ? elem.descricao : (elem.descricao | slice:0:100) + "..."}}</p>
 								<div class="ct-party-box__hidden ct-js-hidden">
 									<div class="inner">
 										<p></p>
 									</div>
 								</div>
-								<button *ngIf="elem.descricao.length > 100" class="btn btn-motive" (click)="helper.showModal(elem.titulo, elem.descricao, elem.id_imagem)">Ver Mais</button>
+								<button class="btn btn-motive" (click)="helper.showModal(elem.titulo, elem.descricao, elem.id_imagem)">Ver Mais</button>
 							</div>
 						</div>							
 					</figure>

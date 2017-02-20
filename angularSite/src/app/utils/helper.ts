@@ -138,9 +138,7 @@ export class Helper {
 	}
 
 	public hideModal() {
-		setTimeout(() => {
-			this.modalImg = environment.urlFilePath;
-		}, 200);		
+		this.modalImg = '';
 		$('.modal-bg').fadeOut(100);
 	}
 

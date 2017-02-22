@@ -17,18 +17,19 @@ export class Helper {
 	public pageTitle: string;
 	public activeMenu: string;
 	private passSalt: string = "BoogPassSalt";
+	private height: number = 0;
 
 	constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, private router: Router, private location: Location, private slimLoadingBarService: SlimLoadingBarService) {
 		this.toastyConfig.theme = 'default';		
 	}
 
-	updateTable(tableClass: string, ordenable: boolean, boolean4: boolean): void {
+	updateTable(tableClass: string, ordenable: boolean, searchable: boolean): void {
 		if ($.fn.dataTable.isDataTable( '.'+tableClass )) {
 			$('#example').DataTable( {
 				"destroy": true,
 				"paging": true,
 				"lengthChange": false,
-				"searching": false,
+				"searching": searchable,
 				"ordering": ordenable,
 				"info": true,
 				"autoWidth": false
@@ -38,7 +39,7 @@ export class Helper {
 				$('.'+tableClass).DataTable({
 					"paging": true,
 					"lengthChange": false,
-					"searching": false,
+					"searching": searchable,
 					"ordering": ordenable,
 					"info": true,
 					"autoWidth": false
@@ -111,13 +112,20 @@ export class Helper {
 	}
 
 	startLoading() {
-		$('.div-loading').show();
+		let h = $(window).height();
+		if (this.height !== h) {
+			$('.div-loading-window').css('margin-top', h / 2 - 150 + "px");
+			this.height = h;
+		}
+		$('.div-loading').fadeIn();
 		this.slimLoadingBarService.start();
 	}
 
 	stopLoading() {
-		$('.div-loading').hide();		
-		this.slimLoadingBarService.complete();
+		setTimeout(() => {
+			$('.div-loading').fadeOut();				
+			this.slimLoadingBarService.complete();
+		}, 1000);
 	}
 
 

@@ -2,6 +2,7 @@ import { Headers, Http } from '@angular/http';
 import { environment } from '../../environments/environment';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+import { Helper } from '../utils/helper';
 
 declare var $: any;	
 
@@ -13,32 +14,32 @@ export class GenericService {
 	public urlSrv: string;
 	environment:any = environment;
 
-	constructor(public http: Http, public localStorageService: LocalStorageService, private slimLoadingBarService: SlimLoadingBarService){
+	constructor(public http: Http, public localStorageService: LocalStorageService, private slimLoadingBarService: SlimLoadingBarService, private helper: Helper){
 		this.urlSrv = this.environment.serverUrl;
 	}
 
 	getList(): Promise<any> {		
-		this.startLoading();
+		this.helper.startLoading();
 		return this.defaultPromise(this.http.get(this.urlSrv, {headers: this.getHeaderJwt()}));
 	}
 
 	getElem(id: number): Promise<any> {
-		this.startLoading();
+		this.helper.startLoading();
 		return this.defaultPromise(this.http.get(this.urlSrv+"/find/"+id, {headers: this.getHeaderJwt()}));
 	}
 
 	update(elem: any): Promise<any> {
-		this.startLoading();
+		this.helper.startLoading();
 		return this.defaultPromise(this.http.put(this.urlSrv+"/update", JSON.stringify(elem), {headers: this.getHeaderJwt()}));
 	}
 
 	insert(elem: any): Promise<any> {
-		this.startLoading();
+		this.helper.startLoading();
 		return this.defaultPromise(this.http.post(this.urlSrv+"/insert", JSON.stringify(elem), {headers: this.getHeaderJwt()}));		
 	}
 
 	remove(id: number): Promise<any> {
-		this.startLoading();
+		this.helper.startLoading();
 		return this.defaultPromise(this.http.delete(this.urlSrv+"/remove/"+id, {headers: this.getHeaderJwt()}));		
 	}
 
@@ -51,8 +52,7 @@ export class GenericService {
 	
 	private handleError(error: any): Promise<any> {
 		alert('Erro ao conectar com o Servidor');	
-		$('.div-loading').hide();
-		this.slimLoadingBarService.complete();	
+		this.helper.stopLoading();
 		return Promise.reject(error.message || error);
 	}
 
@@ -64,10 +64,5 @@ export class GenericService {
 				'X-Requested-With': jwt
 			});
 		}
-	}
-
-	startLoading() {
-		$('.div-loading').show();
-		this.slimLoadingBarService.start();		
-	}
+	}	
 }

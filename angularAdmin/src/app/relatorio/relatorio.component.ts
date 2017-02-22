@@ -31,7 +31,7 @@ export class RelatorioComponent extends GenericComponent implements OnInit {
 			this.helper.checkResponse(res).then((valid) => {
 				if (valid) {
 					this.list = res.dataRes;					
-					this.helper.updateTable('tableFull', false, false);
+					this.helper.updateTable('tableFull', false, true);
 				}
 			})
 		});	

@@ -5,6 +5,8 @@ import { Validators } from '@angular/forms';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
+import { Helper } from '../utils/helper';
+
 import { GenericService } from '../utils/generic.service';
 import { Usuario } from '../usuario/usuario';
 
@@ -15,8 +17,8 @@ export class LoginService extends GenericService {
 	private jwt: string;
 	public usuario: Usuario;
 
-	constructor(private h: Http, private lss: LocalStorageService, private slbs: SlimLoadingBarService) { 
-        super(h, lss, slbs);
+	constructor(private h: Http, private lss: LocalStorageService, private slbs: SlimLoadingBarService, private hp: Helper) { 
+        super(h, lss, slbs, hp);
 		this.urlSrv += this.environment.module_usuario;
 	}
 

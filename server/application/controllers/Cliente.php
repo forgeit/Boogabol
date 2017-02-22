@@ -52,8 +52,12 @@ class Cliente extends MY_Controller {
 		
 		$valid =  Helper::inputValidation($object, $this->ClienteModel->getValidation());
 		if ($this->checkValidation($valid) && $this->checkExec(array('exec' => $this->ClienteModel->save($object)))) {			
+			if ($object->email) {
+				$news = array('email' => $object->email);
+				$this->NewsletterModel->save($news);
+			}
 			$this->printReturn(RET_OK, $this->ClienteModel->getLastInsertedId(), Helper::getMessage(0));
-		}		
+		}	
 	}
 
 	public function remove() {

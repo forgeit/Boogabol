@@ -26,7 +26,7 @@ class Helper {
 	}
 
 	public static function typeValid($type, $data) {
-		if ($type == 'email' && !filter_var($data, FILTER_VALIDATE_EMAIL) === false) {
+		if ($type == 'email' && !self::checkEmail($data)) {
 			return false;
 		}
 		if ($type == 'int' && !is_numeric($data)) { 
@@ -129,5 +129,18 @@ class Helper {
 	    } 
 	    return false; 
 	} 
+
+	public static function checkEmail($email) {
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			list($alias, $domain) = explode("@", $email);
+			if (checkdnsrr($domain, "MX")) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 
 }

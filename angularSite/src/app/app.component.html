@@ -219,14 +219,21 @@
 </div>
 
 
-<div class="modal-bg">
-	<div class="modal-window">
-		<div class="modal-img hidden-xs hidden-sm"><img [src]="helper.urlFile + helper.modalImg"></div>		
-		<div class="modal-text">
-			<h3>{{helper.modalTitle}} {{helper.modalImg}} -</h3>
-			<p>{{helper.modalText}}</p>
-			<hr>
-		</div>		
-		<button class="modal-btn btn btn-motive" (click)="helper.hideModal()">Fechar</button>
+<div class="modal-bg">	
+	<div *ngIf="helper.modalTitle">
+		<div class="modal-window" [ngStyle]="{'background-image': 'url(' + helper.urlFile + helper.modalImg + ')'}">			
+			<div class="modal-text">
+				<h3>{{helper.modalTitle}}</h3>
+				<p>{{helper.modalText}}</p>
+			</div>
+		</div>
+		<button class="modal-btn" (click)="helper.hideModal()"><i class="fa fa-remove"></i></button>
+	</div>
+	<div *ngIf="!helper.modalTitle">
+		<div class="modal-window" [ngStyle]="{'background-image': 'url(' + helper.urlFilePath+'assets/images/kids.jpg)'}">			
+			<div class="modal-text-lg">			
+				<p>{{helper.modalText}}</p>
+			</div>			
+		</div>
 	</div>
 </div>

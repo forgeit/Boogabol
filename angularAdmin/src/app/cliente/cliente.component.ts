@@ -32,7 +32,7 @@ export class ClienteComponent extends GenericComponent implements OnInit {
 			this.helper.checkResponse(res).then((valid) => {
 				if (valid) {
 					this.list = res.dataRes;					
-					this.helper.updateTable('tableFull', true, false);
+					this.helper.updateTable('tableFull', true, true);
 				}
 			})
 		});	

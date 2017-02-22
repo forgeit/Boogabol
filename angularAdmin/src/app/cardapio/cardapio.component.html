@@ -18,8 +18,8 @@
 				<tr *ngFor="let elem of list">
 					<td>
 						<div class="btn-group">
-							<button type="button" [routerLink]="['/cardapio/edit', elem.id]" routerLinkActive="active" class="btn btn-primary"><i class="fa fa-pencil"></i></button>					
-							<button type="button" class="btn btn-danger" (click)="onRemove(elem.id)"><i class="fa fa-remove"></i></button>					
+							<button type="button" [routerLink]="['/cardapio/edit', elem.id]" routerLinkActive="active" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button>
+							<button type="button" class="btn btn-sm btn-danger" (click)="onRemove(elem.id)"><i class="fa fa-remove"></i></button>					
 						</div>
 					</td>
 					<td>{{elem.id}}</td>

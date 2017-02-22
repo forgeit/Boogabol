@@ -3,7 +3,7 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-##RewriteBase /boogabol/server/
-RewriteBase /server/
+RewriteBase /boogabol/server/
+##RewriteBase /server/
 RewriteRule ^(.*)$ ./index.php/$1 [L]
 Options -Indexes

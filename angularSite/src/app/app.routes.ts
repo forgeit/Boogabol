@@ -19,7 +19,7 @@ export const routes: Routes = [
 	{path: '', redirectTo: '/home', pathMatch: 'full'},
 	{path: 'home', component: HomeComponent, canActivate: [PreLoad]},	
 	{path: 'atracao', component: AtracaoComponent, canActivate: [PreLoad]},
-	{path: 'buffet', component: BuffetComponent, canActivate: [PreLoad]},
+	{path: 'ambiente', component: BuffetComponent, canActivate: [PreLoad]},
 	{path: 'cardapio', component: CardapioComponent, canActivate: [PreLoad]},
 	{path: 'tipoFesta', component: TipoFestaComponent, canActivate: [PreLoad]},
 	{path: 'orcamento', component: OrcamentoComponent, canActivate: [PreLoad]},

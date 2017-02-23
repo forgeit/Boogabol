@@ -32,28 +32,48 @@
 	width: 800px;
 	height: 500px;
 	max-width: 95%;
-	margin-top: 70px;	
+	max-height: 90%;
 	background-repeat: repeat;
 	background-size: auto 100%; 
 	background-position: center;
-	padding: 10px;
-	border: 6px solid white;
+	border: 8px solid #004278;
 	border-radius: 10px;
 	color: white;	
+	text-align: right;	
 }
 
 .modal-bg .modal-window .modal-text {
 	text-align: left;
-	padding: 10px 10px 0 10px;	
+	padding: 15px 15px 15px 15px;
+	background: rgba(0,0,0,0.4);
+	text-shadow: 0 0 5px black;
 }
 
-.modal-bg .modal-window hr {
-	margin: 10px 0 10px 0;
+.modal-bg .modal-window .modal-text-dark {
+	overflow: scroll;
+	background: rgba(255,255,255,0.9);
+	height: 100%;
+	color: #000;
+	text-shadow: none;
 }
 
 .modal-bg .modal-window .modal-btn {
-	margin-left: 20px;
-	margin-bottom: 10px;
+	position: absolute;
+	border: 4px solid #004278;
+	background: none;
+	border-radius: 100%;    
+	width: 40px;
+	font-size: 20px;
+	height: 40px;
+	background: white;
+	margin-left: -56px;	
+	margin-top: 15px;
+	color: #004278;
+}
+
+.modal-bg .modal-window .modal-btn:hover {
+	border-color: black;
+	color: black;
 }
 
 .modal-bg .modal-img {
@@ -97,7 +117,7 @@
 	object-fit: cover;	
 }
 
-.btn-motive:hover, .btn-motive.is-active, .btn-motive:active, .btn-motive.active, .open > .btn-motive.dropdown-toggle, .btn-motive:active:hover, .btn-motive:active:focus, .btn-motive:active.focus, .btn-motive.active:hover, .btn-motive.active:focus, .btn-motive.active.focus, .open > .btn-motive.dropdown-toggle:hover, .open > .btn-motive.dropdown-toggle:focus, .open > .btn-motive.dropdown-toggle.focus {
+.btn-motive:hover, .btn-motive.is-active, .btn-motive:active, .btn-motive.active, .open > .btn-motive.dropdown-toggle, .btn-motive:active:hover, .btn-motive:active:focus, .btn-motive:active.focus, .btn-motive.active:hover, .btn-motive.active:focus, .btn-motive.active.focus, .open > .btn-motive.dropdown-toggle:hover, .open > .btn-motive.dropdown-toggle:focus, .open > .btn-motive.dropdown-toggle.focus, .btn-motive:focus, .btn-motive.focus, .ct-btn--scroll-up:hover {
 	background-color: #c7280a;
 	border-color: #c7280a;
 }
@@ -131,4 +151,12 @@
 
 .ct-newsletter__button {
 	bottom: 15px;
+}
+
+.p-indent {
+	text-indent: 3em;
+}
+
+.navbar-brand>img {
+    width: 130px;
 }

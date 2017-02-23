@@ -11,7 +11,7 @@ import { BuffetNewComponent } from './buffetNew.component';
 
 // Route Configuration
 export const buffetRoutes: Routes = [
-	{ path: 'buffet', 
+	{ path: 'ambiente', 
 		children: [
 			{path: 'list', component: BuffetComponent, canActivate: [AuthGuard]},
 			{path: 'new', component: BuffetNewComponent, canActivate: [AuthGuard]},

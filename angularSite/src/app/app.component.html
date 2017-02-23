@@ -24,8 +24,10 @@
 		</div>
 		<div class="topbar__inner">
 			<ul class="ct-socials list-inline list-unstyled">
-				<li class="ct-socials__item ct-socials__item--facebook"><a href="https://www.facebook.com/boogabol/"><i class="fa fa-facebook"></i></a>
+				<li class="ct-socials__item ct-socials__item--facebook"><a href="https://www.facebook.com/boogabol/" target="_"><i class="fa fa-facebook"></i></a>
 				</li>				
+				<li class="ct-socials__item ct-socials__item--instagram"><a href="https://www.instagram.com/boogabol/" target="_"><i class="fa fa-instagram"></i></a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -38,17 +40,7 @@
 				<li class="nav-item"><a routerLink="/atracao" routerLinkActive="active">Teste</a>
 				</li>							
 			</ul>-->
-		</div>
-		<div class="midbar__inner"><a href="#" class="midbar__search-toggle"><i class="fa fa-search"></i></a>
-		</div>
-		<div class="midbar__search midbar__search--default">
-			<form class="ct-search form-group">
-				<input id="midbar-search" placeholder="Search..." required="required" name="field[]" class="form-control" />
-				<label for="midbar-search" class="sr-only">Busca...</label>
-				<button type="submit"><i class="fa fa-search"></i>
-				</button>
-			</form>
-		</div>
+		</div>		
 	</div>
 	<div class="navbar navbar-default navbar-fixed">
 		<div class="navbar-header">
@@ -60,7 +52,7 @@
 			<li class="nav-item"><a routerLink="/home" routerLinkActive="menu-active" >Home</a></li>
 			<li class="nav-item"><a routerLink="/atracao" routerLinkActive="menu-active">Atrações</a></li>
 			<li class="nav-item"><a routerLink="/tipoFesta" routerLinkActive="menu-active">Tipos de Festa</a></li>
-			<li class="nav-item"><a routerLink="/buffet" routerLinkActive="menu-active">Buffet</a></li>
+			<li class="nav-item"><a routerLink="/ambiente" routerLinkActive="menu-active">Ambiente</a></li>
 			<li class="nav-item"><a routerLink="/cardapio" routerLinkActive="menu-active">Cardápio</a></li>
 			<li class="nav-item"><a routerLink="/parceiro" routerLinkActive="menu-active">Parceiros</a></li>
 			<li class="nav-item"><a routerLink="/contato" routerLinkActive="menu-active">Contato</a></li>			
@@ -98,7 +90,7 @@
 		<div class="ct-newsletter">
 			<div class="row">
 				<div class="col-sm-6 col-md-3">
-					<h2 class="ct-newsletter__heading"><span><small>.Esteja atualizado</small>Assine <b>agora nosso newsletter</b></span></h2>
+					<h2 class="ct-newsletter__heading"><span><small>Esteja atualizado</small>Assine <b>agora nossa Newsletter</b></span></h2>
 				</div>
 				<div class="col-sm-6 col-md-5">
 					<p class="ct-newsletter__content">Assine agora e saiba sobre novidades, promoções, eventos e muito mais...</p>
@@ -140,7 +132,10 @@
 			</div>			
 		</div>
 	</div>
-	<div class="ct-footer__copyright"><span>&copy; Forge IT Solutions 2017</span>
+	<div style="height: 60px; background: white; text-align: center">
+		<div style="padding-top: 10px; color: black; padding-top: 18px; font-size: 12px;">
+			<p>© 2017 Todos os Direitos Reservados - Desenvolvido por <a style="color: red;" href="http://forgeit.com.br/"><img src="http://forgeit.com.br/images/Side_Logo.png" style="width: 20px;margin-top: -4px;">Forge It Solutions.</a></p>
+		</div>
 	</div>
 </footer>
 
@@ -156,19 +151,13 @@
 </div>
 <!-- *** Mobile Menu *** -->
 <div class="ct-mobile-menu">
-	<div class="ct-mobile-menu__inner">
-		<form class="ct-search form-group">
-			<input id="mobile-search" placeholder="Search..." required="required" name="field[]" class="form-control" />
-			<label for="mobile-search" class="sr-only">Search...</label>
-			<button type="submit"><i class="fa fa-search"></i>
-			</button>
-		</form>
+	<div class="ct-mobile-menu__inner">		
 		<div class="ct-mobile-menu__content">
 			<ul class="ct-mobile-menu__nav list-unstyled">
 				<li class="nav-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
 				<li class="nav-item"><a routerLink="/atracao" routerLinkActive="active">Atrações</a></li>
 				<li class="nav-item"><a routerLink="/tipoFesta" routerLinkActive="active">Tipos de Festa</a></li>
-				<li class="nav-item"><a routerLink="/buffet" routerLinkActive="active">Buffet</a></li>
+				<li class="nav-item"><a routerLink="/ambiente" routerLinkActive="active">Ambiente</a></li>
 				<li class="nav-item"><a routerLink="/cardapio" routerLinkActive="active">Cardápio</a></li>
 				<li class="nav-item"><a routerLink="/parceiros" routerLinkActive="active">Parceiros</a></li>
 				<li class="nav-item"><a routerLink="/contato" routerLinkActive="active">Contato</a></li>
@@ -206,11 +195,11 @@
 				<div class="media-body"><span class="media-heading">(012) 345-6789</span></div></a>			-->
 
 				<ul class="ct-socials list-inline list-unstyled">
-					<li class="ct-socials__item ct-socials__item--facebook"><a href="https://www.facebook.com/boogabol/"><i class="fa fa-facebook"></i></a>
+					<li class="ct-socials__item ct-socials__item--facebook"><a href="https://www.facebook.com/boogabol/" target="_"><i class="fa fa-facebook"></i></a>
+					</li>					
+					<li class="ct-socials__item ct-socials__item--instagram"><a href="https://www.instagram.com/boogabol/" target="_"><i class="fa fa-instagram"></i></a>
 					</li>
 				<!--
-				<li class="ct-socials__item ct-socials__item--twitter"><a href="https://twitter.com/createitpl"><i class="fa fa-twitter"></i></a>
-				</li>
 				<li class="ct-socials__item ct-socials__item--flickr"><a href="#"><i class="fa fa-flickr"></i></a>
 				</li>				-->
 			</ul>
@@ -220,19 +209,53 @@
 
 
 <div class="modal-bg">	
-	<div *ngIf="helper.modalTitle">
+	<div *ngIf="helper.modalTitle !== null">
 		<div class="modal-window" [ngStyle]="{'background-image': 'url(' + helper.urlFile + helper.modalImg + ')'}">			
+			<button type="button" class="modal-btn" (click)="helper.hideModal()"><i class="fa fa-remove"></i></button>
 			<div class="modal-text">
 				<h3>{{helper.modalTitle}}</h3>
 				<p>{{helper.modalText}}</p>
 			</div>
 		</div>
-		<button class="modal-btn" (click)="helper.hideModal()"><i class="fa fa-remove"></i></button>
 	</div>
-	<div *ngIf="!helper.modalTitle">
-		<div class="modal-window" [ngStyle]="{'background-image': 'url(' + helper.urlFilePath+'assets/images/kids.jpg)'}">			
-			<div class="modal-text-lg">			
-				<p>{{helper.modalText}}</p>
+	<div *ngIf="helper.modalTitle == null">
+		<div class="modal-window" [ngStyle]="{'background-image': 'url(' + helper.urlFilePath+'assets/images/kids.jpg)'}">		
+			<button type="button" class="modal-btn" (click)="helper.hideModal()"><i class="fa fa-remove"></i></button>
+			<div class="modal-text modal-text-dark">			
+				<h3 class="text-center">Quem <b>Somos</b></h3>
+				<p class="p-indent">
+					A BOOGABOL festas, diversão e complexo esportivo é um espaço que foi
+					projetado com toques especiais e diferenciados, para oferecer muita diversão e
+					entretenimento a todos e encantar o universo infantil, teen e adulto. A responsabilidade
+					da BOOGABOL é proporcionar prazer em se divertir e a alegria de festejar.
+				</p>
+				<p class="p-indent">
+					Os proprietários Carlos Alberto Rehbein e Diego Falleiro Gottert, pensaram em
+					cada detalhe desta estrutura gigantesca de 2200m² para fazer deste “um lugar mágico
+					para se divertir”. Onde o aconchego dos ambientes internos e a experiência
+					dos colaboradores irão proporcionar o seu bem estar e dos seus convidados.
+				</p>
+				<p class="p-indent">
+					A gastronomia repensa valores de casas de festas infantis; com isto, criou-se um
+					cardápio especial para o público infantil, que se estende para todos os convidados. A
+					casa preocupou-se também em elaborar um cardápio com especialidades e detalhes para
+					o público adulto, que complementam com glamour, o nosso serviço.
+				</p>
+				<p class="p-indent">
+					A BOOGABOL está situada em uma região central da cidade, possui 2200m²
+					dividida em 700m² de área de festas e 1500m² em um dos mais belos complexos
+					esportivos da região. No complexo esportivo dispõem-se de campo de futebol 7 e
+					quadra de esportes indoor, assim como churrasqueiras e um pub. Lembrando um pouco
+					a infância antiga, em que as brincadeiras de rua se sobressaíam, conta-se com
+					brinquedos diferenciados para toda a criançada. Com a BOOGABOL, a diversão está
+					garantida! A casa ainda possui um lounge interno, voltado para o público adulto, com
+					vista para toda a estrutura da festa, onde há brinquedos eletrônicos e interativos. As
+					atividades disponibilizadas são para todas as idades. A excelência no atendimento
+					personalizado e profissional, fará toda a diferença na sua festa!
+				</p>
+				<p class="p-indent">
+					O seu evento merece ser inesquecível!
+				</p>
 			</div>			
 		</div>
 	</div>

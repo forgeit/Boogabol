@@ -25,6 +25,8 @@ export class Helper {
 
 	private passSalt: string = "BoogPassSalt";
 
+	private height: number = 0;
+
 	constructor(private router: Router, private location: Location) {
 	}
 
@@ -48,7 +50,7 @@ export class Helper {
 						node2.type = 'text/javascript';
 						node2.async = false;
 						node2.charset = 'utf-8';
-						document.getElementsByTagName('main')[0].appendChild(node2);					
+						document.getElementsByTagName('main')[0].appendChild(node2);	
 					}    
 				}, 500);							
 			}, 500);	
@@ -134,10 +136,12 @@ export class Helper {
 		this.modalTitle = title;
 		this.modalText = text;
 		this.modalImg = img;
-		$('.modal-bg').fadeIn(100);		
+		let h = $(window).height();
+		$('.modal-bg').css('padding-top', (h<600?0:h/2-300)+"px");	
+		$('.modal-bg').fadeIn(100);						
 	}
 
-	public hideModal() {
+	public hideModal() {		
 		this.modalImg = '';
 		$('.modal-bg').fadeOut(100);
 	}

@@ -22,7 +22,7 @@ export class BuffetEditComponent extends GenericComponent implements OnInit {
 		super(fb);
 		this.compModule = this.environment.module_buffet;
 		this.complexForm = fb.group(elemService.getFormValidator());
-		helper.setPageInfo('Edição Buffet', this.environment.module_buffet);
+		helper.setPageInfo('Edição Ambiente', this.environment.module_buffet);
 	}
 
 	ngOnInit(): void {

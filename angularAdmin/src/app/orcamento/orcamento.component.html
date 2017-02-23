@@ -3,27 +3,25 @@
 		<table class="tableFull table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th></th>
 					<th>ID</th>
 					<th>Nome</th>
 					<th>Telefone</th>
 					<th>Email</th>
 					<th>Visualizado</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr *ngFor="let elem of list">
-					<td>
-						<div class="btn-group">						
-							<button type="button" [routerLink]="['/orcamento/edit', elem.id]" class="btn btn-primary"><i class="fa fa-pencil"></i></button>					
-							<button type="button" class="btn btn-danger" (click)="onRemove(elem.id)"><i class="fa fa-remove"></i></button>					
-						</div>
-					</td>
 					<td>{{elem.id}}</td>
 					<td>{{elem.nome}}</td>					
 					<td>{{elem.telefone}}</td>					
 					<td>{{elem.email}}</td>					
 					<td [ngClass]="{'td-grey': elem.flag_lido == 0}">{{elem.flag_lido == 1 ? 'Sim' : 'Não'}}</td>
+					<td>
+						<button type="button" class="btn btn-primary btn-sm" [routerLink]="['/orcamento/edit', elem.id]"><i class="fa fa-eye"></i></button>					
+						<button type="button" class="btn btn-danger btn-sm" (click)="onRemove(elem.id)"><i class="fa fa-remove"></i></button>					
+					</td>
 				</tr>
 			</tbody>
 		</table>

@@ -18,7 +18,7 @@ export class BuffetComponent extends GenericComponent implements OnInit {
 
 	constructor(private helper: Helper, private service: BuffetService) {
 		super(null);
-		helper.setPageInfo('Lista Buffet', this.environment.module_buffet);
+		helper.setPageInfo('Lista Ambiente', this.environment.module_buffet);
 	}
 
 	list: Buffet[];

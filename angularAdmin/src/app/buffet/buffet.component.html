@@ -1,27 +1,21 @@
 <div class="box">	
 	<div class="box-header">
 		<div class="btn-group">
-			<button type="button" [routerLink]="['/buffet/new']" routerLinkActive="active" class="btn btn-primary"><i class="fa fa-plus"></i></button>					
+			<button type="button" [routerLink]="['/ambiente/new']" routerLinkActive="active" class="btn btn-primary"><i class="fa fa-plus"></i></button>					
 		</div>
 	</div>
 	<div class="box-body">
 		<table class="tableFull table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th></th>
 					<th>ID</th>
 					<th>Título</th>
 					<th>Imagem</th>					
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr *ngFor="let elem of list">
-					<td>
-						<div class="btn-group">
-							<button type="button" [routerLink]="['/buffet/edit', elem.id]" routerLinkActive="active" class="btn btn-primary"><i class="fa fa-pencil"></i></button>					
-							<button type="button" class="btn btn-danger" (click)="onRemove(elem.id)"><i class="fa fa-remove"></i></button>					
-						</div>
-					</td>
 					<td>{{elem.id}}</td>
 					<td>{{elem.titulo}}</td>
 					<td>
@@ -29,6 +23,10 @@
 							<img class="thumbnail" [src]="urlFile + elem.id_imagem"/>
 						</div>
 					</td>					
+					<td>
+						<button type="button" [routerLink]="['/ambiente/edit', elem.id]" routerLinkActive="active" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button>					
+						<button type="button" class="btn btn-danger btn-sm" (click)="onRemove(elem.id)"><i class="fa fa-remove"></i></button>					
+					</td>
 				</tr>
 			</tbody>
 		</table>

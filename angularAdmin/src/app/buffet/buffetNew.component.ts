@@ -21,7 +21,7 @@ export class BuffetNewComponent extends GenericComponent {
 		super(fb);
 		this.compModule = this.environment.module_buffet;
 		this.complexForm = fb.group(elemService.getFormValidator());
-		helper.setPageInfo('Novo Buffet', this.environment.module_buffet);
+		helper.setPageInfo('Novo Ambiente', this.environment.module_buffet);
 	}
 
 	onFileChange(event) {

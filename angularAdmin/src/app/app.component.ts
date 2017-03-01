@@ -12,13 +12,24 @@ export class AppComponent {
 
 	constructor(public helper: Helper, private orcamentoService: OrcamentoService) {
 		this.orcamentoService.getNaoLidos().then(res => {
-			this.helper.orcamentoNaoLido = res.count;
+			this.helper.orcamentoNaoLido = res;
+			this.helper.stopLoading();
 		});
 		
 		setTimeout(() => {
 			this.orcamentoService.getNaoLidos().then(res => {
-				this.helper.orcamentoNaoLido = res.count;
+				this.helper.orcamentoNaoLido = res;
+				this.helper.stopLoading();
 			});
 		}, 120000); //5min
+	}
+
+	modalOK(): void {
+		this.helper.modalHidden = true;
+		this.orcamentoService.removeFromUrl(this.helper.modalUrlApi).then(res => {
+			this.helper.checkResponse(res).then(valid => {
+				if (valid) { this.helper.modalResult = true; }
+			});
+		});
 	}
 }

@@ -43,6 +43,11 @@ export class GenericService {
 		return this.defaultPromise(this.http.delete(this.urlSrv+"/remove/"+id, {headers: this.getHeaderJwt()}));		
 	}
 
+	removeFromUrl(url): Promise<any> {
+		this.helper.startLoading();
+		return this.defaultPromise(this.http.delete(this.environment.serverUrl+url, {headers: this.getHeaderJwt()}));		
+	}
+
 
 	defaultPromise(prom: any): Promise<any> {
 		return prom.toPromise()
@@ -51,8 +56,8 @@ export class GenericService {
 	}	
 	
 	private handleError(error: any): Promise<any> {
-		alert('Erro ao conectar com o Servidor');	
 		this.helper.stopLoading();
+		alert('Erro ao conectar com o Servidor');			
 		return Promise.reject(error.message || error);
 	}
 

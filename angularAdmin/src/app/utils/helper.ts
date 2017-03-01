@@ -19,6 +19,11 @@ export class Helper {
 	private passSalt: string = "BoogPassSalt";
 	private height: number = 0;
 
+	public modalHidden: boolean = true;
+	private modalItem: string = "";	
+	public modalUrlApi: string = "";
+	public modalResult: boolean = null;
+
 	constructor(private toastyService:ToastyService, private toastyConfig: ToastyConfig, private router: Router, private location: Location, private slimLoadingBarService: SlimLoadingBarService) {
 		this.toastyConfig.theme = 'default';		
 	}
@@ -97,10 +102,12 @@ export class Helper {
 		this.activeMenu = am;
 	}
 
-	updateMaskDate(claz: string): void {
+	updateMask(): void {
 		setTimeout(() => {
-			$('.'+claz).mask('00/00/0000');
-		});
+			$('.data-mask').mask('00/00/0000', {clearIfNotMatch: true});
+			$('.cpf-mask').mask('000.000.000-00', {clearIfNotMatch: true});
+			$('.phone-mask').mask('(00) 0 0000-0000', {clearIfNotMatch: true});
+		}, 4000);
 	}
 
 	getCurrentUrl(): string {
@@ -113,10 +120,7 @@ export class Helper {
 
 	startLoading() {
 		let h = $(window).height();
-		if (this.height !== h) {
-			$('.div-loading-window').css('margin-top', h / 2 - 150 + "px");
-			this.height = h;
-		}
+		$('.div-loading').css('padding-top', h / 2 - 150 + "px");	
 		$('.div-loading').fadeIn();
 		this.slimLoadingBarService.start();
 	}
@@ -128,5 +132,17 @@ export class Helper {
 		}, 1000);
 	}
 
+	modalCancel(): void {
+		this.modalHidden = true;
+		this.modalResult = false;
+	}
 
+	modalShow(text: string, url: string):void {	
+		this.modalResult = null;
+		let h = $(window).height();
+		$('.modal-confirm').css('padding-top', h / 2 - 180 + "px");			
+		this.modalUrlApi = url;
+		this.modalItem = text;
+		this.modalHidden = false;		
+	}	
 }

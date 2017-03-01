@@ -4,9 +4,9 @@ import { Router } 		from '@angular/router';
 import { GenericService }	from '../utils/generic.service';
 import { Helper }			from '../utils/helper';
 
-import { Cardapio } 	from '../model/cardapio';
+import { Complexo } 	from '../model/complexo';
 import { Buffet } 		from '../model/buffet';
-import { TipoFesta } 	from '../model/tipoFesta';
+import { Equipe } 	from '../model/equipe';
 import { Atracao } 		from '../model/atracao';
 import { Parceiro } 	from '../model/parceiro';
 
@@ -18,18 +18,18 @@ import { Parceiro } 	from '../model/parceiro';
 })
 export class HomeComponent implements OnInit {
 	
-	cardapio: Cardapio;
+	complexo: Complexo;
 	buffet: Buffet;
-	tipoFesta: TipoFesta;
+	equipe: Equipe;
 	atracao: Atracao;
 	parceiroList: Parceiro[];	
 
 	constructor(private helper: Helper, private gs: GenericService, private router: Router) {
 		//helper.setPageInfo('Dashboard');
 
-		this.cardapio = new Cardapio(null,'','',null);
+		this.complexo = new Complexo(null,'','',null);
 		this.buffet = new Buffet(null,'','',null);
-		this.tipoFesta = new TipoFesta(null,'','',null);
+		this.equipe = new Equipe(null,'','',null);
 		this.atracao = new Atracao(null,'','',null);
 	}
 
@@ -37,14 +37,14 @@ export class HomeComponent implements OnInit {
 		this.helper.pageTitle = null;
 		
 		this.gs.get('home').then(res => {
-			if (res.cardapio != null) {
-				this.cardapio = res['cardapio'];
+			if (res.complexo != null) {
+				this.complexo = res['complexo'];
 			} 
 			if (res.buffet != null) {
 				this.buffet = res['buffet'];
 			}
-			if (res.tipoFesta != null) {
-				this.tipoFesta = res['tipoFesta'];
+			if (res.equipe != null) {
+				this.equipe = res['equipe'];
 			}
 			if (res.atracao != null) {
 				this.atracao = res['atracao'];

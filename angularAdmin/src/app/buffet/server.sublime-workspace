@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"check",
+				"checkCPF"
+			],
+			[
 				"print",
 				"print_r"
 			],
@@ -43,6 +47,77 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/controllers/Secao.php",
+			"settings":
+			{
+				"buffer_size": 2335,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/models/SecaoModel.php",
+			"settings":
+			{
+				"buffer_size": 419,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/controllers/Pacote.php",
+			"settings":
+			{
+				"buffer_size": 2234,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/models/PacoteModel.php",
+			"settings":
+			{
+				"buffer_size": 556,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/updates.sql",
+			"settings":
+			{
+				"buffer_size": 9480,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/database/database.sql",
+			"settings":
+			{
+				"buffer_size": 7186,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/config/autoload.php",
+			"settings":
+			{
+				"buffer_size": 4366,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/boogabol/server/application/config/routes.php",
+			"settings":
+			{
+				"buffer_size": 2842,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -87,9 +162,7 @@
 	[
 		"/C/xampp/htdocs/boogabol/server",
 		"/C/xampp/htdocs/boogabol/server/application",
-		"/C/xampp/htdocs/boogabol/server/application/config",
-		"/C/xampp/htdocs/boogabol/server/application/core",
-		"/C/xampp/htdocs/boogabol/server/application/logs",
+		"/C/xampp/htdocs/boogabol/server/application/controllers",
 		"/C/xampp/htdocs/boogabol/server/application/models",
 		"/C/xampp/htdocs/boogabol/server/database",
 		"/C/xampp/htdocs/boogabol/server/images",
@@ -97,41 +170,53 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/boogabol/server/application/models/AniversarianteModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/ArquivoModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/AtracaoModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/BuffetModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/CidadeModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/ClienteModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Item.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/ItemModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/SecaoModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Decoracao.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/PacoteModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/FileUpload.php",
+		"/C/xampp/htdocs/boogabol/server/application/core/MY_Model.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/EquipeModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/config/routes.php",
+		"/C/xampp/htdocs/boogabol/server/application/config/autoload.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Publico.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Pacote.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/ComplexoModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Complexo.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/DecoracaoModel.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Equipe.php",
+		"/C/xampp/htdocs/boogabol/server/application/helpers/default_helper.php",
+		"/C/xampp/htdocs/boogabol/server/application/helpers/image_helper.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Orcamento.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Atracao.php",
+		"/C/xampp/htdocs/boogabol/server/application/controllers/Cidade.php",
+		"/C/xampp/htdocs/boogabol/server/application/models/OrcamentoModel.php",
 		"/C/xampp/htdocs/boogabol/server/application/config/config.php",
 		"/C/xampp/htdocs/boogabol/server/application/config/database.php",
 		"/C/xampp/htdocs/boogabol/server/.htaccess",
-		"/C/xampp/htdocs/boogabol/server/application/helpers/default_helper.php",
-		"/C/xampp/htdocs/boogabol/server/application/helpers/image_helper.php",
-		"/C/xampp/htdocs/boogabol/server/application/controllers/FileUpload.php",
-		"/C/xampp/htdocs/boogabol/server/application/core/MY_Model.php",
-		"/C/xampp/htdocs/boogabol/server/application/config/routes.php",
 		"/C/xampp/htdocs/boogabol/server/application/core/MY_Controller.php",
-		"/C/xampp/htdocs/boogabol/server/application/controllers/Orcamento.php",
 		"/C/xampp/htdocs/boogabol/server/application/models/NewsletterModel.php",
-		"/C/xampp/htdocs/boogabol/server/application/controllers/Publico.php",
 		"/C/xampp/htdocs/boogabol/server/application/logs/error.log",
 		"/C/xampp/htdocs/boogabol/updates.sql",
-		"/C/xampp/htdocs/boogabol/server/application/models/OrcamentoModel.php",
 		"/C/xampp/htdocs/boogabol/server/application/controllers/Parceiro.php",
-		"/C/xampp/htdocs/boogabol/server/application/config/autoload.php",
 		"/C/xampp/htdocs/boogabol/server/application/models/Orcamento.php",
 		"/C/xampp/htdocs/boogabol/theme/site/book-party.html",
 		"/C/xampp/htdocs/boogabol/server/application/controllers/Cliente.php",
 		"/C/xampp/htdocs/boogabol/server/application/controllers/Buffet.php",
 		"/C/xampp/htdocs/boogabol/server/application/controllers/Aniversariante.php",
 		"/C/xampp/htdocs/boogabol/server/application/controllers/Usuario.php",
-		"/C/xampp/htdocs/boogabol/server/application/models/ClienteModel.php",
 		"/C/xampp/htdocs/boogabol/server/application/controllers/Relatorio.php",
 		"/C/xampp/htdocs/boogabol/server/application/controllers/Cardapio.php",
-		"/C/xampp/htdocs/boogabol/server/application/controllers/Decoracao.php",
 		"/C/xampp/htdocs/boogabol/server/application/controllers/TipoFesta.php",
-		"/C/xampp/htdocs/boogabol/server/application/controllers/Atracao.php",
-		"/C/xampp/htdocs/boogabol/server/application/models/DecoracaoModel.php",
-		"/C/xampp/htdocs/boogabol/server/application/models/BuffetModel.php",
-		"/C/xampp/htdocs/boogabol/server/application/models/AtracaoModel.php",
 		"/C/xampp/htdocs/boogabol/server/application/models/CardapioModel.php",
 		"/C/xampp/htdocs/boogabol/server/application/models/TipoFestaModel.php",
-		"/C/xampp/htdocs/boogabol/server/application/models/ArquivoModel.php",
 		"/C/xampp/htdocs/boogabol/server/index.php",
 		"/C/xampp/htdocs/boogabol/angularAdmin/e2e/tsconfig.json",
 		"/C/xampp/htdocs/boogabol/angularAdmin/src/environments/environment.ts",
@@ -177,9 +262,31 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"decoracao",
+			"Decoracao",
+			"decoracao",
+			"Decoracao",
+			"secao",
+			"Secao",
+			"pacote",
+			"Pacote",
+			"Model",
+			"complexo",
+			"Complexo",
+			"tipoFesta",
+			"TipoFesta",
+			"cardapio",
+			"Cardapio",
+			"tipoFe",
+			"cardapio",
+			"tipoFesta",
+			"TipoFesta",
+			"module",
+			"Cardapio",
+			"cardapio",
 			"atracao",
 			"Atracao",
 			"inser",
@@ -209,6 +316,24 @@
 		"regex": false,
 		"replace_history":
 		[
+			"item",
+			"Item",
+			"secao",
+			"Secao",
+			"item",
+			"Item",
+			"secao",
+			"Secao",
+			"pacote",
+			"Pacote",
+			"equipe",
+			"Equipe",
+			"complexo",
+			"Complexo",
+			"equipe",
+			"Equipe",
+			"Complexo",
+			"complexo",
 			"orcamento",
 			"Orcamento",
 			"decoracao",
@@ -235,13 +360,246 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/xampp/htdocs/boogabol/server/application/controllers/Secao.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2335,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								844,
+								844
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/xampp/htdocs/boogabol/server/application/models/SecaoModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								360,
+								360
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/xampp/htdocs/boogabol/server/application/controllers/Pacote.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2234,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1056,
+								1056
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/xampp/htdocs/boogabol/server/application/models/PacoteModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 556,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								330,
+								330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		},
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 4,
+					"file": "/C/xampp/htdocs/boogabol/updates.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9479,
+								9479
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 745.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/xampp/htdocs/boogabol/database/database.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7186,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6020,
+								6020
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2642.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/xampp/htdocs/boogabol/server/application/config/autoload.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4366,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4360,
+								4360
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2014.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/xampp/htdocs/boogabol/server/application/config/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2842,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2513,
+								2513
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1264.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -304,6 +662,50 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"pacotemo",
+				"application\\models\\PacoteModel.php"
+			],
+			[
+				"secaomode",
+				"application\\models\\SecaoModel.php"
+			],
+			[
+				"item",
+				"application\\controllers\\Item.php"
+			],
+			[
+				"fileup",
+				"application\\controllers\\FileUpload.php"
+			],
+			[
+				"pacotemode",
+				"application\\models\\PacoteModel.php"
+			],
+			[
+				"fileu",
+				"application\\controllers\\FileUpload.php"
+			],
+			[
+				"orcamento",
+				"application\\controllers\\Orcamento.php"
+			],
+			[
+				"clientemod",
+				"application\\models\\ClienteModel.php"
+			],
+			[
+				"orcamentomo",
+				"application\\models\\OrcamentoModel.php"
+			],
+			[
+				"helper",
+				"application\\helpers\\default_helper.php"
+			],
+			[
+				"public",
+				"application\\controllers\\Publico.php"
+			],
 			[
 				".htacc",
 				".htaccess"

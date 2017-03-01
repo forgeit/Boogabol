@@ -23,13 +23,13 @@ export class AtracaoComponent extends GenericComponent implements OnInit {
 
 	list: Atracao[];
 
-	ngOnInit(): void {
-		this.loadList();
+	ngOnInit(): void {		
+		this.loadList();	
 	}
 
 	loadList() {
 		this.service.getList().then(res => {
-			this.helper.checkResponse(res).then((valid) => {
+			this.helper.checkResponse(res).then(valid => {
 				if (valid) {
 					this.list = res.dataRes;					
 					this.helper.updateTable('tableFull', true, false);
@@ -38,16 +38,15 @@ export class AtracaoComponent extends GenericComponent implements OnInit {
 		});	
 	}
 
-	onRemove(id) {
-		this.service.remove(id).then(res => {
-			this.helper.checkResponse(res).then((valid) => {
-				if (valid) {
-					this.loadList();
-				}
-			})
-		})
-	}
-	
+	onRemove(elem) {
+		this.helper.modalShow(elem.titulo, this.helper.activeMenu+"/remove/"+elem.id);		
+		let interval = setInterval(() => {
+			if (this.helper.modalResult !== null) { 								
+				clearInterval(interval);  
+				if (this.helper.modalResult) { this.loadList(); }
+			}
+		}, 1000);		
+	}	
 }
 
 

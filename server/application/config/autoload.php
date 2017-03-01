@@ -136,13 +136,17 @@ $autoload['model'] = array(
 	'BuffetModel', 
 	'ArquivoModel', 
 	'AtracaoModel', 
-	'CardapioModel',
-	'TipoFestaModel',
+	'ComplexoModel',
+	'EquipeModel',
 	'DecoracaoModel',
 	'ParceiroModel',
 	'ClienteModel',
 	'AniversarianteModel',
 	'UsuarioModel',
 	'OrcamentoModel',
-	'NewsletterModel'
+	'NewsletterModel',
+	'CidadeModel',
+	'PacoteModel',
+	'SecaoModel',
+	'ItemModel'
 	);

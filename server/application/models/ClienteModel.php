@@ -19,11 +19,10 @@ class ClienteModel extends MY_Model {
 	function getValidation() {
 		return array(
 			'nome' => array('Nome', 'string', '255', true),
-			'cpf' => array('CPF', 'int', '11', false),
-			'cep' => array('CEP', 'int', '8', false),
+			'cpf' => array('CPF', 'cpf', '14', false),
+			'cep' => array('CEP', 'cep', '8', false),
 			'endereco' => array('Endereço', 'string', '500', false),
-			'cidade' => array('Cidade', 'string', '255', false),
-			'telefone' => array('Telefone', 'string', '50', false),
+			'telefone' => array('Telefone', 'string', '16', false),
 			'email' => array('Email', 'string', '255', false)
 			);
 	}

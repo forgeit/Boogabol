@@ -62,13 +62,17 @@ $route['translate_uri_dashes'] = FALSE;
 $commonRoutes = array(
 	'buffet',
 	'atracao',
-	'cardapio',
-	'tipoFesta',
+	'complexo',
+	'equipe',
 	'decoracao',
 	'parceiro',
 	'cliente',
 	'aniversariante',
-	'newsletter'
+	'newsletter',
+	'cidade',
+	'pacote',
+	'secao',
+	'item'
 	);
 
 foreach ($commonRoutes as $value) {
@@ -78,6 +82,9 @@ foreach ($commonRoutes as $value) {
 	$route[$value.'/remove/(:num)'] = $value.'/remove/$1';
 	$route[$value.'/insert'] = $value.'/insert';	
 }
+
+$route['pacote/findSecoes/(:num)'] = 'pacote/findSecoes/?1';
+$route['secao/findItens/(:num)'] = 'secao/findItens/?1';
 
 $route['orcamento'] = 'orcamento/findAll';
 $route['relatorio'] = 'relatorio/findAll';

@@ -11,13 +11,14 @@ import { OrcamentoService }		from '../orcamento/orcamento.service';
 	//styleUrls: ['./app.component.css']
 })
 export class DashboardComponent extends GenericComponent {
-	constructor(private helper: Helper, private orcamentoService: OrcamentoService) {
+	constructor(public helper: Helper, private orcamentoService: OrcamentoService) {
 		super(null);
 		helper.setPageInfo('Dashboard', this.environment.module_dashboard);
 
 		this.orcamentoService.getNaoLidos().then(res => {
-			this.helper.orcamentoNaoLido = res.count;
+			this.helper.orcamentoNaoLido = res;			
+			this.helper.stopLoading();
 		});
 	}
-	title = 'app works!';
+	
 }

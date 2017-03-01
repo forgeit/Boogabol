@@ -1,0 +1,15 @@
+<div class="box box-primary">
+
+  <form name="form" [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+    <div class="box-body">
+      <div class="form-group">
+        <label for="f2">Descrição</label>
+        <textarea class="form-control" id="f2" placeholder="Descrição"  [formControl]="complexForm.controls['descricao']"></textarea>
+      </div>      
+    </div>
+
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+  </form>
+</div>

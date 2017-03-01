@@ -16,7 +16,7 @@ export class OrcamentoService extends GenericService {
 		this.urlSrv += this.environment.module_orcamento;
 	}		
 
-	getNaoLidos(): Promise<any> {		
+	getNaoLidos(): Promise<any> {	
 		return this.defaultPromise(this.http.get(this.urlSrv+"/findNaoLidos", {headers: this.getHeaderJwt()}));
 	}
 }

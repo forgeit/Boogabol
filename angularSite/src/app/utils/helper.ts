@@ -25,8 +25,6 @@ export class Helper {
 
 	private passSalt: string = "BoogPassSalt";
 
-	private height: number = 0;
-
 	constructor(private router: Router, private location: Location) {
 	}
 
@@ -122,9 +120,11 @@ export class Helper {
 		this.pageTitle = pt;		
 	}
 
-	updateMaskDate(claz: string): void {
+	updateMask(): void {
 		setTimeout(() => {
-			$('.'+claz).mask('00/00/0000');
+			$('.data-mask').mask('00/00/0000', {clearIfNotMatch: true});
+			$('.cpf-mask').mask('000.000.000-00', {clearIfNotMatch: true});
+			$('.phone-mask').mask('(00) 0 0000-0000', {clearIfNotMatch: true});
 		}, 4000);
 	}
 
@@ -133,12 +133,17 @@ export class Helper {
 	}
 
 	public showModal(title: string, text: string, img: string) {
+		this.modalInfo = false;				
 		this.modalTitle = title;
 		this.modalText = text;
 		this.modalImg = img;
 		let h = $(window).height();
 		$('.modal-bg').css('padding-top', (h<600?0:h/2-300)+"px");	
-		$('.modal-bg').fadeIn(100);						
+		$('.modal-bg').fadeIn(100);				
+	}
+
+	public infoModal() {
+		this.modalInfo = !this.modalInfo;	
 	}
 
 	public hideModal() {		
@@ -152,5 +157,6 @@ export class Helper {
 				scrollTop: $("#parceiroList").offset().top
 			}, 2000);
 		}, 2000);
-	}
+	}	
+
 }

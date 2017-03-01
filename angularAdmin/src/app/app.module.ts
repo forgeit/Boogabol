@@ -29,15 +29,15 @@ import { AtracaoComponent }      from './atracao/atracao.component';
 import { AtracaoEditComponent }  from './atracao/atracaoEdit.component';
 import { AtracaoNewComponent }   from './atracao/atracaoNew.component';
 
-import { CardapioService }        from './cardapio/cardapio.service';
-import { CardapioComponent }      from './cardapio/cardapio.component';
-import { CardapioEditComponent }  from './cardapio/cardapioEdit.component';
-import { CardapioNewComponent }   from './cardapio/cardapioNew.component';
+import { ComplexoService }        from './complexo/complexo.service';
+import { ComplexoComponent }      from './complexo/complexo.component';
+import { ComplexoEditComponent }  from './complexo/complexoEdit.component';
+import { ComplexoNewComponent }   from './complexo/complexoNew.component';
 
-import { TipoFestaService }        from './tipoFesta/tipoFesta.service';
-import { TipoFestaComponent }      from './tipoFesta/tipoFesta.component';
-import { TipoFestaEditComponent }  from './tipoFesta/tipoFestaEdit.component';
-import { TipoFestaNewComponent }   from './tipoFesta/tipoFestaNew.component';
+import { EquipeService }        from './equipe/equipe.service';
+import { EquipeComponent }      from './equipe/equipe.component';
+import { EquipeEditComponent }  from './equipe/equipeEdit.component';
+import { EquipeNewComponent }   from './equipe/equipeNew.component';
 
 import { DecoracaoService }        from './decoracao/decoracao.service';
 import { DecoracaoComponent }      from './decoracao/decoracao.component';
@@ -66,6 +66,22 @@ import { OrcamentoEditComponent }from './orcamento/orcamentoEdit.component';
 import { NewsletterComponent }   from './newsletter/newsletter.component';
 import { NewsletterService }   from './newsletter/newsletter.service';
 
+import { PacoteService }        from './pacote/pacote.service';
+import { PacoteComponent }      from './pacote/pacote.component';
+import { PacoteEditComponent }  from './pacote/pacoteEdit.component';
+import { PacoteNewComponent }   from './pacote/pacoteNew.component';
+
+import { SecaoService }        from './secao/secao.service';
+import { SecaoComponent }      from './secao/secao.component';
+import { SecaoEditComponent }  from './secao/secaoEdit.component';
+import { SecaoNewComponent }   from './secao/secaoNew.component';
+
+import { ItemService }        from './item/item.service';
+import { ItemComponent }      from './item/item.component';
+import { ItemEditComponent }  from './item/itemEdit.component';
+import { ItemNewComponent }   from './item/itemNew.component';
+
+
 @NgModule({
   declarations: [
   AppComponent,
@@ -83,13 +99,13 @@ import { NewsletterService }   from './newsletter/newsletter.service';
   AtracaoEditComponent,
   AtracaoNewComponent,
 
-  CardapioComponent,
-  CardapioEditComponent,
-  CardapioNewComponent,
+  ComplexoComponent,
+  ComplexoEditComponent,
+  ComplexoNewComponent,
 
-  TipoFestaComponent,
-  TipoFestaEditComponent,
-  TipoFestaNewComponent,
+  EquipeComponent,
+  EquipeEditComponent,
+  EquipeNewComponent,
 
   DecoracaoComponent,
   DecoracaoEditComponent,
@@ -108,7 +124,19 @@ import { NewsletterService }   from './newsletter/newsletter.service';
   OrcamentoComponent,
   OrcamentoEditComponent,
 
-  NewsletterComponent
+  NewsletterComponent,
+  
+  PacoteComponent,
+  PacoteEditComponent,
+  PacoteNewComponent,
+  
+  SecaoComponent,
+  SecaoEditComponent,
+  SecaoNewComponent,
+  
+  ItemComponent,
+  ItemEditComponent,
+  ItemNewComponent
 
   ],
   imports: [
@@ -131,15 +159,18 @@ import { NewsletterService }   from './newsletter/newsletter.service';
   LoginService,
   BuffetService,
   AtracaoService,
-  CardapioService,
-  TipoFestaService,
+  ComplexoService,
+  EquipeService,
   DecoracaoService,
   ParceiroService,
   ClienteService,
   AniversarianteService,
   RelatorioService,
   OrcamentoService,
-  NewsletterService
+  NewsletterService,
+  PacoteService,
+  SecaoService,
+  ItemService
   ],
   bootstrap: [AppComponent]
 })

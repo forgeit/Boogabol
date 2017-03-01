@@ -4,15 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Publico extends MY_Controller {
 
 	public function home() {
-		$cardapio = $this->CardapioModel->getRandomOfTable('cardapio');
-		$tipoFesta = $this->TipoFestaModel->getRandomOfTable('tipo_festa');
+		$complexo = $this->ComplexoModel->getRandomOfTable('complexo');
+		$equipe = $this->EquipeModel->getRandomOfTable('equipe');
 		$atracao = $this->AtracaoModel->getRandomOfTable('atracao');
 		$buffet = $this->BuffetModel->getRandomOfTable('buffet');
 		$parceiroList = $this->ParceiroModel->findAll();
 
 		print_r(json_encode(array(
-			'cardapio'=>$cardapio,
-			'tipoFesta'=>$tipoFesta,
+			'complexo'=>$complexo,
+			'equipe'=>$equipe,
 			'atracao'=>$atracao,
 			'buffet'=>$buffet,
 			'parceiroList'=>$parceiroList
@@ -23,21 +23,21 @@ class Publico extends MY_Controller {
 		print_r(json_encode($this->AtracaoModel->findAll()));
 	}
 
-	public function tipoFesta() {
-		print_r(json_encode($this->TipoFestaModel->findAll()));
+	public function equipe() {
+		print_r(json_encode($this->EquipeModel->findAll()));
 	}
 
 	public function buffet() {
 		print_r(json_encode($this->BuffetModel->findAll()));
 	}
 
-	public function cardapio() {
-		print_r(json_encode($this->CardapioModel->findAll()));
+	public function complexo() {
+		print_r(json_encode($this->ComplexoModel->findAll()));
 	}
 
 	public function orcamento() {
 		print_r(json_encode(array(
-			'tipoFestaList' =>$this->TipoFestaModel->findAll(),
+			'equipeList' =>$this->EquipeModel->findAll(),
 			'decoracaoList' =>$this->DecoracaoModel->findAll()
 			)));	
 	}
@@ -58,6 +58,19 @@ class Publico extends MY_Controller {
 			}
 			if ($this->checkExec(array('exec' => $this->OrcamentoModel->save($object)))) {			
 				$this->printReturn(RET_OK, null, Helper::getMessage(2));
+
+				$message = ''.
+				'NOME: ' . $object->nome . "\r\n" .
+				'TELEFONE: ' . $object->telefone . "\r\n" .
+				'EMAIL: ' . $object->email . "\r\n" .
+				'NOME DO ANIVERSARIANTE: ' . $object->nome_aniversariante . "\r\n" .
+				'IDADE DO ANIVERSARIANTE: ' . $object->idade_aniversariante . "\r\n" .
+				'DATA DA FESTA: ' . $object->data . "\r\n" .
+				'NÚMERO DE CONVIDADOS: ' . $object->num_convidados . "\r\n" .
+				'ONDE NOS ENCONTROU: ' . $object->onde_encontrou . "\r\n" .
+				'OBS.: ' . wordwrap($object->obs, 70, "\r\n");
+
+				//Helper::sendMail($this->emailContato, null, 'Orçamento Site', $message);
 			} 
 		} else {
 			$this->OrcamentoModel->printError();
@@ -84,9 +97,7 @@ class Publico extends MY_Controller {
 		'EMAIL: ' . $object->email . "\r\n" .
 		'MENSAGEM: ' . wordwrap($object->mensagem, 70, "\r\n");
 
-		$message = wordwrap($message, 70, "\r\n");
-
-		mail($this->emailContato, 'Contato Site', $message);
+		Helper::sendMail($this->emailContato, null, 'Contato Site', $message);
 
 		$this->printReturn(RET_OK, null, Helper::getMessage(3));
 	}

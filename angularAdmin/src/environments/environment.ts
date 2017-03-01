@@ -18,8 +18,8 @@ export const environment = {
   module_dashboard: 'dashboard',
   module_buffet: 'buffet',
   module_atracao: 'atracao',
-  module_cardapio: 'cardapio',
-  module_tipoFesta: 'tipoFesta',
+  module_complexo: 'complexo',
+  module_equipe: 'equipe',
   module_decoracao: 'decoracao',
   module_parceiro: 'parceiro',
   module_cliente: 'cliente',
@@ -27,5 +27,9 @@ export const environment = {
   module_usuario: 'usuario',
   module_relatorio: 'relatorio',
   module_orcamento: 'orcamento',
-  module_newsletter: 'newsletter'
+  module_newsletter: 'newsletter',
+  module_cidade: 'cidade',
+  module_pacote: 'pacote',
+  module_secao: 'secao',
+  module_item: 'item'
 };

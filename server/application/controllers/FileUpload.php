@@ -2,9 +2,12 @@
 
 define('Module_Buffet', 'buffet');
 define('Module_Atracao', 'atracao');
-define('Module_Cardapio', 'cardapio');
-define('Module_TipoFesta', 'tipoFesta');
+define('Module_Complexo', 'complexo');
+define('Module_Equipe', 'equipe');
 define('Module_Parceiro', 'parceiro');
+define('Module_Pacote', 'pacote');
+define('Module_Secao', 'secao');
+define('Module_Item', 'item');
 
 
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -69,10 +72,10 @@ class FileUpload extends MY_Controller {
 			}
 			break;
 
-			case Module_Cardapio:
+			case Module_Complexo:
 			$idImagem = $this->InsertImage($id, $module);
 			if ($idImagem) {
-				$elemData = json_encode($this->CardapioModel->findById($id));
+				$elemData = json_encode($this->ComplexoModel->findById($id));
 				$object = json_decode($elemData);
 				
 				$idImagemOld = null;
@@ -81,7 +84,7 @@ class FileUpload extends MY_Controller {
 				}
 
 				$object->id_imagem = $idImagem;				
-				if ($this->checkExec(array('exec' => $this->CardapioModel->update($id, $object)))) {
+				if ($this->checkExec(array('exec' => $this->ComplexoModel->update($id, $object)))) {
 					if ($idImagemOld) {
 						$this->ArquivoModel->deleteArquivo($idImagemOld);
 					}	
@@ -90,10 +93,10 @@ class FileUpload extends MY_Controller {
 			}
 			break;
 
-			case Module_TipoFesta:
+			case Module_Equipe:
 			$idImagem = $this->InsertImage($id, $module);
 			if ($idImagem) {
-				$elemData = json_encode($this->TipoFestaModel->findById($id));
+				$elemData = json_encode($this->EquipeModel->findById($id));
 				$object = json_decode($elemData);
 				
 				$idImagemOld = null;
@@ -102,7 +105,7 @@ class FileUpload extends MY_Controller {
 				}
 
 				$object->id_imagem = $idImagem;				
-				if ($this->checkExec(array('exec' => $this->TipoFestaModel->update($id, $object)))) {
+				if ($this->checkExec(array('exec' => $this->EquipeModel->update($id, $object)))) {
 					if ($idImagemOld) {
 						$this->ArquivoModel->deleteArquivo($idImagemOld);
 					}	
@@ -124,6 +127,27 @@ class FileUpload extends MY_Controller {
 
 				$object->id_imagem = $idImagem;				
 				if ($this->checkExec(array('exec' => $this->ParceiroModel->update($id, $object)))) {
+					if ($idImagemOld) {
+						$this->ArquivoModel->deleteArquivo($idImagemOld);
+					}	
+					$this->printReturn(RET_OK);
+				}
+			}
+			break;
+
+			case Module_Pacote:
+			$idImagem = $this->InsertImage($id, $module);
+			if ($idImagem) {
+				$elemData = json_encode($this->PacoteModel->findById($id));
+				$object = json_decode($elemData);
+				
+				$idImagemOld = null;
+				if ($object->id_imagem) {
+					$idImagemOld = $object->id_imagem;
+				}
+
+				$object->id_imagem = $idImagem;				
+				if ($this->checkExec(array('exec' => $this->PacoteModel->update($id, $object)))) {
 					if ($idImagemOld) {
 						$this->ArquivoModel->deleteArquivo($idImagemOld);
 					}	

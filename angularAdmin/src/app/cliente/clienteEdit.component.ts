@@ -1,6 +1,6 @@
 import { Component, OnInit } 		from '@angular/core';
 import { ActivatedRoute, Params } 	from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } 	from '@angular/forms';
 
 
 import { GenericComponent } from '../utils/generic.component';
@@ -9,8 +9,9 @@ import { Helper } 			from '../utils/helper';
 import { Cliente } 			from './cliente';
 import { ClienteService } 	from './cliente.service';
 
-import { AniversarianteService } 	from './aniversariante.service';
-import { Aniversariante } 	from './aniversariante';
+import { AniversarianteService } from './aniversariante.service';
+import { Cidade }				 from './cidade';
+import { Aniversariante } 		 from './aniversariante';
 
 @Component({
 	selector: 'app-admin',
@@ -21,6 +22,7 @@ import { Aniversariante } 	from './aniversariante';
 export class ClienteEditComponent extends GenericComponent implements OnInit {		
 
 	listAux: Aniversariante[];
+	listAux2: Cidade[];
 
 	constructor(private helper: Helper, private elemService: ClienteService, private elemAuxService: AniversarianteService, private route: ActivatedRoute, fb: FormBuilder) {
 		super(fb);
@@ -34,18 +36,21 @@ export class ClienteEditComponent extends GenericComponent implements OnInit {
 			(params : Params) => {
 				this.id = params["id"];
 			});
-		
-		this.elemService.getElem(this.id).then(elem => {
-			(<FormGroup>this.complexForm).setValue(elem, { onlySelf: true });						
-			this.getListAux();
-		});				
+
+		this.elemService.getCidades().then(aux => {
+			this.listAux2 = aux.dataRes;
+			this.elemService.getElem(this.id).then(elem => {
+				(<FormGroup>this.complexForm).setValue(elem, { onlySelf: true });						
+				this.getListAux();
+			});				
+		});
 	}
 
 	getListAux() {
 		this.elemAuxService.getElem(this.id).then(res => {
 			this.helper.stopLoading();
 			this.listAux = res;					
-			this.helper.updateMaskDate('mask-date');
+			this.helper.updateMask();
 			if (this.listAux == null) {
 				this.listAux = [];
 			}
@@ -70,7 +75,7 @@ export class ClienteEditComponent extends GenericComponent implements OnInit {
 
 	addItem():void {
 		this.listAux.push(new Aniversariante(null,'','',this.id));
-		this.helper.updateMaskDate('mask-date');
+		this.helper.updateMask();
 	}
 
 	submitFormAux():void {

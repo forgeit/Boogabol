@@ -23,5 +23,9 @@ export const environment = {
   module_usuario: 'usuario',
   module_relatorio: 'relatorio',
   module_orcamento: 'orcamento',
-  module_newsletter: 'newsletter'
+  module_newsletter: 'newsletter',
+  module_cidade: 'cidade',
+  module_pacote: 'pacote',
+  module_secao: 'secao',
+  module_item: 'item'
 };

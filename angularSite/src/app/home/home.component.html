@@ -24,17 +24,17 @@
 						</div>
 					</article>
 				</div>		
-				<div class="item" [hidden]="tipoFesta.titulo == null">
+				<div class="item" [hidden]="equipe.titulo == null">
 					<article class="ct-blog-post ct-blog-post--image">
 						<div class="ct-blog-post__media">
-							<img [src]="helper.urlFile + tipoFesta?.id_imagem" alt="Tipo de Festa" />
+							<img [src]="helper.urlFile + equipe?.id_imagem" alt="Tipo de Festa" />
 						</div>
 						<div class="ct-blog-post__body">
 							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Tipo de Festa</span>
 							</div>
-							<h3 class="h4 ct-blog-post__title">{{tipoFesta.titulo}}</h3>
-							<div class="ct-blog-post__content">{{tipoFesta.descricao.length <= 100 ? tipoFesta.descricao : (tipoFesta.descricao | slice:0:100) + "..."}}
-							</div><a routerLink="/tipoFesta" routerLinkActive="active" class="btn btn-gray-o">Ver Todos</a>
+							<h3 class="h4 ct-blog-post__title">{{equipe.titulo}}</h3>
+							<div class="ct-blog-post__content">{{equipe.descricao.length <= 100 ? equipe.descricao : (equipe.descricao | slice:0:100) + "..."}}
+							</div><a routerLink="/equipe" routerLinkActive="active" class="btn btn-gray-o">Ver Todos</a>
 						</div>
 					</article>
 				</div>		
@@ -52,17 +52,17 @@
 						</div>
 					</article>
 				</div>
-				<div class="item" [hidden]="cardapio.titulo == null">
+				<div class="item" [hidden]="complexo.titulo == null">
 					<article class="ct-blog-post ct-blog-post--image">
 						<div class="ct-blog-post__media">
-							<img [src]="helper.urlFile + cardapio?.id_imagem" alt="Cardápio" />
+							<img [src]="helper.urlFile + complexo?.id_imagem" alt="Complexo" />
 						</div>
 						<div class="ct-blog-post__body">
-							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Cardápio</span>
+							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Complexo Esportivo</span>
 							</div>
-							<h3 class="h4 ct-blog-post__title">{{cardapio.titulo}}</h3>
-							<div class="ct-blog-post__content">{{cardapio.descricao.length <= 100 ? cardapio.descricao : (cardapio.descricao | slice:0:100) + "..."}}
-							</div><a routerLink="/cardapio" routerLinkActive="active" class="btn btn-gray-o">Ver Todos</a>
+							<h3 class="h4 ct-blog-post__title">{{complexo.titulo}}</h3>
+							<div class="ct-blog-post__content">{{complexo.descricao.length <= 100 ? complexo.descricao : (complexo.descricao | slice:0:100) + "..."}}
+							</div><a routerLink="/complexo" routerLinkActive="active" class="btn btn-gray-o">Ver Todos</a>
 						</div>
 					</article>
 				</div>

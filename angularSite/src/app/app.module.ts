@@ -13,8 +13,8 @@ import { PreLoad }        from './utils/preLoad';
 import { HomeComponent }    from './home/home.component';
 import { AtracaoComponent } from './atracao/atracao.component';
 import { BuffetComponent }  from './buffet/buffet.component';
-import { CardapioComponent }  from './cardapio/cardapio.component';
-import { TipoFestaComponent }  from './tipoFesta/tipoFesta.component';
+import { ComplexoComponent }  from './complexo/complexo.component';
+import { EquipeComponent }  from './equipe/equipe.component';
 import { OrcamentoComponent }  from './orcamento/orcamento.component';
 import { ContatoComponent }  from './contato/contato.component';
 
@@ -29,8 +29,8 @@ import { GenericService } from './utils/generic.service';
   HomeComponent,
   AtracaoComponent,
   BuffetComponent,
-  CardapioComponent,
-  TipoFestaComponent,
+  ComplexoComponent,
+  EquipeComponent,
   OrcamentoComponent,
   ContatoComponent
   ],

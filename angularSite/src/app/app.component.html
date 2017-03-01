@@ -51,9 +51,9 @@
 		<ul class="nav navbar-nav navbar-right">
 			<li class="nav-item"><a routerLink="/home" routerLinkActive="menu-active" >Home</a></li>
 			<li class="nav-item"><a routerLink="/atracao" routerLinkActive="menu-active">Atrações</a></li>
-			<li class="nav-item"><a routerLink="/tipoFesta" routerLinkActive="menu-active">Tipos de Festa</a></li>
+			<li class="nav-item"><a routerLink="/complexo" routerLinkActive="menu-active">Complexo Esportivo</a></li>
 			<li class="nav-item"><a routerLink="/ambiente" routerLinkActive="menu-active">Ambiente</a></li>
-			<li class="nav-item"><a routerLink="/cardapio" routerLinkActive="menu-active">Cardápio</a></li>
+			<li class="nav-item"><a routerLink="/equipe" routerLinkActive="menu-active">Equipe</a></li>
 			<li class="nav-item"><a routerLink="/parceiro" routerLinkActive="menu-active">Parceiros</a></li>
 			<li class="nav-item"><a routerLink="/contato" routerLinkActive="menu-active">Contato</a></li>			
 		</ul>
@@ -156,9 +156,9 @@
 			<ul class="ct-mobile-menu__nav list-unstyled">
 				<li class="nav-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
 				<li class="nav-item"><a routerLink="/atracao" routerLinkActive="active">Atrações</a></li>
-				<li class="nav-item"><a routerLink="/tipoFesta" routerLinkActive="active">Tipos de Festa</a></li>
+				<li class="nav-item"><a routerLink="/complexo" routerLinkActive="active">Complexo Esportivo</a></li>
 				<li class="nav-item"><a routerLink="/ambiente" routerLinkActive="active">Ambiente</a></li>
-				<li class="nav-item"><a routerLink="/cardapio" routerLinkActive="active">Cardápio</a></li>
+				<li class="nav-item"><a routerLink="/equipe" routerLinkActive="active">Equipe</a></li>
 				<li class="nav-item"><a routerLink="/parceiros" routerLinkActive="active">Parceiros</a></li>
 				<li class="nav-item"><a routerLink="/contato" routerLinkActive="active">Contato</a></li>
 				<!--
@@ -212,7 +212,8 @@
 	<div *ngIf="helper.modalTitle !== null">
 		<div class="modal-window" [ngStyle]="{'background-image': 'url(' + helper.urlFile + helper.modalImg + ')'}">			
 			<button type="button" class="modal-btn" (click)="helper.hideModal()"><i class="fa fa-remove"></i></button>
-			<div class="modal-text">
+			<button type="button" class="modal-btn modal-btn-info" (click)="helper.infoModal()"><i [hidden]="helper.modalInfo" class="fa fa-picture-o"></i><i [hidden]="!helper.modalInfo" class="fa fa-info"></i></button>
+			<div [hidden]="helper.modalInfo" class="modal-text">
 				<h3>{{helper.modalTitle}}</h3>
 				<p>{{helper.modalText}}</p>
 			</div>

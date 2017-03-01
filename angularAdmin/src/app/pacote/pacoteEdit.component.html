@@ -1,0 +1,38 @@
+<div class="box box-primary">
+
+  <form name="form" [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+    <div class="box-body">
+      <div class="form-group">
+        <label>ID</label>
+        <input type="text" class="form-control" disabled="true" value="{{complexForm.value.id}}">        
+      </div>
+      <div class="form-group">      
+        <label for="f1">Título</label>
+        <input type="text" class="form-control" id="f1" maxlength="255" placeholder="Título" [formControl]="complexForm.controls['titulo']">
+        <p class="text-danger" [hidden]="complexForm.controls.titulo.valid || (complexForm.controls.titulo.pristine && !submitted)">
+          Nome é Obrigatório
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="f2">Descrição</label>
+        <textarea class="form-control" id="f2" placeholder="Descrição"  [formControl]="complexForm.controls['descricao']"></textarea>
+      </div>     
+      <div class="form-group">
+        <label for="f3">Duração da Festa</label>
+        <input type="text" class="form-control" id="f3" maxlength="45" placeholder="Duração da Festa" [formControl]="complexForm.controls['duracao_festa']">
+      </div>      
+      <div class="form-group">
+        <label>Imagem</label>
+        <input type="file" (change)="onFileChange($event)"/>
+        <div class="div-img-form" *ngIf="complexForm.value.id_imagem">
+          <img class="thumbnail" [src]="urlFile + complexForm.value.id_imagem"/>
+        </div>
+      </div>  
+    </div>
+
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+  </form>
+  
+</div>

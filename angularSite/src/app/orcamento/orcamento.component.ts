@@ -20,18 +20,17 @@ export class OrcamentoComponent implements OnInit {
 	tipoFestaList: TipoFesta[];
 	decoracaoList: Decoracao[];
 	orcamento: Orcamento;
-
-	btnHide: boolean;
+	ondeEncontrou: string[] = ["Amigos", "E-mail", "Facebook", "Instagram", "Internet", "Outros"];
 
 	messageSuccess: string;
 	messageError: string;
 
+
 	constructor(private helper: Helper, private gs: GenericService) {				
-		this.orcamento = new Orcamento(null,null,null,null,null,null,null,null,null,null,null,null,null);
+		this.orcamento = new Orcamento(null,null,null,null,null,null,null,null,null,'Amigos');
 	}
 
 	ngOnInit(): void {		
-		this.btnHide = false;
 		this.helper.pageTitle = "Orçamento";
 
 		this.gs.get('orcamento').then(res => {
@@ -41,7 +40,7 @@ export class OrcamentoComponent implements OnInit {
 			this.helper.timeOutStopLoading();
 
 			this.helper.loadJmask();
-			this.helper.updateMaskDate('data-mask');
+			this.helper.updateMask();
 		});	
 	}		
 
@@ -52,16 +51,14 @@ export class OrcamentoComponent implements OnInit {
 		} else {
 			this.messageError = null;
 			this.messageSuccess = "Enviando...";
-			this.btnHide = true;
 			
 			this.gs.post(this.orcamento, 'saveOrcamento').then(res=>{
 				if (this.helper.environment.RET_OK == res.res) {
-					this.messageSuccess = res.message;
-					this.btnHide = true;
+					this.messageSuccess = res.message;	
+					this.orcamento = new Orcamento(null,null,null,null,null,null,null,null,null,'Amigos');				
 				} else {
 					this.messageSuccess = null;
 					this.messageError = res.message;
-					this.btnHide = false;
 				}
 			});
 		}

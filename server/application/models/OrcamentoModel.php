@@ -12,7 +12,7 @@ class OrcamentoModel extends MY_Model {
 	}
 
 	function getOrcamentosNaoLidos() {
-		return $this->db->where('flag_lido', 'FALSE')->count_all($this->table);		
+		return $this->db->where('flag_lido', 'FALSE')->count_all_results($this->table);		
 	}
 
 	function getValidation() {
@@ -23,7 +23,6 @@ class OrcamentoModel extends MY_Model {
 			'nome_aniversariante' => array('Nome Aniversariante', 'string', '255', false),
 			'idade_aniversariante' => array('Idade Aniversariante', 'string', '255', false),
 			'data' => array('Data da Festa', 'date', null, false),
-			'tema' => array('Tema', 'string', '255', false),
 			'num_convidados' => array('Número Convidados', 'int', null, false),
 			'onde_encontrou' => array('Onde Encontrou', 'string', '100', false),
 			);

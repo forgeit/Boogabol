@@ -20,10 +20,7 @@
 
         <div class="col-lg-4 form-group">
           <label for="f2">CPF</label>
-          <input type="text" class="form-control" id="f2" maxlength="11" placeholder="CPF" [formControl]="complexForm.controls['cpf']">
-          <p class="text-danger" [hidden]="complexForm.controls.cpf.valid || (complexForm.controls.cpf.pristine && !submitted)">
-            Somente Números
-          </p>
+          <input type="text" class="form-control cpf-mask" id="f2" maxlength="14" placeholder="CPF" [formControl]="complexForm.controls['cpf']">
         </div>
 
       </div>
@@ -37,7 +34,9 @@
 
         <div class="col-lg-8 form-group">
           <label for="f4">Cidade</label>
-          <input type="text" class="form-control" id="f4" maxlength="255" placeholder="Cidade" [formControl]="complexForm.controls['cidade']">        
+          <select class="form-control" [formControl]="complexForm.controls['id_cidade']" id="f4">
+            <option *ngFor="let elem of listAux2" value="{{elem.id}}">{{elem.nome}}</option>
+          </select>
         </div>
 
         <div class="col-lg-4 form-group">
@@ -59,7 +58,7 @@
 
         <div class="col-lg-4 form-group">
           <label for="f6">Telefone</label>
-          <input type="text" class="form-control" id="f6" maxlength="50" placeholder="Telefone" [formControl]="complexForm.controls['telefone']">        
+          <input type="text" class="form-control phone-mask" id="f6" maxlength="16" placeholder="Telefone" [formControl]="complexForm.controls['telefone']">        
         </div>
 
       </div>

@@ -38,14 +38,14 @@ export class ParceiroComponent extends GenericComponent implements OnInit {
 		});	
 	}
 
-	onRemove(id) {
-		this.service.remove(id).then(res => {
-			this.helper.checkResponse(res).then((valid) => {
-				if (valid) {
-					this.loadList();
-				}
-			})
-		})
+	onRemove(elem) {
+		this.helper.modalShow(elem.nome, this.helper.activeMenu+"/remove/"+elem.id);		
+		let interval = setInterval(() => {
+			if (this.helper.modalResult !== null) { 								
+				clearInterval(interval);  
+				if (this.helper.modalResult) { this.loadList(); }
+			}
+		}, 1000);
 	}
 	
 }

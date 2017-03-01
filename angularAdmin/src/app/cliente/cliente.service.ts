@@ -15,15 +15,20 @@ export class ClienteService extends GenericService {
 		super(h, lss, slbs, hp);
 		this.urlSrv += this.environment.module_cliente;
 	}
+
+	getCidades(): Promise<any> {		
+		this.hp.startLoading();
+		return this.defaultPromise(this.h.get(this.environment.serverUrl+this.environment.module_cidade, {headers: this.getHeaderJwt()}));
+	}
 		
 	getFormValidator(): any {
 		return {     
 			id: '', 	      
 			nome: ['', Validators.required],
-			cpf: ['', Validators.pattern("[0-9]+")], 
+			cpf: '', 
 			cep: ['', Validators.pattern("[0-9]+")], 
 			endereco: '',
-			cidade: '',
+			id_cidade: '',
 			telefone: '',
 			email: ''
 		}

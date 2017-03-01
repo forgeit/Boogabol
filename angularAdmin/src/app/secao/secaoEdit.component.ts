@@ -48,7 +48,7 @@ export class SecaoEditComponent extends GenericComponent implements OnInit {
 		this.auxService.getList().then(res => {
 			this.helper.checkResponse(res).then((valid) => {
 				if (res.dataRes.length > 0) {
-					this.itemSelected = res.dataRes[0];
+					this.itemSelected = res.dataRes[0].id;
 				}
 				if (valid) {
 					this.listElemAux = res.dataRes;										
@@ -74,7 +74,7 @@ export class SecaoEditComponent extends GenericComponent implements OnInit {
 		}
 	}	
 
-	addItem(): void {
+	addItem(): void {		
 		this.listAux.push(this.listElemAux[this.itemSelected]);
 	}
 
@@ -83,7 +83,9 @@ export class SecaoEditComponent extends GenericComponent implements OnInit {
 	}
 
 	submitFormAux():void {
-		this.elemService.saveItens(this.listAux).then(res => {
+		let listSend = new SecaoItem(this.id, this.listAux);
+
+		this.elemService.saveItens(listSend).then(res => {
 			this.helper.checkResponse(res).then(valid => {
 				if (valid) {
 					this.helper.navigate(this.compModule+'/list', null);
@@ -93,5 +95,9 @@ export class SecaoEditComponent extends GenericComponent implements OnInit {
 	}
 }
 
-
-
+export class SecaoItem {
+	constructor (
+		public id_secao: number,
+		public list: Item[]
+		){}		
+}

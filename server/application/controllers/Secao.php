@@ -29,9 +29,20 @@ class Secao extends MY_Controller {
 			return;
 		}
 
-		$data = $this->security->xss_clean($this->input->raw_input_stream);
+		$data = $this->security->xss_clean($this->input->raw_input_stream);		
 		$object = json_decode($data);
-		console.log($object);
+		
+		$id = $object->id_secao;
+		$this->SecaoModel->deleteItens($id);
+
+		$list = $object->list;
+		foreach ($list as $value) {
+			if (!$this->checkExec(array('exec' => $this->SecaoModel->insertItem($id, $value->id)))) {
+				return;
+			}			
+		}
+
+		$this->printReturn(RET_OK, null, Helper::getMessage(0));
 	}
 
 	public function find() {

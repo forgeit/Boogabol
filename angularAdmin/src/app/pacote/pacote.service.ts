@@ -16,9 +16,14 @@ export class PacoteService extends GenericService {
 		this.urlSrv += this.environment.module_pacote;
 	}
 
-	findSecoes(): Promise<any> {	
+	findSecoes(id: number): Promise<any> {	
 		this.hp.startLoading();
-		return this.defaultPromise(this.http.get(this.urlSrv+"/findSecoes", {headers: this.getHeaderJwt()}));
+		return this.defaultPromise(this.http.get(this.urlSrv+"/findSecoes/"+id, {headers: this.getHeaderJwt()}));
+	}
+
+	saveSecoes(elem: any): Promise<any> {	
+		this.hp.startLoading();
+		return this.defaultPromise(this.http.put(this.urlSrv+"/updateSecoes", JSON.stringify(elem), {headers: this.getHeaderJwt()}));
 	}
 		
 	getFormValidator(): any {

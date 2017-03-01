@@ -28,7 +28,7 @@
     <div class="box-body">
 
       <div class="row">
-        <div class="col-xs-10 col-sm-11 form-group">
+        <div class="col-xs-10 col-md-11 form-group">
           <label>Adicionar Item</label>
           <select class="form-control" [(ngModel)]="itemSelected" name="itemSelected">
             <option *ngFor="let elem of listElemAux; let i = index" [value]="i">
@@ -36,7 +36,7 @@
             </option>     
           </select>
         </div>
-        <div class="col-xs-2 col-sm-1 form-group">
+        <div class="col-xs-2 col-md-1 form-group">
           <label>-</label>
           <button type="button" class="form-control btn btn-sm btn-info" (click)="addItem()"><i class="fa fa-plus"></i></button>
         </div>
@@ -45,10 +45,10 @@
       <hr>
       <p><b>Ítens da Seção</b></p>
       <div class="row" *ngFor="let elem of listAux; let i = index">
-        <div class="col-xs-10 col-sm-11 form-group">
+        <div class="col-xs-10 col-md-11 form-group">
           <input type="text" class="form-control" value="{{elem.descricao.length <= 80 ? elem.descricao : (elem.descricao | slice:0:80) + '...'}}" readonly="true">                    
         </div>
-        <div class="col-xs-2 col-sm-1 form-group">
+        <div class="col-xs-2 col-md-1 form-group">
           <button type="button" class="form-control btn btn-sm btn-danger" (click)="removeItem(i)"><i class="fa fa-remove"></i></button>
         </div>
       </div>

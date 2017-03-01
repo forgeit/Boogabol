@@ -13,7 +13,21 @@ INSERT INTO cidade (nome) VALUES ('Agua Santa'),('Agudo'),('Ajuricaba'),('Alecri
 -- 25/02/2017
 -- CASA FEITO
 -- ################
-ALTER TABLE orcamento DROP id_decoracao, DROP id_tipo_festa, DROP tema;
+DROP TABLE orcamento;
+CREATE TABLE IF NOT EXISTS `orcamento` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `telefone` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(255) NULL,
+  `nome_aniversariante` VARCHAR(255) NULL,
+  `idade_aniversariante` INT NULL,
+  `data` DATE NULL,
+  `num_convidados` INT NULL,
+  `onde_encontrou` VARCHAR(100) NULL,
+  `obs` MEDIUMTEXT NOT NULL,
+  `flag_lido` TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 ALTER TABLE `cliente` CHANGE `cpf` `cpf` VARCHAR(14) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
 ALTER TABLE cliente ADD id_cidade INTEGER REFERENCES cidade(id), DROP cidade;
 DROP TABLE tipo_festa;

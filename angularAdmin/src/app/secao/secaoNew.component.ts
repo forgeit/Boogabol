@@ -53,7 +53,7 @@ export class SecaoNewComponent extends GenericComponent implements OnInit {
 		this.elemService.insert(value).then(res => {
 			this.helper.checkResponse(res).then(valid => {
 				if (valid) {
-					this.helper.navigate(this.compModule+'/list', null);
+					this.helper.navigate(this.compModule+'/edit', res.dataRes);					
 				}
 			});
 		});		

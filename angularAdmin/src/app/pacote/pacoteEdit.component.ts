@@ -10,6 +10,9 @@ import { Helper } 			from '../utils/helper';
 import { Pacote } 			from './pacote';
 import { PacoteService } 	from './pacote.service';
 
+import { Secao } 			from '../secao/secao';
+import { SecaoService } 	from '../secao/secao.service';
+
 @Component({
 	selector: 'app-admin',
 	templateUrl: './pacoteEdit.component.html'
@@ -18,7 +21,11 @@ import { PacoteService } 	from './pacote.service';
 
 export class PacoteEditComponent extends GenericComponent implements OnInit {		
 
-	constructor(private helper: Helper, private elemService: PacoteService, private route: ActivatedRoute, fb: FormBuilder, private us: UploadService) {
+	itemSelected: number;
+	listElemAux: Secao[]; 
+	listAux: Secao[];
+
+	constructor(private helper: Helper, private elemService: PacoteService, private auxService: SecaoService, private route: ActivatedRoute, fb: FormBuilder, private us: UploadService) {
 		super(fb);
 		this.compModule = this.environment.module_pacote;
 		this.complexForm = fb.group(elemService.getFormValidator());
@@ -35,6 +42,21 @@ export class PacoteEditComponent extends GenericComponent implements OnInit {
 			(<FormGroup>this.complexForm).setValue(elem, { onlySelf: true });		
 			this.helper.stopLoading();				
 		});				
+
+		this.elemService.findSecoes(this.id).then(res => {
+			this.listAux = res;
+		});
+
+		this.auxService.getList().then(res => {
+			this.helper.checkResponse(res).then((valid) => {
+				if (res.dataRes.length > 0) {
+					this.itemSelected = res.dataRes[0].id;
+				}
+				if (valid) {
+					this.listElemAux = res.dataRes;										
+				}
+			})
+		});	
 	}
 
 	onFileChange(event) {
@@ -67,7 +89,32 @@ export class PacoteEditComponent extends GenericComponent implements OnInit {
 			});
 		});		
 	}
+
+	addItem(): void {		
+		this.listAux.push(this.listElemAux[this.itemSelected]);
+	}
+
+	removeItem(index: number): void {		
+		this.listAux.splice(index, 1);		
+	}
+
+	submitFormAux():void {
+		let listSend = new PacoteSecao(this.id, this.listAux);
+
+		this.elemService.saveSecoes(listSend).then(res => {
+			this.helper.checkResponse(res).then(valid => {
+				if (valid) {
+					this.helper.navigate(this.compModule+'/list', null);
+				}
+			});
+		});
+	}
 }
 
-
+export class PacoteSecao {
+	constructor (
+		public id_pacote: number,
+		public list: Secao[]
+		){}		
+}
 

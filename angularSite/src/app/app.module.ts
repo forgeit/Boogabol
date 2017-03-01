@@ -17,6 +17,7 @@ import { ComplexoComponent }  from './complexo/complexo.component';
 import { EquipeComponent }  from './equipe/equipe.component';
 import { OrcamentoComponent }  from './orcamento/orcamento.component';
 import { ContatoComponent }  from './contato/contato.component';
+import { PacoteComponent }  from './pacote/pacote.component';
 
 import { GenericService } from './utils/generic.service';
 
@@ -29,10 +30,11 @@ import { GenericService } from './utils/generic.service';
   HomeComponent,
   AtracaoComponent,
   BuffetComponent,
-  ComplexoComponent,
+  PacoteComponent,
   EquipeComponent,
   OrcamentoComponent,
-  ContatoComponent
+  ContatoComponent,
+  PacoteComponent
   ],
   imports: [
   BrowserModule,

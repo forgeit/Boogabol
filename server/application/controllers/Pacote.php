@@ -24,6 +24,27 @@ class Pacote extends MY_Controller {
 		}
 	}
 
+	public function updateSecoes() {
+		if (!$this->isActive()) {
+			return;
+		}
+
+		$data = $this->security->xss_clean($this->input->raw_input_stream);		
+		$object = json_decode($data);
+		
+		$id = $object->id_pacote;
+		$this->PacoteModel->deleteSecoes($id);
+
+		$list = $object->list;
+		foreach ($list as $value) {
+			if (!$this->checkExec(array('exec' => $this->PacoteModel->insertSecao($id, $value->id)))) {
+				return;
+			}			
+		}
+
+		$this->printReturn(RET_OK, null, Helper::getMessage(0));
+	}
+
 	public function find() {
 		if (!$this->isActive()) {
 			return;
@@ -37,7 +58,7 @@ class Pacote extends MY_Controller {
 			return;
 		}
 
-		print_r(json_encode($this->SecaoModel->findSecoes($this->uri->segment(3))));
+		print_r(json_encode($this->PacoteModel->findSecoes($this->uri->segment(3))));
 	}
 
 	public function findAll() {

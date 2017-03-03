@@ -13,5 +13,5 @@ export class CalendarioService extends GenericService {
 	constructor(private h: Http, private lss: LocalStorageService, private slbs: SlimLoadingBarService, private hp: Helper) { 
 		super(h, lss, slbs, hp);
 		this.urlSrv += this.environment.module_calendario;
-	}			
+	}	
 }

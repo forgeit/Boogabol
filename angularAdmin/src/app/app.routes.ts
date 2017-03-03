@@ -9,6 +9,7 @@ import { LoginComponent } 	  from './login/login.component';
 import { LoginEditComponent } from './login/loginEdit.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RelatorioComponent } from './relatorio/relatorio.component';
+import { CalendarioComponent }from './calendario/calendario.component';
 
 import { buffetRoutes } 	from './buffet/buffet.routes';
 import { atracaoRoutes } 	from './atracao/atracao.routes';
@@ -42,8 +43,9 @@ export const routes: Routes = [
 	...newsletterRoutes,
 	...pacoteRoutes,
 	...secaoRoutes,
-	...itemRoutes,
+	...itemRoutes,	
 	{path: 'relatorio', component: RelatorioComponent, canActivate: [AuthGuard]},
+	{path: 'calendario', component: CalendarioComponent, canActivate: [AuthGuard]},
 	{path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 

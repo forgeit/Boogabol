@@ -31,5 +31,6 @@ export const environment = {
   module_cidade: 'cidade',
   module_pacote: 'pacote',
   module_secao: 'secao',
-  module_item: 'item'
+  module_item: 'item',
+  module_calendario: 'calendario'
 };

@@ -81,6 +81,9 @@ import { ItemComponent }      from './item/item.component';
 import { ItemEditComponent }  from './item/itemEdit.component';
 import { ItemNewComponent }   from './item/itemNew.component';
 
+import { CalendarioComponent } from './calendario/calendario.component';
+import { CalendarioService }   from './calendario/calendario.service';
+
 
 @NgModule({
   declarations: [
@@ -136,7 +139,9 @@ import { ItemNewComponent }   from './item/itemNew.component';
   
   ItemComponent,
   ItemEditComponent,
-  ItemNewComponent
+  ItemNewComponent,
+
+  CalendarioComponent
 
   ],
   imports: [
@@ -170,7 +175,8 @@ import { ItemNewComponent }   from './item/itemNew.component';
   NewsletterService,
   PacoteService,
   SecaoService,
-  ItemService
+  ItemService,
+  CalendarioService
   ],
   bootstrap: [AppComponent]
 })

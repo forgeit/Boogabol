@@ -5,6 +5,7 @@ import { HttpModule }                        from '@angular/http';
 import { ToastyModule }                      from 'ng2-toasty';
 import { LocalStorageModule }                from 'angular-2-local-storage';
 import { SlimLoadingBarModule }              from 'ng2-slim-loading-bar';
+import { CalendarModule }                    from 'angular-calendar'
 
 import { routing }         from './app.routes';
 import { AppComponent }    from './app.component';
@@ -155,7 +156,8 @@ import { CalendarioService }   from './calendario/calendario.service';
     prefix: 'boog-app',
     storageType: 'localStorage'    
   }),
-  SlimLoadingBarModule.forRoot()
+  SlimLoadingBarModule.forRoot(),
+  CalendarModule.forRoot()
   ],
   providers: [
   Helper, 

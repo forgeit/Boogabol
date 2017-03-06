@@ -34,7 +34,8 @@ import { GenericService } from './utils/generic.service';
   EquipeComponent,
   OrcamentoComponent,
   ContatoComponent,
-  PacoteComponent
+  PacoteComponent,
+  ComplexoComponent
   ],
   imports: [
   BrowserModule,

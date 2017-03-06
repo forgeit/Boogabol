@@ -20,7 +20,7 @@ export class BuffetComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.helper.pageTitle = "Ambiente";
+		this.helper.pageInfo("Ambiente", "menu1");
 
 		this.gs.get('buffet').then(res => {
 			this.list = res;

@@ -12,13 +12,13 @@ export class AppComponent {
 
 	constructor(public helper: Helper, private orcamentoService: OrcamentoService) {
 		this.orcamentoService.getNaoLidos().then(res => {
-			this.helper.orcamentoNaoLido = res;
+			this.helper.infoNotif(res);
 			this.helper.stopLoading();
 		});
 		
 		setTimeout(() => {
 			this.orcamentoService.getNaoLidos().then(res => {
-				this.helper.orcamentoNaoLido = res;
+				this.helper.infoNotif(res);
 				this.helper.stopLoading();
 			});
 		}, 120000); //5min

@@ -14,6 +14,7 @@ declare var sha256: any;
 export class Helper {
 
 	public orcamentoNaoLido: number;
+	public eventosHoje: number;
 	public pageTitle: string;
 	public activeMenu: string;
 	private passSalt: string = "BoogPassSalt";
@@ -145,4 +146,9 @@ export class Helper {
 		this.modalItem = text;
 		this.modalHidden = false;		
 	}	
+
+	infoNotif(response: any): void {
+		this.orcamentoNaoLido = response.orc;
+		this.eventosHoje = Number(response.cal);
+	}
 }

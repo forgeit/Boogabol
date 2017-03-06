@@ -16,7 +16,7 @@ export class DashboardComponent extends GenericComponent {
 		helper.setPageInfo('Dashboard', this.environment.module_dashboard);
 
 		this.orcamentoService.getNaoLidos().then(res => {
-			this.helper.orcamentoNaoLido = res;			
+			this.helper.infoNotif(res);
 			this.helper.stopLoading();
 		});
 	}

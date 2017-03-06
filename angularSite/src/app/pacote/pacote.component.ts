@@ -15,18 +15,27 @@ import { Pacote }			 from '../model/pacote';
 export class PacoteComponent implements OnInit {
 
 	list: Pacote[];
+	hiddenPacote: number = 0;
 
 	constructor(private helper: Helper, private gs: GenericService) {		
 	}
 
 	ngOnInit(): void {
-		this.helper.pageTitle = "Pacotes";
+		this.helper.pageInfo("Pacotes", null);		
 
 		this.gs.get('pacote').then(res => {
 			this.list = res;
 			this.helper.loadJS();	
 			this.helper.timeOutStopLoading();
 		});	
-	}		
+	}	
+
+	ofPacote(id: number) {
+		if (this.hiddenPacote == id) {
+			this.hiddenPacote = 0;
+		} else {
+			this.hiddenPacote = id;
+		}
+	}	
 	
 }

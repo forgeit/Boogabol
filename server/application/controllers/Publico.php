@@ -42,6 +42,19 @@ class Publico extends MY_Controller {
 			)));	
 	}
 
+	public function pacote() {
+		$listPacote = $this->PacoteModel->findAll();
+		for ($x=0; $x<count($listPacote); $x++) {
+			$listSecao = $this->PacoteModel->findSecoes($listPacote[$x]['id']);
+			for ($y=0; $y<count($listSecao); $y++) {
+				$listSecao[$y]['listItem'] = $this->SecaoModel->findItens($listSecao[$y]['id']);
+			}
+			$listPacote[$x]['listSecao'] = $listSecao;
+		}
+
+		print_r(json_encode($listPacote));
+	}
+
 	public function saveOrcamento() {
 		$data = $this->security->xss_clean($this->input->raw_input_stream);
 		$object = json_decode($data);

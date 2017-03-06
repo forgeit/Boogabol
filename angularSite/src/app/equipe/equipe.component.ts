@@ -20,7 +20,7 @@ export class EquipeComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.helper.pageTitle = "Tipos de Festa";
+		this.helper.pageInfo("Equipe", null);		
 
 		this.gs.get('equipe').then(res => {
 			this.list = res;

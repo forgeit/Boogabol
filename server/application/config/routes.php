@@ -72,7 +72,8 @@ $commonRoutes = array(
 	'cidade',
 	'pacote',
 	'secao',
-	'item'
+	'item',
+	'calendario'
 	);
 
 foreach ($commonRoutes as $value) {

@@ -50,9 +50,14 @@
 		</div><a routerLink="/orcamento" routerLinkActive="active" class="btn btn-motive pull-right">Peça um Orçamento</a>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="nav-item"><a routerLink="/home" routerLinkActive="menu-active" >Home</a></li>
-			<li class="nav-item"><a routerLink="/atracao" routerLinkActive="menu-active">Atrações</a></li>
-			<li class="nav-item"><a routerLink="/complexo" routerLinkActive="menu-active">Complexo Esportivo</a></li>
-			<li class="nav-item"><a routerLink="/ambiente" routerLinkActive="menu-active">Ambiente</a></li>
+			<li role="presentation" class="dropdown nav-item nav-item"><a href="#" [ngClass]="{'menu-active': helper.menuSelected == 'menu1'}" class="dropdown-toggle">A Festa <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a routerLink="/atracao" routerLinkActive="menu-active">Atração</a></li>
+					<li><a routerLink="/ambiente" routerLinkActive="menu-active">Ambiente</a></li>
+					<li><a routerLink="/complexo" routerLinkActive="menu-active">Complexo Esportivo</a></li>										
+				</ul>
+			</li>
+			<li class="nav-item"><a routerLink="/pacote" routerLinkActive="menu-active">Pacote</a></li>
 			<li class="nav-item"><a routerLink="/equipe" routerLinkActive="menu-active">Equipe</a></li>
 			<li class="nav-item"><a routerLink="/parceiro" routerLinkActive="menu-active">Parceiros</a></li>
 			<li class="nav-item"><a routerLink="/contato" routerLinkActive="menu-active">Contato</a></li>			
@@ -158,6 +163,7 @@
 				<li class="nav-item"><a routerLink="/atracao" routerLinkActive="active">Atrações</a></li>
 				<li class="nav-item"><a routerLink="/complexo" routerLinkActive="active">Complexo Esportivo</a></li>
 				<li class="nav-item"><a routerLink="/ambiente" routerLinkActive="active">Ambiente</a></li>
+				<li class="nav-item"><a routerLink="/pacote" routerLinkActive="menu-active">Pacote</a></li>
 				<li class="nav-item"><a routerLink="/equipe" routerLinkActive="active">Equipe</a></li>
 				<li class="nav-item"><a routerLink="/parceiros" routerLinkActive="active">Parceiros</a></li>
 				<li class="nav-item"><a routerLink="/contato" routerLinkActive="active">Contato</a></li>

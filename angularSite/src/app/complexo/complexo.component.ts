@@ -20,7 +20,7 @@ export class ComplexoComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.helper.pageTitle = "Complexo Esportivo";
+		this.helper.pageInfo("Complexo Esportivo", 'menu1');
 
 		this.gs.get('complexo').then(res => {
 			this.list = res;

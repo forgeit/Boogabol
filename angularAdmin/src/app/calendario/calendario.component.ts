@@ -3,8 +3,11 @@ import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMo
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent } 					from 'angular-calendar';
 import { Subject } from 'rxjs/Subject';
 
-import { GenericComponent } from '../utils/generic.component';
-import { Helper } 			from '../utils/helper';
+import { GenericComponent }  from '../utils/generic.component';
+import { Helper } 			 from '../utils/helper';
+
+import { Calendario } 		 from './calendario';
+import { CalendarioService } from './calendario.service';
 
 const colors: any = {
 	red: {
@@ -33,16 +36,94 @@ export class CalendarioComponent extends GenericComponent implements OnInit {
 	@ViewChild('modalContent') modalContent: TemplateRef<any>;
 	view: string = 'month';
 	viewDate: Date = new Date();
-	modalHidden = false;
+
+	modalHidden = true;
+	modalTitle: string;
+
+	events: CalendarEvent[] = [];
+	event: CalendarEvent;
+	calendario: Calendario = new Calendario(null, null, "#DD0000", "#00DD00", null, null);	
+	locale: string = 'pt-br';
 	
-	constructor(private helper: Helper) {
+	constructor(private helper: Helper, private elemService: CalendarioService) {
 		super(null);
 		helper.setPageInfo('Calendário', this.environment.module_calendario);
 	}		
 
-	ngOnInit(): void {		
-		
+	ngOnInit(): void {	
+		this.helper.updateMask();		
+		this.loadList();
 	}
+
+	loadList() {
+		this.elemService.getList().then(res => {
+			this.helper.checkResponse(res).then((valid) => {
+				if (valid) {
+					this.calendariosToEvent(res.dataRes);			
+				}
+			})
+		});		
+	}
+
+	addEvent(): void {
+		this.calendario = new Calendario(null, null, "#DD0000", "#00DD00", null, null);
+		this.showModal("Novo Registro");
+	}
+
+	editEvent(c: CalendarEvent): void {
+		this.event = c;
+		this.calendario = this.eventToCalendario(c);
+		this.showModal("Edição Registro");
+	}
+
+	removeEvent(): void {
+		this.elemService.remove(this.calendario.id).then(res => {
+			this.helper.checkResponse(res).then(valid => {
+				if (valid) {
+					this.events = this.events.filter(iEvent => iEvent !== this.event);
+					this.activeDayIsOpen = false;
+					this.modalHidden = true;
+				}
+			});
+		});				
+	}
+
+	saveEvent(): void {
+		if (this.calendario.id == null) {
+			this.elemService.insert(this.calendario).then(res => {
+				this.helper.checkResponse(res).then(valid => {
+					if (valid) {
+						console.log(res.dataRes);
+						this.events.push(this.calendarioToEvent(res.dataRes));
+						this.refreshCalendar();
+						this.modalHidden = true;
+					}
+				});
+			});		
+		} else {
+			this.elemService.update(this.calendario).then(res => {
+				this.helper.checkResponse(res).then(valid => {
+					if (valid) {
+						this.events = this.events.filter(iEvent => iEvent !== this.event);
+						this.events.push(this.calendarioToEvent(res.dataRes));	
+						this.refreshCalendar();
+						this.modalHidden = true;
+					}
+				});
+			});		
+		}		
+	}
+
+	showModal(title: string): void {
+		this.modalTitle = title;
+		$('.modal-calendar').css('padding-top', $(window).height() / 2 - 180 + "px");			
+		this.modalHidden = false;				
+	}
+
+	//----- CALENDAR
+	refresh: Subject<any> = new Subject();	
+
+	activeDayIsOpen: boolean = false;
 
 	modalData: {
 		action: string,
@@ -52,53 +133,11 @@ export class CalendarioComponent extends GenericComponent implements OnInit {
 	actions: CalendarEventAction[] = [{
 		label: '<i class="fa fa-fw fa-pencil"></i>',
 		onClick: ({event}: {event: CalendarEvent}): void => {
-			console.log(event);
-			console.log('edit');
+			this.editEvent(event);
 		}
-	}, {
-		label: '<i class="fa fa-fw fa-times"></i>',
-		onClick: ({event}: {event: CalendarEvent}): void => {
-			this.events = this.events.filter(iEvent => iEvent !== event);
-			console.log(event);
-			console.log('edit');
-		}
-	}];
-
-	refresh: Subject<any> = new Subject();
-
-	events: CalendarEvent[] = [{
-		start: subDays(startOfDay(new Date()), 1),
-		end: addDays(new Date(), 1),
-		title: 'A 3 day event',
-		color: colors.red,
-		actions: this.actions
-	}, {
-		start: startOfDay(new Date()),
-		title: 'An event with no end date',
-		color: colors.yellow,
-		actions: this.actions
-	}, {
-		start: subDays(endOfMonth(new Date()), 3),
-		end: addDays(endOfMonth(new Date()), 3),
-		title: 'A long event that spans 2 months',
-		color: colors.blue
-	}, {
-		start: addHours(startOfDay(new Date()), 2),
-		end: new Date(),
-		title: 'A draggable and resizable event',
-		color: colors.yellow,
-		actions: this.actions,
-		resizable: {
-			beforeStart: true,
-			afterEnd: true
-		},
-		draggable: true
-	}];
-
-	activeDayIsOpen: boolean = true;
+	}];	
 
 	dayClicked({date, events}: {date: Date, events: CalendarEvent[]}): void {
-
 		if (isSameMonth(date, this.viewDate)) {
 			if ((isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) || events.length === 0) {
 				this.activeDayIsOpen = false;
@@ -113,30 +152,52 @@ export class CalendarioComponent extends GenericComponent implements OnInit {
 		event.start = newStart;
 		event.end = newEnd;
 		this.handleEvent('Dropped or resized', event);
-		console.log('refresh');
 	}
 
 	handleEvent(action: string, event: CalendarEvent): void {
 		this.modalData = {event, action};
 		console.log(this.modalContent);
 	}
+	//-------------------
 
-	addEvent(): void {
-		this.events.push({
-			title: 'New event',
-			start: startOfDay(new Date()),
-			end: endOfDay(new Date()),
-			color: colors.red,
-			draggable: true,
-			resizable: {
-				beforeStart: true,
-				afterEnd: true
-			}
-		});
-		console.log('refresh');
+	calendariosToEvent(cals: Calendario[]) {
+		if (cals !== null) {
+			cals.forEach(c => {
+				this.events.push(this.calendarioToEvent(c));
+			});
+		}
+		this.refreshCalendar();
 	}
 
+	calendarioToEvent(cal: Calendario): CalendarEvent {
+		let c: CalendarEvent = {		
+			cssClass: ''+cal.id,	
+			start: startOfDay(cal.data_ini),
+			end: (cal.data_fim ? endOfDay(cal.data_fim) : null),
+			title: cal.titulo,
+			color: {primary: cal.cor_primaria, secondary: cal.cor_secundaria},
+			actions: this.actions
+		};
+		return c;
+	}
 
+	eventToCalendario(c: CalendarEvent): Calendario {
+		let cal: Calendario = new Calendario(
+			Number(c.cssClass),
+			c.title,
+			c.color.primary,
+			c.color.secondary,
+			("0" + c.start.getDate()).slice(-2) + "/" + ("0"+(c.start.getMonth()+1)).slice(-2) + "/" + c.start.getFullYear(),			
+			(c.end ? ("0" + c.end.getDate()).slice(-2) + "/" + ("0"+(c.end.getMonth()+1)).slice(-2) + "/" + c.end.getFullYear() : '')
+			);
+		return cal;
+	}
+
+	refreshCalendar() {
+		setTimeout(() => {
+			this.refresh.next();
+		});
+	}
 }
 
 

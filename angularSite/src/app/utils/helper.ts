@@ -13,6 +13,7 @@ export class Helper {
 	
 	public hideLoading: boolean = false;
 	public pageTitle: string = null;
+	public menuSelected: string = null;
 	public urlFile: string = environment.serverUrl + environment.urlFileView;
 	public urlFilePath: string = environment.urlFilePath;
 
@@ -20,6 +21,7 @@ export class Helper {
 	public modalText: string = '';
 	public modalImg: string = '';
 	public modalHide: boolean = true;
+	public modalInfo: boolean = false;
 
 	private flagLoadJs: boolean = false;
 
@@ -58,13 +60,17 @@ export class Helper {
 
 	loadJmask() {
 		setTimeout(() => {
-			//console.log('preparing to load JS...');
-			let node = document.createElement('script');
-			node.src = this.urlFilePath+'assets/js/jquery.mask.min.js';
-			node.type = 'text/javascript';
-			node.async = true;
-			node.charset = 'utf-8';
-			document.getElementsByTagName('head')[0].appendChild(node);		
+			var interval = setInterval(function() {
+				if(document.readyState === 'complete') {
+					clearInterval(interval);
+					let node = document.createElement('script');
+					node.src = this.urlFilePath+'assets/js/jquery.mask.min.js';
+					node.type = 'text/javascript';
+					node.async = true;
+					node.charset = 'utf-8';
+					document.getElementsByTagName('head')[0].appendChild(node);	
+				}    
+			}, 500);											
 		}, 2000);
 	}
 
@@ -122,9 +128,11 @@ export class Helper {
 
 	updateMask(): void {
 		setTimeout(() => {
-			$('.data-mask').mask('00/00/0000', {clearIfNotMatch: true});
-			$('.cpf-mask').mask('000.000.000-00', {clearIfNotMatch: true});
-			$('.phone-mask').mask('(00) 0 0000-0000', {clearIfNotMatch: true});
+			if(document.readyState === 'complete') {
+				$('.data-mask').mask('00/00/0000', {clearIfNotMatch: true});
+				$('.cpf-mask').mask('000.000.000-00', {clearIfNotMatch: true});
+				$('.phone-mask').mask('(00) 0 0000-0000', {clearIfNotMatch: true});
+			}    			
 		}, 4000);
 	}
 
@@ -158,5 +166,10 @@ export class Helper {
 			}, 2000);
 		}, 2000);
 	}	
+
+	pageInfo(title: string, menuSelected: string) {
+		this.pageTitle = title;
+		this.menuSelected = menuSelected;
+	}
 
 }

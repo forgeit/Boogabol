@@ -30,7 +30,7 @@ export class ContatoComponent implements OnInit {
 		this.messageError = '';
 		this.messageSuccess = '';
 
-		this.helper.pageTitle = "Contato";
+		this.helper.pageInfo("Contato", null);
 
 		this.helper.loadJS();	
 		this.helper.timeOutStopLoading();		

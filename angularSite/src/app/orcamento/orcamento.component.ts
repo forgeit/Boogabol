@@ -4,8 +4,6 @@ import { Router } 			 from '@angular/router';
 import { Helper }			 from '../utils/helper';
 
 import { GenericService }	 from '../utils/generic.service';
-import { TipoFesta }		 from '../model/tipoFesta';
-import { Decoracao }		 from '../model/decoracao';
 
 import { Orcamento }		 from '../model/orcamento';
 
@@ -17,8 +15,6 @@ import { Orcamento }		 from '../model/orcamento';
 })
 export class OrcamentoComponent implements OnInit {
 
-	tipoFestaList: TipoFesta[];
-	decoracaoList: Decoracao[];
 	orcamento: Orcamento;
 	ondeEncontrou: string[] = ["Amigos", "E-mail", "Facebook", "Instagram", "Internet", "Outros"];
 
@@ -31,11 +27,9 @@ export class OrcamentoComponent implements OnInit {
 	}
 
 	ngOnInit(): void {		
-		this.helper.pageTitle = "Orçamento";
-
+		this.helper.pageInfo("Orçamento", null);
+		
 		this.gs.get('orcamento').then(res => {
-			this.tipoFestaList = res.tipoFestaList;
-			this.decoracaoList = res.decoracaoList;
 			this.helper.loadJS();	
 			this.helper.timeOutStopLoading();
 

@@ -26,7 +26,9 @@ class Orcamento extends MY_Controller {
 			return;
 		}
 
-		print_r(json_encode($this->OrcamentoModel->getOrcamentosNaoLidos()));
+		$countCal = $this->CalendarioModel->getEventosHoje();
+		$countOrc = $this->OrcamentoModel->getOrcamentosNaoLidos();
+		print_r(json_encode(array('orc' => $countOrc, 'cal'=> $countCal['count'])));
 	}
 
 	public function find() {

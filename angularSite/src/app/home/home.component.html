@@ -41,10 +41,10 @@
 				<div class="item" [hidden]="buffet.titulo == null">
 					<article class="ct-blog-post ct-blog-post--image">
 						<div class="ct-blog-post__media">
-							<img [src]="helper.urlFile + buffet?.id_imagem" alt="Buffet" />
+							<img [src]="helper.urlFile + buffet?.id_imagem" alt="Ambiente" />
 						</div>
 						<div class="ct-blog-post__body">
-							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Buffet</span>
+							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Ambiente</span>
 							</div>
 							<h3 class="h4 ct-blog-post__title">{{buffet.titulo}}</h3>
 							<div class="ct-blog-post__content">{{buffet.descricao.length <= 100 ? buffet.descricao : (buffet.descricao | slice:0:100) + "..."}}

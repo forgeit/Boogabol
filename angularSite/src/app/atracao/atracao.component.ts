@@ -20,7 +20,7 @@ export class AtracaoComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.helper.pageTitle = 'Nossas Atrações';
+		this.helper.pageInfo("Nossas Atrações", "menu1");		
 
 		this.gs.get('atracao').then(res => {
 			this.list = res;

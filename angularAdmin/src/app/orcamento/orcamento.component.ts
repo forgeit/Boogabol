@@ -29,7 +29,7 @@ export class OrcamentoComponent extends GenericComponent implements OnInit {
 
 	loadList() {
 		this.service.getNaoLidos().then(res => {
-			this.helper.orcamentoNaoLido = res;
+			this.helper.infoNotif(res);
 			this.helper.stopLoading();	
 		});	
 		this.service.getList().then(res => {

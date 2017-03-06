@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.helper.pageTitle = null;
+		this.helper.pageInfo(null, null);		
 		
 		this.gs.get('home').then(res => {
 			if (res.complexo != null) {

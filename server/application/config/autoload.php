@@ -148,5 +148,6 @@ $autoload['model'] = array(
 	'CidadeModel',
 	'PacoteModel',
 	'SecaoModel',
-	'ItemModel'
+	'ItemModel',
+	'CalendarioModel'
 	);

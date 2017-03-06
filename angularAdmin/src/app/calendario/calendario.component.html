@@ -1,34 +1,36 @@
 <div class="modal-calendar" [hidden]="modalHidden">
 	<div class="modal-calendar-window">
-		<h4><i class="fa fa-calendar"></i> Novo <b>Registro</b></h4>
+		<h4><i class="fa fa-calendar"></i>{{modalTitle}}</h4>
 		<div>
 			<div class="form-group">
 				<label>Título</label>
-				<input type="text" class="form-control" maxlength="255">        
+				<input type="text" class="form-control" [(ngModel)]="calendario.titulo" name="titulo" maxlength="255">        
 			</div>
 			<div class="row">
-				<div class="form-group col-sm-6">
+				<div class="form-group col-xs-6">
 					<label>Cor Primária</label>
-					<input type="color" class="form-control" (change)="refresh.next()">				
+					<input type="color" class="form-control" [(ngModel)]="calendario.cor_primaria" (change)="refresh.next()">				
 				</div>
-				<div class="form-group col-sm-6">
+				<div class="form-group col-xs-6">
 					<label>Cor Secundária</label>
-					<input type="color" class="form-control" (change)="refresh.next()">
+					<input type="color" class="form-control" [(ngModel)]="calendario.cor_secundaria" (change)="refresh.next()">
 				</div>			
 			</div>
 			<div class="row">
-				<div class="form-group col-sm-6">
+				<div class="form-group col-xs-6">
 					<label>Começa Em</label>
-					<input type="text" class="form-control">
+					<input type="text" [(ngModel)]="calendario.data_ini" placeholder="dd/mm/yyyy" class="form-control data-mask">
 				</div>	
-				<div class="form-group col-sm-6">
+				<div class="form-group col-xs-6">
 					<label>Termina Em</label>
-					<input type="text" class="form-control">
+					<input type="text" [(ngModel)]="calendario.data_fim" placeholder="dd/mm/yyyy" class="form-control data-mask">
 				</div>	
 			</div>	
 			<hr>
 			<div class="text-right">		
-				<button type="button" class="btn btn-primary">Salvar</button>				
+				<button type="button" class="btn btn-primary" (click)="saveEvent();">Salvar</button>				
+				<button type="button" class="btn btn-danger" (click)="removeEvent();">Remover</button>				
+				<button type="button" class="btn btn-default" (click)="modalHidden = true;">Cancelar</button>				
 			</div>		
 		</div>	
 	</div>
@@ -36,82 +38,24 @@
 
 <div class="box">		
 	<div class="box-body">
-		<div class="row text-center">
-			<div class="col-md-4">
+		<div class="row">
+			<div class="col-sm-4 text-left">
 				<div class="btn-group">
-					<div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"> Previous </div>
-					<div class="btn btn-secondary" mwlCalendarToday [(viewDate)]="viewDate"> Today </div>
-					<div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"> Next </div>
+					<div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"><i class="fa fa-chevron-left"></i></div>
+					<div class="btn btn-secondary" mwlCalendarToday [(viewDate)]="viewDate">Hoje</div>
+					<div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"><i class="fa fa-chevron-right"></i></div>
 				</div>
-			</div>
-			<div class="col-md-4">
-				<h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
-			</div>
-			<div class="col-md-4">
-				<div class="btn-group">
-					<div class="btn btn-primary" (click)="view = 'month'" [class.active]="view === 'month'"> Month </div>
-					<div class="btn btn-primary" (click)="view = 'week'" [class.active]="view === 'week'"> Week </div>
-					<div class="btn btn-primary" (click)="view = 'day'" [class.active]="view === 'day'"> Day </div>
-				</div>
+			</div>			
+			<div class="col-sm-4 text-center">
+				<h3 style="margin-top: 0; text-transform: uppercase;">{{ viewDate | calendarDate:(view + 'ViewTitle'):'pt-br' }}</h3>
+			</div>			
+			<div class="col-sm-4">
+				<button class="btn btn-primary pull-right" (click)="addEvent()"><i class="fa fa-plus"></i> Adicionar </button>
 			</div>
 		</div>
 		<br>
 		<div [ngSwitch]="view">
-			<mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"></mwl-calendar-month-view>
-			<mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"></mwl-calendar-week-view>
-			<mwl-calendar-day-view *ngSwitchCase="'day'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"></mwl-calendar-day-view>
+			<mwl-calendar-month-view *ngSwitchCase="'month'" [locale]="locale" [viewDate]="viewDate" [events]="events" [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)" (eventClicked)="handleEvent('Clicked', $event.event)"></mwl-calendar-month-view>
 		</div>
-
-		<br><br><br>
-
-		<h3>
-			Edit events
-			<button class="btn btn-primary pull-right" (click)="addEvent()"> Add new </button>
-			<div class="clearfix"></div>
-		</h3>
-
-		<table class="event-editor-table">
-
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Primary color</th>
-					<th>Secondary color</th>
-					<th>Starts at</th>
-					<th>Ends at</th>
-					<th>Remove</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<tr *ngFor="let event of events; let index = index">
-					<td>
-						<input
-						type="text"
-						class="form-control"
-						[(ngModel)]="event.title"
-						(keyup)="refresh.next()">
-					</td>
-					<td>
-						<input type="color" [(ngModel)]="event.color.primary" (change)="refresh.next()">
-					</td>
-					<td>
-						<input type="color" [(ngModel)]="event.color.secondary" (change)="refresh.next()">
-					</td>
-
-					<td>
-						<input type="text"/>
-					</td>
-					<td>
-						<input type="text"/>
-					</td>+
-
-					<td>
-						<button class="btn btn-danger" (click)="events.splice(index, 1); refresh.next()">Delete</button>
-					</td>
-				</tr>
-			</tbody>
-
-		</table>
 	</div>
 </div>

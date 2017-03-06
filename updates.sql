@@ -69,3 +69,12 @@ CREATE TABLE secao_item (
 	id_secao INTEGER REFERENCES secao(id),
 	id_item INTEGER REFERENCES item(id)
 );
+
+CREATE TABLE calendario (
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	titulo VARCHAR(255) NOT NULL,
+	cor_primaria VARCHAR(7),
+	cor_secundaria VARCHAR(7),
+	data_ini DATE NOT NULL,
+	data_fim DATE
+);

@@ -225,3 +225,49 @@
 .cursor-pointer:hover {
 	cursor: pointer !important;
 }
+
+.pacote-div {
+	margin: 15px 0 15px 0;
+	border-bottom: 1px solid #CCC;
+	padding: 5px 0 20px 0;
+}
+
+.pacote-div:last-of-type {
+	border-bottom: 0;
+	margin-bottom: 0;
+}
+
+.pacote-div .icon-pacote-1 {
+	position: absolute;
+	margin-left: -27px;
+	margin-top: 12px;
+}
+
+.pacote-titulo {
+	padding: 10px 40px 10px 40px;
+	background: #37556d;
+	color: white;		
+}
+
+.pacote-titulo-active {
+	background: #002747;
+}
+
+.pacote-titulo span {
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.secao-descricao {
+	background: #5ab35a;
+	color: white;
+	padding: 8px 10px 8px 60px;
+	font-size: 20px;
+}
+
+.item-descricao {
+	background: #dbdbe0;
+	color: #002747;
+	font-weight: bold;
+	padding: 3px 3px 3px 80px;
+}

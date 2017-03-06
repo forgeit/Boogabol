@@ -31,47 +31,35 @@ export class Helper {
 	}
 
 	loadJS() {		
-		setTimeout(() => {
-			let urlFP = this.urlFilePath;
-			//console.log('preparing to load JS...');
-			let node = document.createElement('script');
-			node.src = this.urlFilePath+'assets/js/confetti.min.js';
-			node.type = 'text/javascript';
-			node.async = false;
-			node.charset = 'utf-8';
-			document.getElementsByTagName('main')[0].appendChild(node);
-
-			setTimeout(() => {
-				var interval = setInterval(function() {
-					if(document.readyState === 'complete') {
-						clearInterval(interval);
-						let node2 = document.createElement('script');
-						node2.src = urlFP+'assets/js/main.js';
-						node2.type = 'text/javascript';
-						node2.async = false;
-						node2.charset = 'utf-8';
-						document.getElementsByTagName('main')[0].appendChild(node2);	
-					}    
-				}, 500);							
-			}, 500);	
+		setTimeout(() => {			
+			this.createNodeScript(this.urlFilePath+'assets/js/confetti.min.js');
+			this.createNodeScript(this.urlFilePath+'assets/js/main.js');
 			this.flagLoadJs = true;	
 		}, 1000);		
 	}	
 
 	loadJmask() {
 		setTimeout(() => {
-			var interval = setInterval(function() {
+			var interval = setInterval(() => {
 				if(document.readyState === 'complete') {
 					clearInterval(interval);
-					let node = document.createElement('script');
-					node.src = this.urlFilePath+'assets/js/jquery.mask.min.js';
-					node.type = 'text/javascript';
-					node.async = true;
-					node.charset = 'utf-8';
-					document.getElementsByTagName('head')[0].appendChild(node);	
+					this.createNodeScript(this.urlFilePath+'assets/js/jquery.mask.min.js');
 				}    
 			}, 500);											
 		}, 2000);
+	}
+
+	updateMask(): void {
+		setTimeout(() => {
+			var interval = setInterval(() => {
+				if(document.readyState === 'complete') {
+					clearInterval(interval);
+					$('.data-mask').mask('00/00/0000', {clearIfNotMatch: true});
+					$('.cpf-mask').mask('000.000.000-00', {clearIfNotMatch: true});
+					$('.phone-mask').mask('(00) 0 0000-0000', {clearIfNotMatch: true});
+				}  
+			});  			
+		}, 4000);
 	}
 
 	isLoadedJs() {
@@ -124,17 +112,7 @@ export class Helper {
 
 	setPageInfo(pt: string) {
 		this.pageTitle = pt;		
-	}
-
-	updateMask(): void {
-		setTimeout(() => {
-			if(document.readyState === 'complete') {
-				$('.data-mask').mask('00/00/0000', {clearIfNotMatch: true});
-				$('.cpf-mask').mask('000.000.000-00', {clearIfNotMatch: true});
-				$('.phone-mask').mask('(00) 0 0000-0000', {clearIfNotMatch: true});
-			}    			
-		}, 4000);
-	}
+	}	
 
 	getCurrentUrl(): string {
 		return this.router.url;
@@ -170,6 +148,15 @@ export class Helper {
 	pageInfo(title: string, menuSelected: string) {
 		this.pageTitle = title;
 		this.menuSelected = menuSelected;
+	}
+
+	createNodeScript(src: string) {
+		let node = document.createElement('script');
+		node.src = src;
+		node.type = 'text/javascript';
+		node.async = false;
+		node.charset = 'utf-8';
+		document.getElementsByTagName('head')[0].appendChild(node);	
 	}
 
 }

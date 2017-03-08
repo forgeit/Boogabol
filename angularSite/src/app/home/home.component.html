@@ -27,10 +27,10 @@
 				<div class="item" [hidden]="equipe.titulo == null">
 					<article class="ct-blog-post ct-blog-post--image">
 						<div class="ct-blog-post__media">
-							<img [src]="helper.urlFile + equipe?.id_imagem" alt="Tipo de Festa" />
+							<img [src]="helper.urlFile + equipe?.id_imagem" alt="Equipe" />
 						</div>
 						<div class="ct-blog-post__body">
-							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Tipo de Festa</span>
+							<div class="ct-blog-post__date"><span class="ct-blog-post__month">Equipe</span>
 							</div>
 							<h3 class="h4 ct-blog-post__title">{{equipe.titulo}}</h3>
 							<div class="ct-blog-post__content">{{equipe.descricao.length <= 100 ? equipe.descricao : (equipe.descricao | slice:0:100) + "..."}}

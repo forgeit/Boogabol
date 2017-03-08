@@ -15,7 +15,6 @@ import { buffetRoutes } 	from './buffet/buffet.routes';
 import { atracaoRoutes } 	from './atracao/atracao.routes';
 import { complexoRoutes } 	from './complexo/complexo.routes';
 import { equipeRoutes } 	from './equipe/equipe.routes';
-import { decoracaoRoutes } 	from './decoracao/decoracao.routes';
 import { parceiroRoutes } 	from './parceiro/parceiro.routes';
 import { clienteRoutes } 	from './cliente/cliente.routes';
 import { orcamentoRoutes } 	from './orcamento/orcamento.routes';
@@ -35,8 +34,7 @@ export const routes: Routes = [
 	...buffetRoutes,
 	...atracaoRoutes,
 	...complexoRoutes,
-	...equipeRoutes,
-	...decoracaoRoutes,
+	...equipeRoutes,	
 	...parceiroRoutes,
 	...clienteRoutes,
 	...orcamentoRoutes,

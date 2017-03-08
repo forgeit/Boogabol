@@ -1,10 +1,13 @@
 <main>
 	<div class="container ct-u-padding-top-30 ct-u-padding-bottom-50">
 		<div class="row">
-			<div class="pacote-div" *ngFor="let pacote of list" >                
+			<div class="pacote-div" *ngFor="let pacote of list" >   
+				<div class="pacote-img" [hidden]="hiddenPacote !== pacote.id">
+					<img [src]="helper.urlFile + pacote.id_imagem">
+				</div>
 				<div class="pacote-titulo cursor-pointer" [ngClass]="{'pacote-titulo-active': hiddenPacote == pacote.id}" (click)="ofPacote(pacote.id);">
 					<i class="icon-pacote-1 hide-xs fa" [ngClass]="{'fa-chevron-right': hiddenPacote !== pacote.id, 'fa-chevron-down': hiddenPacote == pacote.id}"></i> 
-					<i><span> {{pacote.titulo}}</span> - &nbsp;&nbsp; {{pacote.descricao}}</i>										
+					<i><span> {{pacote.titulo}}</span> - &nbsp;&nbsp; {{pacote.descricao}} - &nbsp;&nbsp; Duração: {{pacote.duracao_festa}}</i>										
 				</div>
 				<div *ngFor="let secao of pacote.listSecao" [hidden]="hiddenPacote !== pacote.id">
 					<div class="secao-descricao"><i class="fa fa-chevron-right"></i> {{secao.descricao}}</div>

@@ -43,7 +43,7 @@ class Publico extends MY_Controller {
 	}
 
 	public function pacote() {
-		$listPacote = $this->PacoteModel->findAll();
+		$listPacote = $this->PacoteModel->findAllOrderBy(' id ASC');
 		for ($x=0; $x<count($listPacote); $x++) {
 			$listSecao = $this->PacoteModel->findSecoes($listPacote[$x]['id']);
 			for ($y=0; $y<count($listSecao); $y++) {

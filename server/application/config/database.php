@@ -76,7 +76,11 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',	
 	'hostname' => 'localhost',
-	
+
+	//'username' => 'forge821_boogabo',
+	//'password' => '@_fO3]X;U}ql',
+	//'database' => 'forge821_boogabol',
+
 	'username' => 'root',
 	'password' => '',
 	'database' => 'boogabolbd',

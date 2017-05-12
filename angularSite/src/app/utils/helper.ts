@@ -22,6 +22,11 @@ export class Helper {
 	public modalImg: string = '';
 	public modalHide: boolean = true;
 	public modalInfo: boolean = false;
+	public modalLeft: boolean = false;
+	public modalRight: boolean = false;
+	public modalItem: number;
+	public modalTotal: number;
+	public modalClaz: string;
 
 	private flagLoadJs: boolean = false;
 
@@ -119,6 +124,8 @@ export class Helper {
 	}
 
 	public showModal(title: string, text: string, img: string) {
+		this.modalLeft = false;
+		this.modalRight = false;
 		this.modalInfo = false;				
 		this.modalTitle = title;
 		this.modalText = text;
@@ -128,13 +135,48 @@ export class Helper {
 		$('.modal-bg').fadeIn(100);				
 	}
 
+	public showModal2(title: string, text: string, img: string, mItem: number, mTotal:number, mClaz: string) {
+		if (mItem !== null && mTotal !== null) {
+			this.modalLeft = true;
+			this.modalRight = true;
+			this.modalItem = mItem;
+			this.modalTotal = mTotal;
+			this.modalClaz = mClaz;
+		}
+		this.modalInfo = false;				
+		this.modalTitle = title;
+		this.modalText = text;
+		this.modalImg = img;
+		let h = $(window).height();
+		$('.modal-bg').css('padding-top', (h<600?0:h/2-300)+"px");	
+		$('.modal-bg').fadeIn(100);			
+	}
+
 	public infoModal() {
 		this.modalInfo = !this.modalInfo;	
 	}
 
+	public sideModal(left: boolean) {
+		let nextItem = this.modalItem;
+		if (left) {
+			if (nextItem == 0) {
+				nextItem = this.modalTotal;
+			} else {
+				nextItem--;
+			}
+		} else {
+			if (nextItem == this.modalTotal) {
+				nextItem = 0;
+			} else {
+				nextItem++;
+			}
+		}
+		$('.'+this.modalClaz+'-'+nextItem).click();
+	}
+
 	public hideModal() {		
 		this.modalImg = '';
-		$('.modal-bg').fadeOut(100);
+		$('.modal-bg').fadeOut(100);		
 	}
 
 	scrollTo() {

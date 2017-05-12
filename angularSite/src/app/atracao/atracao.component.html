@@ -3,7 +3,7 @@
 	<div class="container ct-u-padding-top-30">
 		<div class="row">
 			<div data-items="1" data-items-sm="2" data-items-lg="3" data-items-xl="4" class="ct-slick ct-js-slick ct-slick--arrows2">
-				<div class="item" *ngFor="let elem of list">
+				<div class="item" *ngFor="let elem of list, let i = index">
 					<figure class="ct-party-box ct-party-box--simple">
 						<div class="ct-party-box__inner">
 							<div class="ct-party-box__media">
@@ -17,7 +17,7 @@
 										<p></p>
 									</div>
 								</div>
-								<button class="btn btn-motive" (click)="helper.showModal(elem.titulo, elem.descricao, elem.id_imagem)">Ver Mais</button>
+								<button class="btn btn-motive gallery-atr-{{i}}" (click)="helper.showModal2(elem.titulo, elem.descricao, elem.id_imagem, i, list.length-1, 'gallery-atr')">Ver Mais</button>
 							</div>
 						</div>							
 					</figure>

@@ -5543,9 +5543,9 @@ li:last-child.submenu {
           position: static; } }
   .mobile .ct-page-header,
   .tablet .ct-page-header {
-    background: url("../images/demo-content/header-01-mobile.jpg") no-repeat scroll center; }
+    background: url("../images/banner.jpg") no-repeat scroll center; }
   .desktop .ct-page-header {
-    background: url("../images/demo-content/header-01.jpg") no-repeat fixed center top; }
+    background: url("../images/banner.jpg") no-repeat fixed center top; }
   @media only screen and (min-width: 992px) {
     .ct-page-header {
       padding-top: 218px; } }

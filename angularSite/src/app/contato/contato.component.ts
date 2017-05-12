@@ -34,6 +34,9 @@ export class ContatoComponent implements OnInit {
 
 		this.helper.loadJS();	
 		this.helper.timeOutStopLoading();		
+
+		this.helper.loadJmask();
+		this.helper.updateMask();
 	}
 
 	onSubmit() {

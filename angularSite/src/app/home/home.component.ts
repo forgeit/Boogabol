@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 	atracao: Atracao;
 	parceiroList: Parceiro[];	
 
-	constructor(private helper: Helper, private gs: GenericService, private router: Router) {
+	constructor(public helper: Helper, private gs: GenericService, private router: Router) {
 		//helper.setPageInfo('Dashboard');
 
 		this.complexo = new Complexo(null,'','',null);

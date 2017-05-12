@@ -6,6 +6,11 @@ class PacoteModel extends MY_Model {
 		$this->table = 'pacote';
 	}	
 
+	function findAllOrderBy($order) {
+		$query = $this->db->query("SELECT s.* FROM pacote s ORDER BY " . $order);
+		return $query->result_array();
+	}
+
 	function findSecoes($idPacote) {
 		$query = $this->db->query(
 			"SELECT s.* " .

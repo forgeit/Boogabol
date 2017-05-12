@@ -3,8 +3,8 @@
     <div class="container ct-u-padding-top-30">
         <div class="row">
             <div data-items="1" data-items-sm="2" data-items-lg="3" data-items-xl="4" class="ct-slick ct-js-slick ct-slick--arrows2">
-                <div class="item" *ngFor="let elem of list">
-                    <a (click)="helper.showModal(elem.titulo, elem.descricao, elem.id_imagem)" class="cursor-pointer ct-image-box ct-image-box--with-content">
+                <div class="item" *ngFor="let elem of list, let i = index">
+                    <a (click)="helper.showModal2(elem.titulo, elem.descricao, elem.id_imagem, i, list.length-1, 'gallery-amb')" class="cursor-pointer ct-image-box ct-image-box--with-content">
                         <div class="ct-image-box__media">
                             <div class="inner">
                                 <img [src]="helper.urlFile + elem?.id_imagem" alt="Attire" />
@@ -12,7 +12,8 @@
                             <div class="ct-image-box__hover">
                                 <div class="ct-image-box__inner">
                                     <p class="ct-image-box__content">{{elem.descricao.length <= 100 ? elem.descricao : (elem.descricao | slice:0:100) + "..."}}
-                                    </p><span class="btn btn-default-o" *ngIf="elem.descricao.length > 100">Ver Mais</span>
+                                    </p>
+                                    <span (click)="helper.showModal2(elem.titulo, elem.descricao, elem.id_imagem, i, list.length-1, 'gallery-amb')" class="btn btn-default-o gallery-amb-{{i}}">Ver Mais</span>
                                 </div>
                             </div>
                         </div>

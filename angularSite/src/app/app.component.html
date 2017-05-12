@@ -45,20 +45,20 @@
 	<div class="navbar navbar-default navbar-fixed">
 		<div class="navbar-header">
 			<a href="index.html" class="navbar-brand">
-				<img [src]="helper.urlFilePath+'assets/images/demo-content/logo.png'" alt="logo">
+				<img [src]="helper.urlFilePath+'assets/images/logo.png'" alt="logo">
 			</a>
 		</div><a routerLink="/orcamento" routerLinkActive="active" class="btn btn-motive pull-right">Peça um Orçamento</a>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="nav-item"><a routerLink="/home" routerLinkActive="menu-active" >Home</a></li>
 			<li role="presentation" class="dropdown nav-item nav-item"><a href="#" [ngClass]="{'menu-active': helper.menuSelected == 'menu1'}" class="dropdown-toggle">A Festa <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a routerLink="/atracao" routerLinkActive="menu-active">Atração</a></li>
-					<li><a routerLink="/ambiente" routerLinkActive="menu-active">Ambiente</a></li>
-					<li><a routerLink="/complexo" routerLinkActive="menu-active">Complexo Esportivo</a></li>										
+					<li><a routerLink="/atracao" routerLinkActive="menu-active">Atrações</a></li>
+					<li><a routerLink="/ambiente" routerLinkActive="menu-active">Ambiente</a></li>								
+					<li><a routerLink="/pacote" routerLinkActive="menu-active">Combos</a></li>
+					<li><a routerLink="/equipe" routerLinkActive="menu-active">Equipe</a></li>
 				</ul>
 			</li>
-			<li class="nav-item"><a routerLink="/pacote" routerLinkActive="menu-active">Pacote</a></li>
-			<li class="nav-item"><a routerLink="/equipe" routerLinkActive="menu-active">Equipe</a></li>
+			<li class="nav-item"><a routerLink="/complexo" routerLinkActive="menu-active">Complexo Esportivo</a></li>			
 			<li class="nav-item"><a routerLink="/parceiro" routerLinkActive="menu-active">Parceiros</a></li>
 			<li class="nav-item"><a routerLink="/contato" routerLinkActive="menu-active">Contato</a></li>			
 		</ul>
@@ -77,8 +77,8 @@
 			<h1 class="h1 ct-page-header__title" [ngClass]="{'component-invisible': helper.pageTitle == null}">{{helper.pageTitle}}</h1>
 			<div class="row" [ngClass]="{'component-invisible': helper.pageTitle !== null}">
 				<div class="col-md-8 col-md-offset-2">
-					<h1>Festas &amp; Eventos <b>Personalizados com diversão!</b></h1>
-					<p>Organizamos e divertimos a festa de suas crianças</p>
+					<h1>Festas &amp; Diversão <b>Dividir momentos de magia</b></h1>
+					<!--<p>Organizamos e divertimos a festa de suas crianças</p>-->
 				</div>
 			</div>
 		</div>
@@ -125,7 +125,7 @@
 						<address class="ct-address ct-footer__address topbar__address">
 							<a routerLink="/contato" class="media ct-address__box">
 								<div class="media-left"><i class="fa fa-map-marker"></i></div>
-								<div class="media-body"><span class="media-heading">Rua Ernesto Alves, 1195, Santa Cruz do Sul / RS</span></div>
+								<div class="media-body"><span class="media-heading">Rua Ernesto Alves, 1195. Santa Cruz do Sul / RS</span></div>
 							</a>
 							<a routerLink="/contato" class="media ct-address__box">
 								<div class="media-left"><i class="fa fa-envelope"></i></div>
@@ -149,7 +149,7 @@
 <!-- *** Mobile Navbar *** -->
 <div class="ct-mobile-navbar">
 	<a href="index.html" class="ct-mobile-navbar__brand">
-		<img [src]="helper.urlFilePath+'assets/images/demo-content/logo.png'" alt="logo">
+		<img [src]="helper.urlFilePath+'assets/images/logo.png'" alt="logo">
 	</a>
 	<button class="btn btn-default ct-mobile-navbar__toggle">Menu
 	</button>
@@ -161,10 +161,10 @@
 			<ul class="ct-mobile-menu__nav list-unstyled">
 				<li class="nav-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
 				<li class="nav-item"><a routerLink="/atracao" routerLinkActive="active">Atrações</a></li>
-				<li class="nav-item"><a routerLink="/complexo" routerLinkActive="active">Complexo Esportivo</a></li>
 				<li class="nav-item"><a routerLink="/ambiente" routerLinkActive="active">Ambiente</a></li>
-				<li class="nav-item"><a routerLink="/pacote" routerLinkActive="menu-active">Pacote</a></li>
+				<li class="nav-item"><a routerLink="/pacote" routerLinkActive="menu-active">Combos</a></li>
 				<li class="nav-item"><a routerLink="/equipe" routerLinkActive="active">Equipe</a></li>
+				<li class="nav-item"><a routerLink="/complexo" routerLinkActive="active">Complexo Esportivo</a></li>
 				<li class="nav-item"><a routerLink="/parceiros" routerLinkActive="active">Parceiros</a></li>
 				<li class="nav-item"><a routerLink="/contato" routerLinkActive="active">Contato</a></li>
 				<!--
@@ -219,6 +219,8 @@
 		<div class="modal-window" [ngStyle]="{'background-image': 'url(' + helper.urlFile + helper.modalImg + ')'}">			
 			<button type="button" class="modal-btn" (click)="helper.hideModal()"><i class="fa fa-remove"></i></button>
 			<button type="button" class="modal-btn modal-btn-info" (click)="helper.infoModal()"><i [hidden]="helper.modalInfo" class="fa fa-picture-o"></i><i [hidden]="!helper.modalInfo" class="fa fa-info"></i></button>
+			<button type="button" class="modal-btn modal-btn-right" (click)="helper.sideModal(false)" [hidden]="!helper.modalRight"><i class="fa fa-arrow-right"></i></button>
+			<button type="button" class="modal-btn modal-btn-left" (click)="helper.sideModal(true)" [hidden]="!helper.modalLeft"><i class="fa fa-arrow-left"></i></button>
 			<div [hidden]="helper.modalInfo" class="modal-text">
 				<h3>{{helper.modalTitle}}</h3>
 				<p>{{helper.modalText}}</p>

@@ -2,16 +2,16 @@
     <div class="container ct-u-padding-top-30">
         <!-- *** Shop Locator *** -->
         <div class="ct-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.9195004397166!2d-52.43468408437709!3d-29.722090982000847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951ca369c6157509%3A0x3e26591691902117!2sR.+Ernesto+Alves%2C+1195+-+Centro%2C+Santa+Cruz+do+Sul+-+RS%2C+96810-060!5e0!3m2!1spt-BR!2sbr!4v1487259791667" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.9195004397197!2d-52.434684085290435!3d-29.72209098200075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951ca369c6157509%3A0x3e26591691902117!2sR.+Ernesto+Alves%2C+1195+-+Centro%2C+Santa+Cruz+do+Sul+-+RS%2C+96810-060!5e0!3m2!1spt-BR!2sbr!4v1494365968480" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>            
         </div>
         <!-- *** Address Boxes *** -->
         <div class="ct-address-box__container">
             <div class="col-md-4">
                 <div class="ct-address-box">
-                    <h3 class="ct-address-box__header">Nosso<b>Endereço</b></h3>
+                    <h3 class="ct-address-box__header">Nossos<b>Endereços</b></h3>
                     <ul class="ct-address-box__list">
-                        <li><a href="https://www.google.pl/maps" target="_blank"><i class="fa fa-map-marker"></i><span>Rua Ernesto Alves, 1195<br>Santa Cruz do Sul / RS</span></a>
-                        </li>                        
+                        <li><a href="https://www.google.com.br/maps/place/R.+Ernesto+Alves,+1195+-+Centro,+Santa+Cruz+do+Sul+-+RS,+96810-060/@-29.722091,-52.4346841,17z/data=!3m1!4b1!4m5!3m4!1s0x951ca369c6157509:0x3e26591691902117!8m2!3d-29.722091!4d-52.4324954" target="_blank"><i class="fa fa-map-marker"></i><span>Rua Ernesto Alves, 1195</span></a></li>                                                
+                        <li><a href="https://www.google.com.br/maps/place/Av.+Paul+Harris,+70+-+Centro,+Santa+Cruz+do+Sul+-+RS,+96810-408/@-29.7221446,-52.4364342,17z/data=!3m1!4b1!4m5!3m4!1s0x951ca368272a2677:0xe4dc7c1e9d6e8fe!8m2!3d-29.7221446!4d-52.4342455" target="_blank"><i class="fa fa-map-marker"></i><span>Av. Paul Harris, 70</span></a></li>                        
                     </ul>
                 </div>
             </div>
@@ -19,10 +19,8 @@
                 <div class="ct-address-box">
                     <h3 class="ct-address-box__header">Nossos<b>Telefones</b></h3>
                     <ul class="ct-address-box__list">
-                        <li><a href="tel:9516834114"><i class="fa fa-phone"></i><span>-</span></a>
-                        </li>
-                        <li><a href="tel:9516834121"><i class="fa fa-mobile"></i><span>-</span></a>
-                        </li>
+                        <li><a href="tel:555121074046"><i class="fa fa-phone"></i><span>(51) 2107-4046</span></a></li>
+                        <li><a href="tel:5551993162603"><i class="fa fa-mobile"></i><span>(51) 99316-2603</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -30,7 +28,7 @@
                 <div class="ct-address-box">
                     <h3 class="ct-address-box__header">Nosso<b>Email</b></h3>
                     <ul class="ct-address-box__list">
-                        <li><a href="mailto:contact@myconfetti.com"><i class="fa fa-envelope"></i><span>contato@boogabol.com.br</span></a>
+                        <li><a href="mailto:contato@boogabol.com.br"><i class="fa fa-envelope"></i><span>contato@boogabol.com.br</span></a>
                         </li>
                     </ul>
                 </div>
@@ -55,13 +53,13 @@
                                 <label for="email" class="sr-only">Email</label>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Telefone" id="telefone" [(ngModel)]="contato.telefone" name="telefone" required="required" class="form-control" />
+                                <input type="text" placeholder="Telefone" id="telefone" [(ngModel)]="contato.telefone" name="telefone" required="required" class="form-control phone-mask" />
                                 <label for="telefone" class="sr-only">Telefone</label>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <textarea placeholder="Mensagem" id="message" rows="7" required="required" [(ngModel)]="contato.menssagem" name="mensagem" class="form-control"></textarea>
+                                <textarea placeholder="Mensagem" id="message" rows="7" required="required" [(ngModel)]="contato.mensagem" name="mensagem" class="form-control"></textarea>
                                 <label for="message" class="sr-only">Messagem</label>
                             </div>
                         </div>

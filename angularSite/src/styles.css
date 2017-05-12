@@ -28,19 +28,15 @@
 
 .modal-bg .modal-window {
 	overflow: auto;
-	margin: 0 auto;
-	width: 800px;
-	height: 500px;
-	max-width: 95%;
-	max-height: 90%;
-	background-repeat: repeat;
-	background-size: auto 100%; 
-	background-position: center;
-	box-shadow: 0 0 20px black;
-	border-radius: 10px;
-	color: white;	
-	text-align: right;	
-	border: 8px solid white;
+    margin: 0 auto;
+    max-width: 783px;
+    height: 600px;
+    max-width: 95%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    color: #fff;
+    text-align: right;
+    max-width: 700px;
 }
 
 .modal-bg .modal-window .modal-text {
@@ -67,13 +63,20 @@
 	font-size: 20px;
 	height: 40px;
 	background: white;
-	margin-left: -60px;	
+	margin-left: -50px;	
 	margin-top: 10px;
 	color: black;
 }
 
 .modal-bg .modal-window .modal-btn-info {
-	margin-left: -110px;	
+	margin-left: -96px;	
+}
+
+.modal-bg .modal-window .modal-btn-right {
+	margin-left: -142px;	
+}
+.modal-bg .modal-window .modal-btn-left {
+	margin-left: -188px;	
 }
 
 .modal-bg .modal-window .modal-btn:hover {
@@ -162,7 +165,8 @@
 }
 
 .navbar-brand>img {
-	width: 130px;
+	width: 230px;
+    margin-top: -52px;
 }
 
 .my-select:after { 

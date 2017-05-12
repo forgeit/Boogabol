@@ -20,7 +20,7 @@ export class EquipeComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.helper.pageInfo("Equipe", null);		
+		this.helper.pageInfo("Equipe", 'menu1');		
 
 		this.gs.get('equipe').then(res => {
 			this.list = res;

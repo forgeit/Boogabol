@@ -21,7 +21,7 @@ export class PacoteComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.helper.pageInfo("Pacotes", 'menu1');		
+		this.helper.pageInfo("Pacotes", null);		
 
 		this.gs.get('pacote').then(res => {
 			this.list = res;

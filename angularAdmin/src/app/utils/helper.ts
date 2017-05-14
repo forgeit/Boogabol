@@ -21,7 +21,7 @@ export class Helper {
 	private height: number = 0;
 
 	public modalHidden: boolean = true;
-	private modalItem: string = "";	
+	public modalItem: string = "";	
 	public modalUrlApi: string = "";
 	public modalResult: boolean = null;
 

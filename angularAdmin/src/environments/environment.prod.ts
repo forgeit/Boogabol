@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
 
-  serverUrl: 'http://www.b.limasis.com.br/server/',  
+  serverUrl: 'http://www.boogabol.com.br/server/',  
   urlFileUpload: 'fileUpload',
   urlFileView: 'fileView/',
 

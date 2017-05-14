@@ -134,47 +134,43 @@
 	<section class="content-header">
 		<h1>					
 			{{helper.pageTitle}}
-			<small>{{pageDescription}}</small>
 		</h1>
-				<!--<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-					<li class="active">Here</li>
-				</ol>-->
-			</section>
+		
+	</section>
 
-			<!-- Main content -->
-			<section class="content">
+	<!-- Main content -->
+	<section class="content">
 
-				<router-outlet></router-outlet>				
+		<router-outlet></router-outlet>				
 
-			</section>
-			<!-- /.content -->
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<div class="modal-confirm" [hidden]="helper.modalHidden">
+	<div class="modal-window">
+		<h4><i class="fa fa-trash"></i> Confirma <b>Exclusão</b> do Item?</h4>
+		<p>{{helper.modalItem}}</p>
+		<div class="text-right">
+			<button type="button" class="btn btn-danger" (click)="modalOK()"><b>OK</b></button>
+			<button type="button" class="btn btn-default" (click)="helper.modalCancel()"><b>Cancelar</b></button>
 		</div>
-		<!-- /.content-wrapper -->
+	</div>
+</div>
 
-		<div class="modal-confirm" [hidden]="helper.modalHidden">
-			<div class="modal-window">
-				<h4><i class="fa fa-trash"></i> Confirma <b>Exclusão</b> do Item?</h4>
-				<p>{{helper.modalItem}}</p>
-				<div class="text-right">
-					<button type="button" class="btn btn-danger" (click)="modalOK()"><b>OK</b></button>
-					<button type="button" class="btn btn-default" (click)="helper.modalCancel()"><b>Cancelar</b></button>
-				</div>
-			</div>
-		</div>
+<!-- Main Footer -->
+<footer class="main-footer">
+	<!-- To the right -->
+	<div class="pull-right hidden-xs">
+		Desenvolvido por <a href="http://www.forgeit.com.br/" target="_"><b>Forge IT Solutions</b></a>
+	</div>
+	<!-- Default to the left -->
+	<strong><a href="#">Boogabol</a>.</strong> Todos os direitos reservados.
+</footer>
 
-		<!-- Main Footer -->
-		<footer class="main-footer">
-			<!-- To the right -->
-			<div class="pull-right hidden-xs">
-				Desenvolvido por <a href="http://www.forgeit.com.br/" target="_"><b>Forge IT Solutions</b></a>
-			</div>
-			<!-- Default to the left -->
-			<strong><a href="#">Boogabol</a>.</strong> Todos os direitos reservados.
-		</footer>
-
-		<!-- Control Sidebar -->
-		<!-- /.control-sidebar -->
+<!-- Control Sidebar -->
+<!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
 

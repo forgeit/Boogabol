@@ -40,11 +40,6 @@ import { EquipeComponent }      from './equipe/equipe.component';
 import { EquipeEditComponent }  from './equipe/equipeEdit.component';
 import { EquipeNewComponent }   from './equipe/equipeNew.component';
 
-//import { DecoracaoService }        from './decoracao/decoracao.service';
-//import { DecoracaoComponent }      from './decoracao/decoracao.component';
-//import { DecoracaoEditComponent }  from './decoracao/decoracaoEdit.component';
-//import { DecoracaoNewComponent }   from './decoracao/decoracaoNew.component';
-
 import { ParceiroService }        from './parceiro/parceiro.service';
 import { ParceiroComponent }      from './parceiro/parceiro.component';
 import { ParceiroEditComponent }  from './parceiro/parceiroEdit.component';
@@ -111,10 +106,6 @@ import { CalendarioService }   from './calendario/calendario.service';
   EquipeEditComponent,
   EquipeNewComponent,
 
-  //DecoracaoComponent,
-  //DecoracaoEditComponent,
-  //DecoracaoNewComponent,
-
   ParceiroComponent,
   ParceiroEditComponent,
   ParceiroNewComponent,
@@ -168,7 +159,6 @@ import { CalendarioService }   from './calendario/calendario.service';
   AtracaoService,
   ComplexoService,
   EquipeService,
-  //DecoracaoService,
   ParceiroService,
   ClienteService,
   AniversarianteService,

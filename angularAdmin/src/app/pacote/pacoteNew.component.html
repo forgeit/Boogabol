@@ -5,7 +5,7 @@
       <div class="form-group">
         <label for="f1">Título</label>
         <input type="text" class="form-control" id="f1" maxlength="255" placeholder="Título" [formControl]="complexForm.controls['titulo']">
-        <p class="text-danger" [hidden]="complexForm.controls.titulo.valid || (complexForm.controls.titulo.pristine && !submitted)">
+        <p class="text-danger" [hidden]="complexForm.get('titulo').valid || (complexForm.get('titulo').pristine)">
           Nome é Obrigatório
         </p>
       </div>

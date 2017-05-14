@@ -20,8 +20,8 @@ export class LoginComponent extends GenericComponent implements OnInit {
 		this.usuario = new Usuario(null,null,null,null);
 	}
 
-	private usuario: Usuario;
-	private msgError: string = "";
+	public usuario: Usuario;
+	public msgError: string = "";
 
 	ngOnInit(): void {
 		if (this.helper.getCurrentUrl() == '/login/out') {

@@ -8,7 +8,7 @@
         <div class="col-lg-8 form-group">
           <label for="f1">Nome</label>
           <input type="text" class="form-control" id="f1" maxlength="255" placeholder="Nome" [formControl]="complexForm.controls['nome']">
-          <p class="text-danger" [hidden]="complexForm.controls.nome.valid || (complexForm.controls.nome.pristine && !submitted)">
+          <p class="text-danger" [hidden]="complexForm.get('nome').valid || (complexForm.get('nome').pristine)">
             Nome é Obrigatório
           </p>
         </div>      
@@ -37,7 +37,7 @@
         <div class="col-lg-4 form-group">
           <label for="f5">CEP</label>
           <input type="text" class="form-control" id="f5" maxlength="8" placeholder="CEP" [formControl]="complexForm.controls['cep']">
-          <p class="text-danger" [hidden]="complexForm.controls.cep.valid || (complexForm.controls.cep.pristine && !submitted)">
+          <p class="text-danger" [hidden]="complexForm.get('cep').valid || (complexForm.get('cep').pristine)">
             Somente Números
           </p>
         </div>

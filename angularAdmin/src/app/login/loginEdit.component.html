@@ -6,7 +6,7 @@
       <div class="form-group">
         <label for="f1">Login</label>
         <input type="text" class="form-control" id="f1" maxlength="50" placeholder="Login" [formControl]="complexForm.controls['login']">
-        <p class="text-danger" [hidden]="complexForm.controls.login.valid || (complexForm.controls.login.pristine && !submitted)">
+        <p class="text-danger" [hidden]="complexForm.get('login').valid || (complexForm.get('login').pristine)">
           Campo Obrigatório
         </p>
       </div>
@@ -14,7 +14,7 @@
       <div class="form-group">
         <label for="f2">Senha Atual</label>
         <input type="password" class="form-control" id="f2" maxlength="50" placeholder="Senha Atual" [formControl]="complexForm.controls['oldPassword']">
-        <p class="text-danger" [hidden]="complexForm.controls.oldPassword.valid || (complexForm.controls.oldPassword.pristine && !submitted)">
+        <p class="text-danger" [hidden]="complexForm.get('oldPassword').valid || (complexForm.get('oldPassword').pristine)">
           Campo Obrigatório
         </p>
       </div>
@@ -22,7 +22,7 @@
       <div class="form-group">
         <label for="f3">Nova Senha</label>
         <input type="password" class="form-control" id="f3" maxlength="50" placeholder="Nova Senha" [formControl]="complexForm.controls['newPassword']">
-        <p class="text-danger" [hidden]="complexForm.controls.newPassword.valid || (complexForm.controls.newPassword.pristine && !submitted)">
+        <p class="text-danger" [hidden]="complexForm.get('newPassword').valid || (complexForm.get('newPassword').pristine)">
           Campo Obrigatório
         </p>
       </div>
@@ -30,7 +30,7 @@
       <div class="form-group">
         <label for="f4">Nova Senha Novamente</label>
         <input type="password" class="form-control" id="f4" maxlength="50" placeholder="Nova Senha Novamente" [formControl]="complexForm.controls['newPasswordAgain']">
-        <p class="text-danger" [hidden]="complexForm.controls.newPasswordAgain.valid || (complexForm.controls.newPasswordAgain.pristine && !submitted)">
+        <p class="text-danger" [hidden]="complexForm.get('newPasswordAgain').valid || (complexForm.get('newPasswordAgain').pristine)">
           Campo Obrigatório
         </p>
       </div>

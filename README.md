@@ -11,6 +11,7 @@ Projeto feito para o Felipe Gassen e Kelvin Alves (FORGEIT)
 
 
 <h3>Configuração para Desenvolvimento</h3>
+
 1. Instalar NodeJS
 2. Instalar AngularCli
 3. Instalar PHP5
@@ -26,6 +27,7 @@ npm install
 
 
 <h3>Configuração para Produção</h3>
+
 1. Nas pastas angularAdmin e angularSite deve ser executado o comando:
 ```
 npm build --prod
